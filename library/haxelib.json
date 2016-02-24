@@ -1,0 +1,11 @@
+{
+  "name": "phpnatives",
+  "license": "LGPL",
+  "tags": ["php","native","natives","extern","externs"],
+  "description": "Files to help writing applications to PHP target.",
+  "contributors": ["yar3333"],
+  "releasenote": "Init.",
+  "version": "1.0.0",
+  "url": "https://bitbucket.org/yar3333/haxe-phpnatives",
+  "dependencies": {}
+}
