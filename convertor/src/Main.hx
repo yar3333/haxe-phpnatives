@@ -56,6 +56,8 @@ class Main
 			"../library/php/Native.hx",
 			"package php;\n"
 		  + "\n"
+		  + "import php.NativeArray;\n"
+		  + "\n"
 		  + "class Native\n"
 		  + "{\n"
 		  + methods.map.fn("\t" + _ + "\n").join("")
