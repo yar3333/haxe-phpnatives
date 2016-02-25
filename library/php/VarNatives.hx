@@ -8,7 +8,7 @@ class VarNatives
 	public static inline function debug_zval_dump(variable:Dynamic, ?restArgs:Dynamic) : Void return untyped __call__('debug_zval_dump', variable, restArgs);
 	public static inline function empty(var_:Dynamic) : Bool return untyped __call__('empty', var_);
 	public static inline function floatval(var_:Dynamic) : Float return untyped __call__('floatval', var_);
-	public static inline function get_defined_vars() : NativeArray return untyped __call__('get_defined_vars', void);
+	public static inline function get_defined_vars() : NativeArray return untyped __call__('get_defined_vars');
 	public static inline function get_resource_type(handle:Resource) : String return untyped __call__('get_resource_type', handle);
 	public static inline function gettype(var_:Dynamic) : String return untyped __call__('gettype', var_);
 	public static inline function import_request_variables(types:String, ?prefix:String) : Bool return untyped __call__('import_request_variables', types, prefix);
