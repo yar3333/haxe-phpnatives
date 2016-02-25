@@ -33,6 +33,7 @@
     <library name="tjson" />
     <library name="slambda" />
     <library name="refactor" />
+    <library name="downloader" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

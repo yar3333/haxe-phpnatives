@@ -2,9 +2,11 @@ ID = (?:[_a-zA-Z][_a-zA-Z0-9]*|[.][.][.])
 NUMBER = [-]?[0-9]+
 STRING = "(?:\\.|[^"])*?"|'(?:\\.|[^'])*?'
     
-/[=]\s*array[(][)]/=EMPTY_ARRAY/
-/[=]\s*time[(][)]/=CURRENT_TIME/
-/[=]\s*ID\s*[(]\s*STRING\s*[)]/=COMPLEX_VALUE/
+/[=]\s*ID(?:\s*[|]\s*ID)+\s*/=COMPLEX_VALUE/
+/[=]\s*ID\s*[(]\s*(?:STRING)?\s*[)]/=COMPLEX_VALUE/
+
+/[)]\s*[)]/)/
+/[)](\s*,)/$1/
 
 /[(]\s*(?:void|Void)\s*[)]/()/
 

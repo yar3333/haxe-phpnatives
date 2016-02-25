@@ -9,7 +9,8 @@ class ArrayNatives
 	public static inline function is_array(var_:Dynamic) : Bool return untyped __call__('is_array', var_);
 	public static inline function explode(delimiter:String, str:String) : NativeArray return untyped __call__('explode', delimiter, str);
 	public static inline function explode_ex(delimiter:String, str:String, limit:Int) : NativeArray return untyped __call__('explode', delimiter, str, limit);
-	public static inline function implode(glue:String, pieces:NativeArray) : String return untyped __call__('implode', glue, pieces);
+	public static inline function implode(pieces:NativeArray) : String return untyped __call__('implode', pieces);
+	public static inline function implode_ex(glue:String, pieces:NativeArray) : String return untyped __call__('implode', glue, pieces);
 	public static inline function split(pattern:String, str:String, ?limit:Int=-1) : NativeArray return untyped __call__('split', pattern, str, limit);
 	public static inline function preg_split(pattern:String, subject:String, ?limit:Int=-1, flags=0) : NativeArray return untyped __call__('preg_split', pattern, subject, limit, flags);
 	public static inline function unset(var_:Dynamic, ?restArgs:Dynamic) : Void return untyped __call__('unset', var_, restArgs);
