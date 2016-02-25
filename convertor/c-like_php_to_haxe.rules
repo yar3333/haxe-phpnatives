@@ -1,9 +1,10 @@
 ID = (?:[_a-zA-Z][_a-zA-Z0-9]*|[.][.][.])
 NUMBER = [-]?[0-9]+
-STRING_TOKEN = (?:\\.|.)
-STRING = "STRING_TOKEN*?\"|'STRING_TOKEN*?\'
+STRING = "(?:\\.|[^"])*?"|'(?:\\.|[^'])*?'
     
-/[=]\s*array[(][)]/=EMPTY_ARRAY
+/[=]\s*array[(][)]/=EMPTY_ARRAY/
+/[=]\s*time[(][)]/=CURRENT_TIME/
+/[=]\s*ID\s*[(]\s*STRING\s*[)]/=COMPLEX_VALUE/
 
 /[(]\s*(?:void|Void)\s*[)]/()/
 

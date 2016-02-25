@@ -28,6 +28,7 @@ class Main
 		processGroups(["var"], "php.VarNatives", []);
 		processGroups(["array"], "php.ArrayNatives", []);
 		processGroups(["imap"], "php.ImapNatives", [ "import php.imap.*" ]);
+		processGroups(["datetime"], "php.DatetimeNatives", []);
 	}
 	
 	static function processGroups(groups:Array<String>, packageAndClass:String, imports:Array<String>)
