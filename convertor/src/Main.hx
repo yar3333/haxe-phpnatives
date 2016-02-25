@@ -1,3 +1,4 @@
+import hant.Log;
 import haxe.io.Path;
 import stdlib.Regex;
 import sys.FileSystem;
@@ -35,6 +36,8 @@ class Main
 		
 		for (group in groups)
 		{
+			Log.start("Process " + group);
+			
 			if (methods.length > 0) methods.push("");
 			
 			methods.push("//{ " + group);
@@ -46,14 +49,18 @@ class Main
 			{
 				if (element.prototype != null)
 				{
+					Log.start("Convert " + element.name);
 					File.saveContent("bin/temp.php", element.prototype);
 					Sys.command("haxelib", [ "run", "refactor", "convertFile", "bin/temp.php", "bin/temp.hx", "c-like_php_to_haxe.rules" ]);
 					methods = methods.concat(processMethod(File.getContent("bin/temp.hx").split("\n")));
+					Log.finishSuccess();
 				}
 			}
 			
 			methods.push("");
 			methods.push("//}");
+			
+			Log.finishSuccess();
 		}
 		
 		FileSystem.deleteFile("bin/temp.php");

@@ -1,1 +1,0 @@
-number array_product ( array $array )
