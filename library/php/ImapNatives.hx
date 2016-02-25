@@ -56,14 +56,14 @@ class ImapNatives
 	public static inline function imap_rfc822_parse_headers(headers:String, defaulthost="UNKNOWN") : Dynamic return untyped __call__('imap_rfc822_parse_headers', headers, defaulthost);
 	public static inline function imap_rfc822_write_address(mailbox:String, host:String, personal:String) : String return untyped __call__('imap_rfc822_write_address', mailbox, host, personal);
 	public static inline function imap_savebody(imap_stream:ImapStream, file:Dynamic, msg_number:Int, part_number="", options=0) : Bool return untyped __call__('imap_savebody', imap_stream, file, msg_number, part_number, options);
-	public static inline function imap_search(imap_stream:ImapStream, criteria:String, ?options:Int=SE_FREE, ?charset:String) : NativeArray return untyped __call__('imap_search', imap_stream, criteria, options, charset);
+	public static inline function imap_search(imap_stream:ImapStream, criteria:String, ?options:Int, ?charset:String) : NativeArray return untyped __call__('imap_search', imap_stream, criteria, options, charset);
 	public static inline function imap_set_quota(imap_stream:ImapStream, quota_root:String, quota_limit:Int) : Bool return untyped __call__('imap_set_quota', imap_stream, quota_root, quota_limit);
 	public static inline function imap_setacl(imap_stream:ImapStream, mailbox:String, id:String, rights:String) : Bool return untyped __call__('imap_setacl', imap_stream, mailbox, id, rights);
-	public static inline function imap_setflag_full(imap_stream:ImapStream, sequence:String, flag:String, ?options:Int=NIL) : Bool return untyped __call__('imap_setflag_full', imap_stream, sequence, flag, options);
+	public static inline function imap_setflag_full(imap_stream:ImapStream, sequence:String, flag:String, ?options:Int) : Bool return untyped __call__('imap_setflag_full', imap_stream, sequence, flag, options);
 	public static inline function imap_sort(imap_stream:ImapStream, criteria:Int, reverse:Int, options=0, ?search_criteria:String, ?charset:String) : NativeArray return untyped __call__('imap_sort', imap_stream, criteria, reverse, options, search_criteria, charset);
 	public static inline function imap_status(imap_stream:ImapStream, mailbox:String, options:Int) : Dynamic return untyped __call__('imap_status', imap_stream, mailbox, options);
 	public static inline function imap_subscribe(imap_stream:ImapStream, mailbox:String) : Bool return untyped __call__('imap_subscribe', imap_stream, mailbox);
-	public static inline function imap_thread(imap_stream:ImapStream, ?options:Int=SE_FREE) : NativeArray return untyped __call__('imap_thread', imap_stream, options);
+	public static inline function imap_thread(imap_stream:ImapStream, ?options:Int) : NativeArray return untyped __call__('imap_thread', imap_stream, options);
 	public static inline function imap_timeout(timeout_type:Int, ?timeout:Int=-1) : Dynamic return untyped __call__('imap_timeout', timeout_type, timeout);
 	public static inline function imap_uid(imap_stream:ImapStream, msg_number:Int) : Int return untyped __call__('imap_uid', imap_stream, msg_number);
 	public static inline function imap_undelete(imap_stream:ImapStream, msg_number:Int, flags=0) : Bool return untyped __call__('imap_undelete', imap_stream, msg_number, flags);

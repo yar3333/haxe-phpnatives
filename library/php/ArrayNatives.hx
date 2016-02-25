@@ -4,9 +4,9 @@ class ArrayNatives
 {
 	//{ array
 	
-	public static inline function array_change_key_case(arr:NativeArray, ?case_:Int=CASE_LOWER) : NativeArray return untyped __call__('array_change_key_case', arr, case_);
+	public static inline function array_change_key_case(arr:NativeArray, ?case_:Int) : NativeArray return untyped __call__('array_change_key_case', arr, case_);
 	public static inline function is_array(var_:Dynamic) : Bool return untyped __call__('is_array', var_);
-	public static inline function explode(delimiter:String, str:String, ?limit:Int=PHP_INT_MAX) : NativeArray return untyped __call__('explode', delimiter, str, limit);
+	public static inline function explode(delimiter:String, str:String, ?limit:Int) : NativeArray return untyped __call__('explode', delimiter, str, limit);
 	public static inline function implode(glue:String, pieces:NativeArray) : String return untyped __call__('implode', glue, pieces);
 	public static inline function split(pattern:String, str:String, ?limit:Int=-1) : NativeArray return untyped __call__('split', pattern, str, limit);
 	public static inline function preg_split(pattern:String, subject:String, ?limit:Int=-1, flags=0) : NativeArray return untyped __call__('preg_split', pattern, subject, limit, flags);
@@ -34,7 +34,7 @@ class ArrayNatives
 	public static inline function array_map(callback:Dynamic->Dynamic, array1:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_map', callback, array1, restArgs);
 	public static inline function array_merge_recursive(array1:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_merge_recursive', array1, restArgs);
 	public static inline function array_merge(array1:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_merge', array1, restArgs);
-	public static inline function array_multisort(array1:NativeArray, ?array1_sort_order:Dynamic=SORT_ASC, ?array1_sort_flags:Dynamic=SORT_REGULAR, ?restArgs:Dynamic) : Bool return untyped __call__('array_multisort', array1, array1_sort_order, array1_sort_flags, restArgs);
+	public static inline function array_multisort(array1:NativeArray, ?array1_sort_order:Dynamic, ?array1_sort_flags:Dynamic, ?restArgs:Dynamic) : Bool return untyped __call__('array_multisort', array1, array1_sort_order, array1_sort_flags, restArgs);
 	public static inline function array_pad(arr:NativeArray, size:Int, value:Dynamic) : NativeArray return untyped __call__('array_pad', arr, size, value);
 	public static inline function array_pop(arr:NativeArray) : Dynamic return untyped __call__('array_pop', arr);
 	public static inline function array_product(arr:NativeArray) : Float return untyped __call__('array_product', arr);
@@ -47,7 +47,7 @@ class ArrayNatives
 	public static inline function array_search(needle:Dynamic, haystack:NativeArray, ?strict:Bool=false) : Dynamic return untyped __call__('array_search', needle, haystack, strict);
 	public static inline function array_shift(arr:NativeArray) : Dynamic return untyped __call__('array_shift', arr);
 	public static inline function array_slice(arr:NativeArray, offset:Int, ?length:Int, ?preserve_keys:Bool=false) : NativeArray return untyped __call__('array_slice', arr, offset, length, preserve_keys);
-	public static inline function array_splice(input:NativeArray, offset:Int, length=0, ?replacement:Dynamic=EMPTY_ARRAY) : NativeArray return untyped __call__('array_splice', input, offset, length, replacement);
+	public static inline function array_splice(input:NativeArray, offset:Int, length=0, ?replacement:Dynamic) : NativeArray return untyped __call__('array_splice', input, offset, length, replacement);
 	public static inline function array_sum(arr:NativeArray) : Float return untyped __call__('array_sum', arr);
 	public static inline function array_udiff_assoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_udiff_assoc', array1, array2, restArgs, value_compare_func);
 	public static inline function array_udiff_uassoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int, key_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_udiff_uassoc', array1, array2, restArgs, value_compare_func, key_compare_func);
@@ -55,24 +55,24 @@ class ArrayNatives
 	public static inline function array_uintersect_assoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_uintersect_assoc', array1, array2, restArgs, value_compare_func);
 	public static inline function array_uintersect_uassoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int, key_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_uintersect_uassoc', array1, array2, restArgs, value_compare_func, key_compare_func);
 	public static inline function array_uintersect(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_uintersect', array1, array2, restArgs, value_compare_func);
-	public static inline function array_unique(arr:NativeArray, ?sort_flags:Int=SORT_STRING) : NativeArray return untyped __call__('array_unique', arr, sort_flags);
+	public static inline function array_unique(arr:NativeArray, ?sort_flags:Int) : NativeArray return untyped __call__('array_unique', arr, sort_flags);
 	public static inline function array_unshift(arr:NativeArray, value1:Dynamic, ?restArgs:Dynamic) : Int return untyped __call__('array_unshift', arr, value1, restArgs);
 	public static inline function array_values(arr:NativeArray) : NativeArray return untyped __call__('array_values', arr);
 	public static inline function array_walk_recursive(arr:NativeArray, callback:Dynamic->Void, ?userdata:Dynamic) : Bool return untyped __call__('array_walk_recursive', arr, callback, userdata);
 	public static inline function array_walk(arr:NativeArray, callback:Dynamic->Void, ?userdata:Dynamic) : Bool return untyped __call__('array_walk', arr, callback, userdata);
 	public static inline function array(?restArgs:Dynamic) : NativeArray return untyped __call__('array', restArgs);
-	public static inline function arsort(arr:NativeArray, ?sort_flags:Int=SORT_REGULAR) : Bool return untyped __call__('arsort', arr, sort_flags);
-	public static inline function asort(arr:NativeArray, ?sort_flags:Int=SORT_REGULAR) : Bool return untyped __call__('asort', arr, sort_flags);
+	public static inline function arsort(arr:NativeArray, ?sort_flags:Int) : Bool return untyped __call__('arsort', arr, sort_flags);
+	public static inline function asort(arr:NativeArray, ?sort_flags:Int) : Bool return untyped __call__('asort', arr, sort_flags);
 	public static inline function compact(varname1:Dynamic, ?restArgs:Dynamic) : NativeArray return untyped __call__('compact', varname1, restArgs);
-	public static inline function count(array_or_countable:Dynamic, ?mode:Int=COUNT_NORMAL) : Int return untyped __call__('count', array_or_countable, mode);
+	public static inline function count(array_or_countable:Dynamic, ?mode:Int) : Int return untyped __call__('count', array_or_countable, mode);
 	public static inline function current(arr:NativeArray) : Dynamic return untyped __call__('current', arr);
 	public static inline function each(arr:NativeArray) : NativeArray return untyped __call__('each', arr);
 	public static inline function end(arr:NativeArray) : Dynamic return untyped __call__('end', arr);
-	public static inline function extract(arr:NativeArray, ?flags:Int=EXTR_OVERWRITE, ?prefix:String) : Int return untyped __call__('extract', arr, flags, prefix);
-	public static inline function in_array(needle:Dynamic, haystack:NativeArray, ?strict:Bool=FALSE) : Bool return untyped __call__('in_array', needle, haystack, strict);
+	public static inline function extract(arr:NativeArray, ?flags:Int, ?prefix:String) : Int return untyped __call__('extract', arr, flags, prefix);
+	public static inline function in_array(needle:Dynamic, haystack:NativeArray, ?strict:Bool=false) : Bool return untyped __call__('in_array', needle, haystack, strict);
 	public static inline function key(arr:NativeArray) : Dynamic return untyped __call__('key', arr);
-	public static inline function krsort(arr:NativeArray, ?sort_flags:Int=SORT_REGULAR) : Bool return untyped __call__('krsort', arr, sort_flags);
-	public static inline function ksort(arr:NativeArray, ?sort_flags:Int=SORT_REGULAR) : Bool return untyped __call__('ksort', arr, sort_flags);
+	public static inline function krsort(arr:NativeArray, ?sort_flags:Int) : Bool return untyped __call__('krsort', arr, sort_flags);
+	public static inline function ksort(arr:NativeArray, ?sort_flags:Int) : Bool return untyped __call__('ksort', arr, sort_flags);
 	public static inline function list(var1:Dynamic, ?restArgs:Dynamic) : NativeArray return untyped __call__('list', var1, restArgs);
 	public static inline function natcasesort(arr:NativeArray) : Bool return untyped __call__('natcasesort', arr);
 	public static inline function natsort(arr:NativeArray) : Bool return untyped __call__('natsort', arr);
@@ -80,9 +80,9 @@ class ArrayNatives
 	public static inline function prev(arr:NativeArray) : Dynamic return untyped __call__('prev', arr);
 	public static inline function range(start:Dynamic, end:Dynamic, ?step=1) : NativeArray return untyped __call__('range', start, end, step);
 	public static inline function reset(arr:NativeArray) : Dynamic return untyped __call__('reset', arr);
-	public static inline function rsort(arr:NativeArray, ?sort_flags:Int=SORT_REGULAR) : Bool return untyped __call__('rsort', arr, sort_flags);
+	public static inline function rsort(arr:NativeArray, ?sort_flags:Int) : Bool return untyped __call__('rsort', arr, sort_flags);
 	public static inline function shuffle(arr:NativeArray) : Bool return untyped __call__('shuffle', arr);
-	public static inline function sort(arr:NativeArray, ?sort_flags:Int=SORT_REGULAR) : Bool return untyped __call__('sort', arr, sort_flags);
+	public static inline function sort(arr:NativeArray, ?sort_flags:Int) : Bool return untyped __call__('sort', arr, sort_flags);
 	public static inline function uasort(arr:NativeArray, value_compare_func:Dynamic->Dynamic->Int) : Bool return untyped __call__('uasort', arr, value_compare_func);
 	public static inline function uksort(arr:NativeArray, key_compare_func:Dynamic->Dynamic->Int) : Bool return untyped __call__('uksort', arr, key_compare_func);
 	public static inline function usort(arr:NativeArray, value_compare_func:Dynamic->Dynamic->Int) : Bool return untyped __call__('usort', arr, value_compare_func);

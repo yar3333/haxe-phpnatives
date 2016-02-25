@@ -52,5 +52,8 @@ STRING = "STRING_TOKEN*?\"|'STRING_TOKEN*?\'
 /(__call__[(].*?)[?]?(ID)\s*[:]\s*ID\s*/$1$2/r
 /(__call__[(].*?)[=](?:ID|NUMBER|STRING)/$1/r
 
+/=FALSE/=false/
+/=TRUE/=true/
+
 /,\s*/, /
 /',\s*[)]/')/
