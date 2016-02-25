@@ -6,7 +6,17 @@ DOWNLOADER_OPTIONS += --product-text-property "prototype:div.methodsynopsis.dc-d
 DOWNLOADER_OPTIONS += --product-html-property "parameters:div.refsect1.parameters>p>dl:/[\\t\\r\\n ]+/ /"
 DOWNLOADER_OPTIONS += --product-text-property "ret:div.refsect1.returnvalues>p:/[\\t\\r\\n ]+/ /"
 
-../library/php/Native.php: bin/array.json bin/var.json bin/imap.json bin/datetime.json bin/info.json bin/strings.json bin/mbstring.json bin/pcre.json
+JSON_FILES  = bin/array.json
+JSON_FILES += bin/var.json
+JSON_FILES += bin/imap.json
+JSON_FILES += bin/datetime.json
+JSON_FILES += bin/info.json
+JSON_FILES += bin/strings.json
+JSON_FILES += bin/mbstring.json
+JSON_FILES += bin/pcre.json
+JSON_FILES += bin/iconv.json
+
+build: $(JSON_FILES)
 	neko bin/convertor.n
 	haxelib run refactor replaceInFile ../library/php/ImapNatives.hx "/:Resource/:ImapStream/"
 	haxelib run refactor replaceInFile ../library/php/ImapNatives.hx "/: Resource/: ImapStream/"
@@ -50,3 +60,8 @@ bin/pcre.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/ru/ref.pcre.php" \
 		--output-json-file bin/pcre.json
+
+bin/iconv.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/ru/book.iconv.php" \
+		--output-json-file bin/iconv.json

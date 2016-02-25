@@ -8,6 +8,7 @@ import php.InfoNatives;
 import php.StringsNatives;
 import php.MbstringNatives;
 import php.PcreNatives;
+import php.IconvNatives;
 
 class Main extends TestCase
 {

@@ -1,4 +1,4 @@
-pacjage php;
+package php;
 
 abstract TypedArray<K,V>(NativeArray) from NativeArray to NativeArray
 {
