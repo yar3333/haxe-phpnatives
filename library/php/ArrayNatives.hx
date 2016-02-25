@@ -34,7 +34,7 @@ class ArrayNatives
 	public static inline function array_map(callback:Dynamic->Dynamic, array1:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_map', callback, array1, restArgs);
 	public static inline function array_merge_recursive(array1:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_merge_recursive', array1, restArgs);
 	public static inline function array_merge(array1:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_merge', array1, restArgs);
-	public static inline function array_multisort(array1:NativeArray, ?array1_sort_order:Dynamic=SORT_ASC, ?array1_sort_flags:Dynamic=SORT_REGULAR, restArgs:Dynamic) : Bool return untyped __call__('array_multisort', array1, array1_sort_order, array1_sort_flags, restArgs);
+	public static inline function array_multisort(array1:NativeArray, ?array1_sort_order:Dynamic=SORT_ASC, ?array1_sort_flags:Dynamic=SORT_REGULAR, ?restArgs:Dynamic) : Bool return untyped __call__('array_multisort', array1, array1_sort_order, array1_sort_flags, restArgs);
 	public static inline function array_pad(arr:NativeArray, size:Int, value:Dynamic) : NativeArray return untyped __call__('array_pad', arr, size, value);
 	public static inline function array_pop(arr:NativeArray) : Dynamic return untyped __call__('array_pop', arr);
 	public static inline function array_product(arr:NativeArray) : Float return untyped __call__('array_product', arr);
@@ -73,7 +73,7 @@ class ArrayNatives
 	public static inline function key(arr:NativeArray) : Dynamic return untyped __call__('key', arr);
 	public static inline function krsort(arr:NativeArray, ?sort_flags:Int=SORT_REGULAR) : Bool return untyped __call__('krsort', arr, sort_flags);
 	public static inline function ksort(arr:NativeArray, ?sort_flags:Int=SORT_REGULAR) : Bool return untyped __call__('ksort', arr, sort_flags);
-	public static inline function list(var_1:Dynamic, ?restArgs:Dynamic) : NativeArray return untyped __call__('list', var_1, restArgs);
+	public static inline function list(var1:Dynamic, ?restArgs:Dynamic) : NativeArray return untyped __call__('list', var1, restArgs);
 	public static inline function natcasesort(arr:NativeArray) : Bool return untyped __call__('natcasesort', arr);
 	public static inline function natsort(arr:NativeArray) : Bool return untyped __call__('natsort', arr);
 	public static inline function next(arr:NativeArray) : Dynamic return untyped __call__('next', arr);

@@ -1,4 +1,7 @@
 ID = (?:[_a-zA-Z][_a-zA-Z0-9]*|[.][.][.])
+NUMBER = [-]?[0-9]+
+STRING_TOKEN = (?:\\.|.)
+STRING = "STRING_TOKEN*?\"|'STRING_TOKEN*?\'
     
 /[=]\s*array[(][)]/=EMPTY_ARRAY
 
@@ -47,7 +50,7 @@ ID = (?:[_a-zA-Z][_a-zA-Z0-9]*|[.][.][.])
 /([:]\s*)resource\b/$1Resource
 
 /(__call__[(].*?)[?]?(ID)\s*[:]\s*ID\s*/$1$2/r
-/(__call__[(].*?)[=](?:ID|[-]?[0-9]+)/$1/r
+/(__call__[(].*?)[=](?:ID|NUMBER|STRING)/$1/r
 
 /,\s*/, /
 /',\s*[)]/')/
