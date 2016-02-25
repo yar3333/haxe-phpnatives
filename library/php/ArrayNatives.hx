@@ -22,7 +22,7 @@ class ArrayNatives
 	public static inline function array_diff(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_diff', array1, array2, restArgs);
 	public static inline function array_fill_keys(keys:NativeArray, value:Dynamic) : NativeArray return untyped __call__('array_fill_keys', keys, value);
 	public static inline function array_fill(start_index:Int, num:Int, value:Dynamic) : NativeArray return untyped __call__('array_fill', start_index, num, value);
-	public static inline function array_filter(arr:NativeArray, ?callback:callable, flag=0) : NativeArray return untyped __call__('array_filter', arr, callback, flag);
+	public static inline function array_filter(arr:NativeArray, ?callback:Dynamic->Void, flag=0) : NativeArray return untyped __call__('array_filter', arr, callback, flag);
 	public static inline function array_flip(arr:NativeArray) : NativeArray return untyped __call__('array_flip', arr);
 	public static inline function array_intersect_assoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_intersect_assoc', array1, array2, restArgs);
 	public static inline function array_intersect_key(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray) : NativeArray return untyped __call__('array_intersect_key', array1, array2, restArgs);
@@ -48,12 +48,12 @@ class ArrayNatives
 	public static inline function array_shift(arr:NativeArray) : Dynamic return untyped __call__('array_shift', arr);
 	public static inline function array_slice(arr:NativeArray, offset:Int, ?length:Int, ?preserve_keys:Bool=false) : NativeArray return untyped __call__('array_slice', arr, offset, length, preserve_keys);
 	public static inline function array_splice(input:NativeArray, offset:Int, length=0, ?replacement:Dynamic=EMPTY_ARRAY) : NativeArray return untyped __call__('array_splice', input, offset, length, replacement);
-	public static inline function array_sum(arr:NativeArray) : number return untyped __call__('array_sum', arr);
+	public static inline function array_sum(arr:NativeArray) : Float return untyped __call__('array_sum', arr);
 	public static inline function array_udiff_assoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_udiff_assoc', array1, array2, restArgs, value_compare_func);
-	public static inline function array_udiff_uassoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int, key_compare_func:callable) : NativeArray return untyped __call__('array_udiff_uassoc', array1, array2, restArgs, value_compare_func, key_compare_func);
+	public static inline function array_udiff_uassoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int, key_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_udiff_uassoc', array1, array2, restArgs, value_compare_func, key_compare_func);
 	public static inline function array_udiff(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_udiff', array1, array2, restArgs, value_compare_func);
 	public static inline function array_uintersect_assoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_uintersect_assoc', array1, array2, restArgs, value_compare_func);
-	public static inline function array_uintersect_uassoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int, key_compare_func:callable) : NativeArray return untyped __call__('array_uintersect_uassoc', array1, array2, restArgs, value_compare_func, key_compare_func);
+	public static inline function array_uintersect_uassoc(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int, key_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_uintersect_uassoc', array1, array2, restArgs, value_compare_func, key_compare_func);
 	public static inline function array_uintersect(array1:NativeArray, array2:NativeArray, ?restArgs:NativeArray , value_compare_func:Dynamic->Dynamic->Int) : NativeArray return untyped __call__('array_uintersect', array1, array2, restArgs, value_compare_func);
 	public static inline function array_unique(arr:NativeArray, ?sort_flags:Int=SORT_STRING) : NativeArray return untyped __call__('array_unique', arr, sort_flags);
 	public static inline function array_unshift(arr:NativeArray, value1:Dynamic, ?restArgs:Dynamic) : Int return untyped __call__('array_unshift', arr, value1, restArgs);
