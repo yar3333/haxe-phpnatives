@@ -7,7 +7,7 @@ class ImapNatives
 	//{ imap
 	
 	public static inline function imap_8bit(str:String) : String return untyped __call__('imap_8bit', str);
-	public static inline function imap_alerts() : NativeArray return untyped __call__('imap_alerts', void);
+	public static inline function imap_alerts() : NativeArray return untyped __call__('imap_alerts');
 	public static inline function imap_append(imap_stream:ImapStream, mailbox:String, message:String, ?options:String, ?internal_date:String) : Bool return untyped __call__('imap_append', imap_stream, mailbox, message, options, internal_date);
 	public static inline function imap_base64(text:String) : String return untyped __call__('imap_base64', text);
 	public static inline function imap_binary(str:String) : String return untyped __call__('imap_binary', str);
@@ -19,7 +19,7 @@ class ImapNatives
 	public static inline function imap_createmailbox(imap_stream:ImapStream, mailbox:String) : Bool return untyped __call__('imap_createmailbox', imap_stream, mailbox);
 	public static inline function imap_delete(imap_stream:ImapStream, msg_number:Int, options=0) : Bool return untyped __call__('imap_delete', imap_stream, msg_number, options);
 	public static inline function imap_deletemailbox(imap_stream:ImapStream, mailbox:String) : Bool return untyped __call__('imap_deletemailbox', imap_stream, mailbox);
-	public static inline function imap_errors() : NativeArray return untyped __call__('imap_errors', void);
+	public static inline function imap_errors() : NativeArray return untyped __call__('imap_errors');
 	public static inline function imap_expunge(imap_stream:ImapStream) : Bool return untyped __call__('imap_expunge', imap_stream);
 	public static inline function imap_fetch_overview(imap_stream:ImapStream, sequence:String, options=0) : NativeArray return untyped __call__('imap_fetch_overview', imap_stream, sequence, options);
 	public static inline function imap_fetchbody(imap_stream:ImapStream, msg_number:Int, section:String, options=0) : String return untyped __call__('imap_fetchbody', imap_stream, msg_number, section, options);
@@ -34,7 +34,7 @@ class ImapNatives
 	public static inline function imap_getsubscribed(imap_stream:ImapStream, ref:String, pattern:String) : NativeArray return untyped __call__('imap_getsubscribed', imap_stream, ref, pattern);
 	public static inline function imap_headerinfo(imap_stream:ImapStream, msg_number:Int, fromlength=0, subjectlength=0, ?defaulthost:String) : Dynamic return untyped __call__('imap_headerinfo', imap_stream, msg_number, fromlength, subjectlength, defaulthost);
 	public static inline function imap_headers(imap_stream:ImapStream) : NativeArray return untyped __call__('imap_headers', imap_stream);
-	public static inline function imap_last_error() : String return untyped __call__('imap_last_error', void);
+	public static inline function imap_last_error() : String return untyped __call__('imap_last_error');
 	public static inline function imap_list(imap_stream:ImapStream, ref:String, pattern:String) : NativeArray return untyped __call__('imap_list', imap_stream, ref, pattern);
 	public static inline function imap_listscan(imap_stream:ImapStream, ref:String, pattern:String, content:String) : NativeArray return untyped __call__('imap_listscan', imap_stream, ref, pattern, content);
 	public static inline function imap_lsub(imap_stream:ImapStream, ref:String, pattern:String) : NativeArray return untyped __call__('imap_lsub', imap_stream, ref, pattern);
