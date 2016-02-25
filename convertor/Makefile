@@ -6,7 +6,7 @@ DOWNLOADER_OPTIONS += --product-text-property "prototype:div.methodsynopsis.dc-d
 DOWNLOADER_OPTIONS += --product-html-property "parameters:div.refsect1.parameters>p>dl:/[\\t\\r\\n ]+/ /"
 DOWNLOADER_OPTIONS += --product-text-property "ret:div.refsect1.returnvalues>p:/[\\t\\r\\n ]+/ /"
 
-../library/php/Native.php: bin/array.json bin/var.json bin/imap.json bin/datetime.json bin/info.json bin/strings.json bin/mbstring.json
+../library/php/Native.php: bin/array.json bin/var.json bin/imap.json bin/datetime.json bin/info.json bin/strings.json bin/mbstring.json bin/pcre.json
 	neko bin/convertor.n
 	haxelib run refactor replaceInFile ../library/php/ImapNatives.hx "/:Resource/:ImapStream/"
 	haxelib run refactor replaceInFile ../library/php/ImapNatives.hx "/: Resource/: ImapStream/"
@@ -45,3 +45,8 @@ bin/mbstring.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/ru/ref.mbstring.php" \
 		--output-json-file bin/mbstring.json
+
+bin/pcre.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/ru/ref.pcre.php" \
+		--output-json-file bin/pcre.json

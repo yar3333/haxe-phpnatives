@@ -32,6 +32,7 @@ class Main
 		processGroups(["info"], "php.InfoNatives", []);
 		processGroups(["strings"], "php.StringsNatives", []);
 		processGroups(["mbstring"], "php.MbstringNatives", []);
+		processGroups(["pcre"], "php.PcreNatives", []);
 	}
 	
 	static function processGroups(groups:Array<String>, packageAndClass:String, imports:Array<String>)
