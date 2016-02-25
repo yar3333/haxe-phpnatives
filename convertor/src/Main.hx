@@ -47,7 +47,7 @@ class Main
 				if (element.prototype != null)
 				{
 					File.saveContent("bin/temp.php", element.prototype);
-					Sys.command("haxelib", [ "run", "php2haxe", "methods", "bin/temp.php" ]);
+					Sys.command("haxelib", [ "run", "refactor", "convertFile", "bin/temp.php", "bin/temp.hx", "c-like_php_to_haxe.rules" ]);
 					methods = methods.concat(processMethod(File.getContent("bin/temp.hx").split("\n")));
 				}
 			}

@@ -47,7 +47,7 @@ class ImapNatives
 	public static inline function imap_msgno(imap_stream:ImapStream, uid:Int) : Int return untyped __call__('imap_msgno', imap_stream, uid);
 	public static inline function imap_num_msg(imap_stream:ImapStream) : Int return untyped __call__('imap_num_msg', imap_stream);
 	public static inline function imap_num_recent(imap_stream:ImapStream) : Int return untyped __call__('imap_num_recent', imap_stream);
-	public static inline function imap_open(mailbox:String, username:String, password:String, options=0, n_retries=0, ?params:NativeArray) : Resource return untyped __call__('imap_open', mailbox, username, password, options, n_retries, params);
+	public static inline function imap_open(mailbox:String, username:String, password:String, options=0, n_retries=0, ?params:NativeArray) : ImapStream return untyped __call__('imap_open', mailbox, username, password, options, n_retries, params);
 	public static inline function imap_ping(imap_stream:ImapStream) : Bool return untyped __call__('imap_ping', imap_stream);
 	public static inline function imap_qprint(str:String) : String return untyped __call__('imap_qprint', str);
 	public static inline function imap_renamemailbox(imap_stream:ImapStream, old_mbox:String, new_mbox:String) : Bool return untyped __call__('imap_renamemailbox', imap_stream, old_mbox, new_mbox);

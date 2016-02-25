@@ -1,3 +1,4 @@
 syntax: glob
 convertor/bin/
 library/library.zip
+tests/bin/
