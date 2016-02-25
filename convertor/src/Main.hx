@@ -1,3 +1,4 @@
+import haxe.io.Path;
 import stdlib.Regex;
 import sys.FileSystem;
 import sys.io.File;
@@ -23,6 +24,13 @@ class Main
 	
 	static function main()
 	{
+		processGroups(["var"], "php.VarNatives", []);
+		processGroups(["array"], "php.ArrayNatives", []);
+		processGroups(["imap"], "php.ImapNatives", [ "import php.imap.*" ]);
+	}
+	
+	static function processGroups(groups:Array<String>, packageAndClass:String, imports:Array<String>)
+	{
 		var methods = [];
 		
 		for (group in groups)
@@ -39,7 +47,7 @@ class Main
 				if (element.prototype != null)
 				{
 					File.saveContent("bin/temp.php", element.prototype);
-					Sys.command("php2haxe", ["methods", "bin/temp.php"]);
+					Sys.command("haxelib", [ "run", "php2haxe", "methods", "bin/temp.php" ]);
 					methods = methods.concat(processMethod(File.getContent("bin/temp.hx").split("\n")));
 				}
 			}
@@ -53,12 +61,11 @@ class Main
 		
 		File.saveContent
 		(
-			"../library/php/Native.hx",
-			"package php;\n"
+			"../library/" + packageAndClass.replace(".", "/") + ".hx",
+			"package " + Path.directory(packageAndClass.replace(".", "/")).replace("/", ".") + ";\n"
 		  + "\n"
-		  + "import php.NativeArray;\n"
-		  + "\n"
-		  + "class Native\n"
+		  + imports.map.fn(_ + ";\n").join("") + (imports.length > 0 ? "\n" : "")
+		  + "class " + Path.withoutDirectory(packageAndClass.replace(".", "/")) + "\n"
 		  + "{\n"
 		  + methods.map.fn("\t" + _ + "\n").join("")
 		  + "}\n"
@@ -69,21 +76,15 @@ class Main
 	{
 		if (method.length != 2) return method;
 		
-		//var reArgs = new EReg(reArgsStr, "");
-		
 		method[0] = ~/[:]callable/.map(method[0], function(re)
 		{
-			//if (reArgs.match(method[1]))
+			var types = [];
+			new EReg("[:]\\s*(" + reID + ")", "g").map(method[1], function(re)
 			{
-				var types = [];
-				new EReg("[:]\\s*(" + reID + ")", "g").map(method[1], function(re)
-				{
-					types.push(re.matched(1));
-					return re.matched(0);
-				});
-				return ":" + types.join("->");
-			}
-			//return re.matched(0);
+				types.push(re.matched(1));
+				return re.matched(0);
+			});
+			return ":" + types.join("->");
 		});
 		
 		return [ method[0] ];

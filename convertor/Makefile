@@ -8,6 +8,7 @@ DOWNLOADER_OPTIONS += --product-text-property "ret:div.refsect1.returnvalues>p:/
 
 ../library/php/Native.php: bin/array.json bin/var.json bin/imap.json
 	neko bin/convertor.n
+	haxelib run refactor replaceInFile ../library/php/ImapNatives.hx "/imap_stream[:]Resource/imap_stream:ImapStream/"
 
 bin/array.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \

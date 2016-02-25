@@ -32,7 +32,8 @@
     <library name="hant" />
     <library name="tjson" />
     <library name="slambda" />
-    <library name="HtmlParser" />
+    <library name="php2haxe" />
+    <library name="refactor" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
