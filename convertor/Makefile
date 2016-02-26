@@ -16,6 +16,8 @@ JSON_FILES += bin/mbstring.json
 JSON_FILES += bin/pcre.json
 JSON_FILES += bin/iconv.json
 JSON_FILES += bin/math.json
+JSON_FILES += bin/url.json
+JSON_FILES += bin/filesystem.json
 
 build: $(JSON_FILES)
 	neko bin/convertor.n
@@ -71,3 +73,13 @@ bin/math.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.math.php" \
 		--output-json-file bin/math.json
+
+bin/url.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/ref.url.php" \
+		--output-json-file bin/url.json
+
+bin/filesystem.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/ref.filesystem.php" \
+		--output-json-file bin/filesystem.json

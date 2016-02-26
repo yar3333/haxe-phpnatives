@@ -35,6 +35,8 @@ class Main
 		processGroups(["pcre"], "php.PcreNatives", []);
 		processGroups(["iconv"], "php.IconvNatives", []);
 		processGroups(["math"], "php.MathNatives", []);
+		processGroups(["url"], "php.UrlNatives", []);
+		processGroups(["filesystem"], "php.FilesystemNatives", []);
 	}
 	
 	static function processGroups(groups:Array<String>, packageAndClass:String, imports:Array<String>)

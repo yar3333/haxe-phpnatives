@@ -10,6 +10,8 @@ import php.MbstringNatives;
 import php.PcreNatives;
 import php.IconvNatives;
 import php.MathNatives;
+import php.UrlNatives;
+import php.FilesystemNatives;
 
 class Main extends TestCase
 {
