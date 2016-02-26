@@ -2,24 +2,24 @@ package php.imap;
 
 typedef ImapHeaders =
 {
-	var toaddress : String; // full to: line, up to 1024 characters
-	var to : NativeArray; // an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host
-	var fromaddress : String; // full from: line, up to 1024 characters
-	var from : NativeArray; // an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host
-	var ccaddress : String; // full cc: line, up to 1024 characters
-	var cc : NativeArray; // an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host
+	var toaddress : String;
+	var to : TypedArray<Int, MailAddress>;
+	var fromaddress : String;
+	var from : TypedArray<Int, MailAddress>; // an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host
+	var ccaddress : String;
+	var cc : TypedArray<Int, MailAddress>;
 	var bccaddress : String; // full bcc: line, up to 1024 characters
-	var bcc : NativeArray; // an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host
-	var reply_toaddress : String; // full Reply-To: line, up to 1024 characters
-	var reply_to : NativeArray; // an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host
-	var senderaddress : String; // full sender: line, up to 1024 characters
-	var sender : NativeArray; // an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host
-	var return_pathaddress : String; // full Return-Path: line, up to 1024 characters
-	var return_path : NativeArray; // an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host
+	var bcc : TypedArray<Int, MailAddress>;
+	var reply_toaddress : String;
+	var reply_to : TypedArray<Int, MailAddress>;
+	var senderaddress : String;
+	var sender : TypedArray<Int, MailAddress>;
+	var return_pathaddress : String;
+	var return_path : TypedArray<Int, MailAddress>;
 	var remail : String;
-	var date : String; // The message date as found in its headers
+	var date : String;
 	var Date : String; // Same as date
-	var subject : String; // The message subject
+	var subject : String;
 	var Subject : String; // Same as subject
 	var in_reply_to : String;
 	var message_id : String;
