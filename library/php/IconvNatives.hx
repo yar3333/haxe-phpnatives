@@ -21,7 +21,7 @@ class IconvNatives
 	public static inline function iconv_substr(str:String, offset:Int) : String return untyped __call__('iconv_substr', str, offset);
 	public static inline function iconv_substr_ex(str:String, offset:Int, length:Int) : String return untyped __call__('iconv_substr', str, offset, length);
 	public static inline function iconv_substr_ex_ex(str:String, offset:Int, length:Int, charset:String) : String return untyped __call__('iconv_substr', str, offset, length, charset);
-	public static inline function iconv(in_charset:String, out_charset:String, str:String) : String return untyped __call__('iconv', in_charset, out_charset, str);
+	public static inline function iconv(in_charset:String, out_charset:String, str:String) : String return untyped __call__('@iconv', in_charset, out_charset, str);
 	public static inline function ob_iconv_handler(contents:String, status:Int) : String return untyped __call__('ob_iconv_handler', contents, status);
 	
 	//}
