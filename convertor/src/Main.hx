@@ -37,6 +37,7 @@ class Main
 		processGroups(["math"], "php.MathNatives", []);
 		processGroups(["url"], "php.UrlNatives", []);
 		processGroups(["filesystem"], "php.FilesystemNatives", []);
+		processGroups(["outcontrol"], "php.OutcontrolNatives", []);
 	}
 	
 	static function processGroups(groups:Array<String>, packageAndClass:String, imports:Array<String>)

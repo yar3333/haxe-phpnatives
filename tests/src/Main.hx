@@ -12,6 +12,7 @@ import php.IconvNatives;
 import php.MathNatives;
 import php.UrlNatives;
 import php.FilesystemNatives;
+import php.OutcontrolNatives;
 
 class Main extends TestCase
 {

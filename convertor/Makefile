@@ -18,6 +18,7 @@ JSON_FILES += bin/iconv.json
 JSON_FILES += bin/math.json
 JSON_FILES += bin/url.json
 JSON_FILES += bin/filesystem.json
+JSON_FILES += bin/outcontrol.json
 
 build: $(JSON_FILES)
 	neko bin/convertor.n
@@ -83,3 +84,8 @@ bin/filesystem.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.filesystem.php" \
 		--output-json-file bin/filesystem.json
+
+bin/outcontrol.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/ref.outcontrol.php" \
+		--output-json-file bin/outcontrol.json
