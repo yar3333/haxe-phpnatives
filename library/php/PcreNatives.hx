@@ -13,7 +13,7 @@ class PcreNatives
 	public static inline function preg_quote(str:String, ?delimiter:String) : String return untyped __call__('preg_quote', str, delimiter);
 	public static inline function preg_replace_callback_array(patterns_and_callbacks:NativeArray, subject:Dynamic, ?limit:Int=-1, ?count:Int) : Dynamic return untyped __call__('preg_replace_callback_array', patterns_and_callbacks, subject, limit, count);
 	public static inline function preg_replace_callback(pattern:Dynamic, callback:NativeArray->String, subject:Dynamic, ?limit:Int=-1, ?count:Int) : Dynamic return untyped __call__('preg_replace_callback', pattern, callback, subject, limit, count);
-	public static inline function preg_replace(pattern:Dynamic, replacement:Dynamic, subject:Dynamic, ?limit:Int=-1, ?count:Int) : Dynamic return untyped __call__('preg_replace', pattern, replacement, subject, limit, count);
+	public static inline function preg_replace<T>(pattern:Dynamic, replacement:Dynamic, subject:T, ?limit:Int=-1, ?count:Int) : T return untyped __call__('preg_replace', pattern, replacement, subject, limit, count);
 	public static inline function preg_split(pattern:String, subject:String, ?limit:Int=-1, flags=0) : NativeArray return untyped __call__('preg_split', pattern, subject, limit, flags);
 	
 	//}
