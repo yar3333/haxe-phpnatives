@@ -5,7 +5,7 @@ typedef MailStructure =
 	/**
 	 * Primary body type
 	 */
-	var type : String;
+	var type : Int;
 	
 	/**
 	 * Body transfer encoding
