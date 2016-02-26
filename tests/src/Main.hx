@@ -9,6 +9,7 @@ import php.StringsNatives;
 import php.MbstringNatives;
 import php.PcreNatives;
 import php.IconvNatives;
+import php.MathNatives;
 
 class Main extends TestCase
 {

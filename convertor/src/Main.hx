@@ -34,6 +34,7 @@ class Main
 		processGroups(["mbstring"], "php.MbstringNatives", []);
 		processGroups(["pcre"], "php.PcreNatives", []);
 		processGroups(["iconv"], "php.IconvNatives", []);
+		processGroups(["math"], "php.MathNatives", []);
 	}
 	
 	static function processGroups(groups:Array<String>, packageAndClass:String, imports:Array<String>)
