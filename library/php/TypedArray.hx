@@ -23,4 +23,9 @@ abstract TypedArray<K,V>(NativeArray) from NativeArray to NativeArray
 			callb(k, this[cast k]);
 		}
 	}
+	
+	public inline function join(glue:String) : String return untyped __call__("implode", glue, this);
+	
+	@:from
+	public static inline function fromHaxeArray<V>(arr:Array<V>) : TypedArray<Int,V> return Lib.toPhpArray(arr);
 }
