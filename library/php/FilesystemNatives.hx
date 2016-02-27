@@ -74,9 +74,7 @@ class FilesystemNatives
 	
 	public static inline function fscanf(handle:Resource, format:String, ?restArgs:Dynamic) : Dynamic return untyped __call__('fscanf', handle, format, restArgs);
 	
-	public static inline function fseek(handle:Resource, offset:Int) : Int return untyped __call__('fseek', handle, offset);
-	
-	public static inline function fseek_ex(handle:Resource, offset:Int, whence:Int) : Int return untyped __call__('fseek', handle, offset, whence);
+	public static inline function fseek(handle:Resource, offset:Int, ?whence:Int) : Int return untyped __call__('fseek', handle, offset, whence);
 	
 	public static inline function fstat(handle:Resource) : NativeArray return untyped __call__('fstat', handle);
 	
@@ -112,23 +110,15 @@ class FilesystemNatives
 	
 	public static inline function lstat(filename:String) : NativeArray return untyped __call__('lstat', filename);
 	
-	public static inline function mkdir(pathname:String, mode=0x1FF, recursive=false) : Bool return untyped __call__('mkdir', pathname, mode, recursive);
-	
-	public static inline function mkdir_ex(pathname:String, mode=0x1FF, recursive=false, context:Resource) : Bool return untyped __call__('mkdir', pathname, mode, recursive, context);
+	public static inline function mkdir(pathname:String, mode=0x1FF, recursive=false, ?context:Resource) : Bool return untyped __call__('mkdir', pathname, mode, recursive, context);
 	
 	public static inline function move_uploaded_file(filename:String, destination:String) : Bool return untyped __call__('move_uploaded_file', filename, destination);
 	
-	public static inline function parse_ini_file(filename:String, process_sections=false) : NativeArray return untyped __call__('parse_ini_file', filename, process_sections);
+	public static inline function parse_ini_file(filename:String, process_sections=false, ?scanner_mode:Int) : NativeArray return untyped __call__('parse_ini_file', filename, process_sections, scanner_mode);
 	
-	public static inline function parse_ini_file_ex(filename:String, process_sections=false, scanner_mode:Int) : NativeArray return untyped __call__('parse_ini_file', filename, process_sections, scanner_mode);
+	public static inline function parse_ini_string(ini:String, process_sections=false, ?scanner_mode:Int) : NativeArray return untyped __call__('parse_ini_string', ini, process_sections, scanner_mode);
 	
-	public static inline function parse_ini_string(ini:String, process_sections=false) : NativeArray return untyped __call__('parse_ini_string', ini, process_sections);
-	
-	public static inline function parse_ini_string_ex(ini:String, process_sections=false, scanner_mode:Int) : NativeArray return untyped __call__('parse_ini_string', ini, process_sections, scanner_mode);
-	
-	public static inline function pathinfo(path:String) : Dynamic return untyped __call__('pathinfo', path);
-	
-	public static inline function pathinfo_ex(path:String, options:Int) : Dynamic return untyped __call__('pathinfo', path, options);
+	public static inline function pathinfo(path:String, ?options:Int) : Dynamic return untyped __call__('pathinfo', path, options);
 	
 	public static inline function pclose(handle:Resource) : Int return untyped __call__('pclose', handle);
 	
@@ -158,9 +148,7 @@ class FilesystemNatives
 	
 	public static inline function tmpfile() : Resource return untyped __call__('tmpfile');
 	
-	public static inline function touch(filename:String) : Bool return untyped __call__('touch', filename);
-	
-	public static inline function touch_ex(filename:String, time:Int, ?atime:Int) : Bool return untyped __call__('touch', filename, time, atime);
+	public static inline function touch(filename:String, ?time:Int, ?atime:Int) : Bool return untyped __call__('touch', filename, time, atime);
 	
 	public static inline function umask(?mask:Int) : Int return untyped __call__('umask', mask);
 	
