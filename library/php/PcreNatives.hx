@@ -18,36 +18,11 @@ class PcreNatives
 	
 	public static inline function preg_last_error() : Int return untyped __call__('preg_last_error');
 	
-	public static function preg_match_all(pattern:String, subject:String, ?matches:NativeArray, ?flags:Int, offset=0) : Int
-	{
-		if (untyped __physeq__(flags, null))
-		{
-			if (untyped __physeq__(matches, null))
-			{
-				return untyped __call__('preg_match_all', pattern, subject);
-			}
-			else
-			{
-				return untyped __call__('preg_match_all', pattern, subject, matches);
-			}
-		}
-		else
-		{
-			return untyped __call__('preg_match_all', pattern, subject, matches, flags, offset);
-		}
-	}
+	public static inline function preg_match_all(pattern:String, subject:String) : Int return untyped __call__('preg_match_all', pattern, subject);
+	public static inline function preg_match_all_ex(pattern:String, subject:String, matches:NativeArray, ?flags:Int, offset=0) : Int return untyped __call__('preg_match_all', pattern, subject, matches, untyped __physeq__(flags, null) ? PREG_PATTERN_ORDER : flags, offset);
 	
-	public static function preg_match(pattern:String, subject:String, ?matches:NativeArray, flags=0, offset=0) : Int
-	{
-		if (untyped __physeq__(matches, null))
-		{
-			return untyped __call__('preg_match', pattern, subject);
-		}
-		else
-		{
-			return untyped __call__('preg_match', pattern, subject, matches, flags, offset);
-		}
-	}
+	public static inline function preg_match(pattern:String, subject:String) : Int return untyped __call__('preg_match', pattern, subject);
+	public static inline function preg_match_ex(pattern:String, subject:String, matches:NativeArray, flags=0, offset=0) : Int return untyped __call__('preg_match', pattern, subject, matches, flags, offset);
 	
 	public static function preg_quote(str:String, ?delimiter:String) : String
 	{
