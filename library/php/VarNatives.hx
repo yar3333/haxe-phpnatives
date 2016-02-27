@@ -74,8 +74,6 @@ class VarNatives
 	
 	public static inline function isset(var_:Dynamic) : Bool return untyped __call__('isset', var_);
 	
-	public static inline function isset_ex(var_:Dynamic, restArgs:Dynamic) : Bool return untyped __call__('isset', var_, restArgs);
-	
 	public static inline function print_r(expression:Dynamic, return_=false) : Dynamic return untyped __call__('print_r', expression, return_);
 	
 	public static inline function serialize(value:Dynamic) : String return untyped __call__('serialize', value);
