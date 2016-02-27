@@ -10,9 +10,31 @@ class UrlNatives
 	
 	public static inline function get_meta_tags(filename:String, use_include_path=false) : NativeArray return untyped __call__('get_meta_tags', filename, use_include_path);
 	
-	public static inline function http_build_query(query_data:Dynamic, ?numeric_prefix:String, ?arg_separator:String) : String return untyped __call__('http_build_query', query_data, numeric_prefix, arg_separator);
-	
-	public static inline function http_build_query_ex(query_data:Dynamic, numeric_prefix:String, arg_separator:String, enc_type:Int) : String return untyped __call__('http_build_query', query_data, numeric_prefix, arg_separator, enc_type);
+	public static function http_build_query(query_data:Dynamic, ?numeric_prefix:String, ?arg_separator:String, ?enc_type:Int) : String
+	{
+		if (untyped __physeq__(enc_type, null))
+		{
+			if (untyped __physeq__(arg_separator, null))
+			{
+				if (untyped __physeq__(numeric_prefix, null))
+				{
+					return untyped __call__('http_build_query', query_data);
+				}
+				else
+				{
+					return untyped __call__('http_build_query', query_data, numeric_prefix);
+				}
+			}
+			else
+			{
+				return untyped __call__('http_build_query', query_data, numeric_prefix, arg_separator);
+			}
+		}
+		else
+		{
+			return untyped __call__('http_build_query', query_data, numeric_prefix, arg_separator, enc_type);
+		}
+	}
 	
 	public static inline function parse_url(url:String, component=-1) : Dynamic return untyped __call__('parse_url', url, component);
 	
