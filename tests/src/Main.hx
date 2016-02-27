@@ -32,7 +32,7 @@ class Main extends TestCase
 	function testPcre()
 	{
 		var matches : NativeArray;
-		assertEquals(2, PcreNatives.preg_match_all("/a./", "123a4hnt3a5", matches));
+		assertEquals(2, PcreNatives.preg_match_all_ex("/a./", "123a4hnt3a5", matches));
 		assertEquals(1, ArrayNatives.count(matches));
 		assertEquals(2, ArrayNatives.count(matches[0]));
 		
