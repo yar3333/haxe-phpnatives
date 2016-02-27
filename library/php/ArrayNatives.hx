@@ -8,11 +8,19 @@ class ArrayNatives
 	
 	public static inline function is_array(var_:Dynamic) : Bool return untyped __call__('is_array', var_);
 	
-	public static inline function explode(delimiter:String, str:String, ?limit:Int) : NativeArray return untyped __call__('explode', delimiter, str, limit);
+	public static function explode(delimiter:String, str:String, ?limit:Int) : NativeArray
+	{
+		if (untyped __physeq__(limit, null))
+		{
+			return untyped __call__('explode', delimiter, str);
+		}
+		else
+		{
+			return untyped __call__('explode', delimiter, str, limit);
+		}
+	}
 	
-	public static inline function implode(pieces:NativeArray) : String return untyped __call__('implode', pieces);
-	
-	public static inline function implode_ex(glue:String, pieces:NativeArray) : String return untyped __call__('implode', glue, pieces);
+	public static inline function implode(glue="", pieces:NativeArray) : String return untyped __call__('implode', glue, pieces);
 	
 	public static inline function split(pattern:String, str:String, ?limit:Int=-1) : NativeArray return untyped __call__('split', pattern, str, limit);
 	
@@ -42,7 +50,17 @@ class ArrayNatives
 	
 	public static inline function array_fill(start_index:Int, num:Int, value:Dynamic) : NativeArray return untyped __call__('array_fill', start_index, num, value);
 	
-	public static inline function array_filter(arr:NativeArray, ?callback:Dynamic->Void, flag=0) : NativeArray return untyped __call__('array_filter', arr, callback, flag);
+	public static function array_filter(arr:NativeArray, ?callback:Dynamic->Void, flag=0) : NativeArray
+	{
+		if (untyped __physeq__(callback, null))
+		{
+			return untyped __call__('array_filter', arr);
+		}
+		else
+		{
+			return untyped __call__('array_filter', arr, callback, flag);
+		}
+	}
 	
 	public static inline function array_flip(arr:NativeArray) : NativeArray return untyped __call__('array_flip', arr);
 	
@@ -66,7 +84,25 @@ class ArrayNatives
 	
 	public static inline function array_merge(array1:NativeArray, array2:NativeArray) : NativeArray return untyped __call__('array_merge', array1, array2);
 	
-	public static inline function array_multisort(array1:NativeArray, ?array1_sort_order:Dynamic, ?array1_sort_flags:Dynamic) : Bool return untyped __call__('array_multisort', array1, array1_sort_order, array1_sort_flags);
+	public static function array_multisort(array1:NativeArray, ?array1_sort_order:Dynamic, ?array1_sort_flags:Dynamic) : Bool
+	{
+		if (untyped __physeq__(array1_sort_flags, null))
+		{
+			if (untyped __physeq__(array1_sort_order, null))
+			{
+				return untyped __call__('array_multisort', array1);
+			}
+			else
+			{
+				return untyped __call__('array_multisort', array1, array1_sort_order);
+			}
+		}
+		else
+		{
+			return untyped __call__('array_multisort', array1, array1_sort_order, array1_sort_flags);
+		}
+	}
+
 	
 	public static inline function array_pad(arr:NativeArray, size:Int, value:Dynamic) : NativeArray return untyped __call__('array_pad', arr, size, value);
 	
@@ -78,7 +114,18 @@ class ArrayNatives
 	
 	public static inline function array_rand(arr:NativeArray, ?num:Int=1) : Dynamic return untyped __call__('array_rand', arr, num);
 	
-	public static inline function array_reduce(arr:NativeArray, callback:Dynamic->Dynamic->Dynamic, ?initial:Dynamic) : Dynamic return untyped __call__('array_reduce', arr, callback, initial);
+	public static function array_reduce(arr:NativeArray, callback:Dynamic->Dynamic->Dynamic, ?initial:Dynamic) : Dynamic
+	{
+		if (untyped __physeq__(initial, null))
+		{
+			return untyped __call__('array_reduce', arr, callback);
+		}
+		else
+		{
+			return untyped __call__('array_reduce', arr, callback, initial);
+		}
+	}
+
 	
 	public static inline function array_replace_recursive(array1:NativeArray, array2:NativeArray) : NativeArray return untyped __call__('array_replace_recursive', array1, array2);
 	
@@ -90,7 +137,18 @@ class ArrayNatives
 	
 	public static inline function array_shift(arr:NativeArray) : Dynamic return untyped __call__('array_shift', arr);
 	
-	public static inline function array_slice(arr:NativeArray, offset:Int, ?length:Int, ?preserve_keys:Bool=false) : NativeArray return untyped __call__('array_slice', arr, offset, length, preserve_keys);
+	public static function array_slice(arr:NativeArray, offset:Int, ?length:Int, ?preserve_keys:Bool=false) : NativeArray
+	{
+		if (untyped __physeq__(length, null))
+		{
+			return untyped __call__('array_slice', arr, offset);
+		}
+		else
+		{
+			return untyped __call__('array_slice', arr, offset, length, preserve_keys);
+		}
+	}
+
 	
 	public static inline function array_splice(input:NativeArray, offset:Int, length=0) : NativeArray return untyped __call__('array_splice', input, offset, length);
 	
@@ -118,9 +176,31 @@ class ArrayNatives
 	
 	public static inline function array_values(arr:NativeArray) : NativeArray return untyped __call__('array_values', arr);
 	
-	public static inline function array_walk_recursive(arr:NativeArray, callback:Dynamic->Void, ?userdata:Dynamic) : Bool return untyped __call__('array_walk_recursive', arr, callback, userdata);
+	public static function array_walk_recursive(arr:NativeArray, callback:Dynamic->Void, ?userdata:Dynamic) : Bool
+	{
+		if (untyped __physeq__(userdata, null))
+		{
+			return untyped __call__('array_walk_recursive', arr, callback);
+		}
+		else
+		{
+			return untyped __call__('array_walk_recursive', arr, callback, userdata);
+		}
+	}
+
 	
-	public static inline function array_walk(arr:NativeArray, callback:Dynamic->Void, ?userdata:Dynamic) : Bool return untyped __call__('array_walk', arr, callback, userdata);
+	public static function array_walk(arr:NativeArray, callback:Dynamic->Void, ?userdata:Dynamic) : Bool
+	{
+		if (untyped __physeq__(userdata, null))
+		{
+			return untyped __call__('array_walk', arr, callback);
+		}
+		else
+		{
+			return untyped __call__('array_walk', arr, callback, userdata);
+		}
+	}
+
 	
 	public static inline function arsort(arr:NativeArray) : Bool return untyped __call__('arsort', arr);
 	
@@ -130,7 +210,18 @@ class ArrayNatives
 	
 	public static inline function asort_ex(arr:NativeArray, sort_flags:Int) : Bool return untyped __call__('asort', arr, sort_flags);
 	
-	public static inline function compact(varname1:Dynamic, ?restArgs:Dynamic) : NativeArray return untyped __call__('compact', varname1, restArgs);
+	public static function compact(varname1:Dynamic, ?restArgs:Dynamic) : NativeArray
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			return untyped __call__('compact', varname1);
+		}
+		else
+		{
+			return untyped __call__('compact', varname1, restArgs);
+		}
+	}
+
 	
 	public static inline function count(array_or_countable:Dynamic) : Int return untyped __call__('count', array_or_countable);
 	
@@ -144,7 +235,18 @@ class ArrayNatives
 	
 	public static inline function extract(arr:NativeArray) : Int return untyped __call__('extract', arr);
 	
-	public static inline function extract_ex(arr:NativeArray, flags:Int, ?prefix:String) : Int return untyped __call__('extract', arr, flags, prefix);
+	public static function extract_ex(arr:NativeArray, flags:Int, ?prefix:String) : Int
+	{
+		if (untyped __physeq__(prefix, null))
+		{
+			return untyped __call__('extract', arr, flags);
+		}
+		else
+		{
+			return untyped __call__('extract', arr, flags, prefix);
+		}
+	}
+
 	
 	public static inline function in_array(needle:Dynamic, haystack:NativeArray, ?strict:Bool=false) : Bool return untyped __call__('in_array', needle, haystack, strict);
 	
