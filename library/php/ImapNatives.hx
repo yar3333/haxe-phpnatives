@@ -8,7 +8,25 @@ class ImapNatives
 	
 	public static inline function imap_alerts() : NativeArray return untyped __call__('imap_alerts');
 	
-	public static inline function imap_append(imap_stream:ImapStream, mailbox:String, message:String, ?options:String, ?internal_date:String) : Bool return untyped __call__('imap_append', imap_stream, mailbox, message, options, internal_date);
+	public static function imap_append(imap_stream:ImapStream, mailbox:String, message:String, ?options:String, ?internal_date:String) : Bool
+	{
+		if (untyped __physeq__(internal_date, null))
+		{
+			if (untyped __physeq__(options, null))
+			{
+				return untyped __call__('imap_append', imap_stream, mailbox, message);
+			}
+			else
+			{
+				return untyped __call__('imap_append', imap_stream, mailbox, message, options);
+			}
+		}
+		else
+		{
+			return untyped __call__('imap_append', imap_stream, mailbox, message, options, internal_date);
+		}
+	}
+
 	
 	public static inline function imap_base64(text:String) : String return untyped __call__('imap_base64', text);
 	
@@ -56,7 +74,18 @@ class ImapNatives
 	
 	public static inline function imap_getsubscribed(imap_stream:ImapStream, ref:String, pattern:String) : NativeArray return untyped __call__('imap_getsubscribed', imap_stream, ref, pattern);
 	
-	public static inline function imap_headerinfo(imap_stream:ImapStream, msg_number:Int, fromlength=0, subjectlength=0, ?defaulthost:String) : Dynamic return untyped __call__('imap_headerinfo', imap_stream, msg_number, fromlength, subjectlength, defaulthost);
+	public static function imap_headerinfo(imap_stream:ImapStream, msg_number:Int, fromlength=0, subjectlength=0, ?defaulthost:String) : Dynamic
+	{
+		if (untyped __physeq__(defaulthost, null))
+		{
+			return untyped __call__('imap_headerinfo', imap_stream, msg_number, fromlength, subjectlength);
+		}
+		else
+		{
+			return untyped __call__('imap_headerinfo', imap_stream, msg_number, fromlength, subjectlength, defaulthost);
+		}
+	}
+
 	
 	public static inline function imap_headers(imap_stream:ImapStream) : NativeArray return untyped __call__('imap_headers', imap_stream);
 	
@@ -74,7 +103,39 @@ class ImapNatives
 	
 	public static inline function imap_mail_move(imap_stream:ImapStream, msglist:String, mailbox:String, options=0) : Bool return untyped __call__('imap_mail_move', imap_stream, msglist, mailbox, options);
 	
-	public static inline function imap_mail(to:String, subject:String, message:String, ?additional_headers:String, ?cc:String, ?bcc:String, ?rpath:String) : Bool return untyped __call__('imap_mail', to, subject, message, additional_headers, cc, bcc, rpath);
+	public static function imap_mail(to:String, subject:String, message:String, ?additional_headers:String, ?cc:String, ?bcc:String, ?rpath:String) : Bool
+	{
+		if (untyped __physeq__(rpath, null))
+		{
+			if (untyped __physeq__(bcc, null))
+			{
+				if (untyped __physeq__(cc, null))
+				{
+					if (untyped __physeq__(additional_headers, null))
+					{
+						return untyped __call__('imap_mail', to, subject, message);
+					}
+					else
+					{
+						return untyped __call__('imap_mail', to, subject, message, additional_headers);
+					}
+				}
+				else
+				{
+					return untyped __call__('imap_mail', to, subject, message, additional_headers, cc);
+				}
+			}
+			else
+			{
+				return untyped __call__('imap_mail', to, subject, message, additional_headers, cc, bcc);
+			}
+		}
+		else
+		{
+			return untyped __call__('imap_mail', to, subject, message, additional_headers, cc, bcc, rpath);
+		}
+	}
+
 	
 	public static inline function imap_mailboxmsginfo(imap_stream:ImapStream) : MailboxInfo return untyped __call__('imap_mailboxmsginfo', imap_stream);
 	
@@ -106,7 +167,18 @@ class ImapNatives
 	
 	public static inline function imap_search(imap_stream:ImapStream, criteria:String) : NativeArray return untyped __call__('imap_search', imap_stream, criteria);
 	
-	public static inline function imap_search_ex(imap_stream:ImapStream, criteria:String, options:Int, ?charset:String) : NativeArray return untyped __call__('imap_search', imap_stream, criteria, options, charset);
+	public static function imap_search_ex(imap_stream:ImapStream, criteria:String, options:Int, ?charset:String) : NativeArray
+	{
+		if (untyped __physeq__(charset, null))
+		{
+			return untyped __call__('imap_search', imap_stream, criteria, options);
+		}
+		else
+		{
+			return untyped __call__('imap_search', imap_stream, criteria, options, charset);
+		}
+	}
+
 	
 	public static inline function imap_set_quota(imap_stream:ImapStream, quota_root:String, quota_limit:Int) : Bool return untyped __call__('imap_set_quota', imap_stream, quota_root, quota_limit);
 	
@@ -114,9 +186,38 @@ class ImapNatives
 	
 	public static inline function imap_setflag_full(imap_stream:ImapStream, sequence:String, flag:String) : Bool return untyped __call__('imap_setflag_full', imap_stream, sequence, flag);
 	
-	public static inline function imap_setflag_full_ex(imap_stream:ImapStream, sequence:String, flag:String, ?options:Int) : Bool return untyped __call__('imap_setflag_full', imap_stream, sequence, flag, options);
+	public static function imap_setflag_full_ex(imap_stream:ImapStream, sequence:String, flag:String, ?options:Int) : Bool
+	{
+		if (untyped __physeq__(options, null))
+		{
+			return untyped __call__('imap_setflag_full', imap_stream, sequence, flag);
+		}
+		else
+		{
+			return untyped __call__('imap_setflag_full', imap_stream, sequence, flag, options);
+		}
+	}
+
 	
-	public static inline function imap_sort(imap_stream:ImapStream, criteria:Int, reverse:Int, options=0, ?search_criteria:String, ?charset:String) : NativeArray return untyped __call__('imap_sort', imap_stream, criteria, reverse, options, search_criteria, charset);
+	public static function imap_sort(imap_stream:ImapStream, criteria:Int, reverse:Int, options=0, ?search_criteria:String, ?charset:String) : NativeArray
+	{
+		if (untyped __physeq__(charset, null))
+		{
+			if (untyped __physeq__(search_criteria, null))
+			{
+				return untyped __call__('imap_sort', imap_stream, criteria, reverse, options);
+			}
+			else
+			{
+				return untyped __call__('imap_sort', imap_stream, criteria, reverse, options, search_criteria);
+			}
+		}
+		else
+		{
+			return untyped __call__('imap_sort', imap_stream, criteria, reverse, options, search_criteria, charset);
+		}
+	}
+
 	
 	public static inline function imap_status(imap_stream:ImapStream, mailbox:String, options:Int) : Dynamic return untyped __call__('imap_status', imap_stream, mailbox, options);
 	
