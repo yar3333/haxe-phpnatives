@@ -10,7 +10,7 @@ class StringsNatives
 	
 	public static inline function chr(ascii:Int) : String return untyped __call__('chr', ascii);
 	
-	public static inline function chunk_split(body:String, ?chunklen:Int=76, end="\r\n") : String return untyped __call__('chunk_split', body, chunklen, end);
+	public static inline function chunk_split(body:String, chunklen=76, end="\r\n") : String return untyped __call__('chunk_split', body, chunklen, end);
 	
 	public static inline function convert_cyr_string(str:String, from:String, to:String) : String return untyped __call__('convert_cyr_string', str, from, to);
 	
@@ -22,17 +22,71 @@ class StringsNatives
 	
 	public static inline function crc32(str:String) : Int return untyped __call__('crc32', str);
 	
-	public static inline function crypt(str:String, ?salt:String) : String return untyped __call__('crypt', str, salt);
+	public static function crypt(str:String, ?salt:String) : String
+	{
+		if (untyped __physeq__(salt, null))
+		{
+			return untyped __call__('crypt', str);
+		}
+		else
+		{
+			return untyped __call__('crypt', str, salt);
+		}
+	}
 	
-	public static inline function echo(arg1:String, ?restArgs:String) : Void return untyped __call__('echo', arg1, restArgs);
+	public static inline function echo(arg:String) : Void untyped __call__('echo', arg);
 	
-	public static inline function explode(delimiter:String, str:String, ?limit:Int) : NativeArray return untyped __call__('explode', delimiter, str, limit);
+	public static function explode(delimiter:String, str:String, ?limit:Int) : NativeArray
+	{
+		if (untyped __physeq__(limit, null))
+		{
+			return untyped __call__('explode', delimiter, str);
+		}
+		else
+		{
+			return untyped __call__('explode', delimiter, str, limit);
+		}
+	}
 	
-	public static inline function fprintf(handle:Resource, format:String, ?args:Dynamic, ?restArgs:Dynamic) : Int return untyped __call__('fprintf', handle, format, args, restArgs);
+	public static function fprintf(handle:Resource, format:String, ?args:Dynamic, ?restArgs:Dynamic) : Int
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			if (untyped __physeq__(args, null))
+			{
+				return untyped __call__('fprintf', handle, format);
+			}
+			else
+			{
+				return untyped __call__('fprintf', handle, format, args);
+			}
+		}
+		else
+		{
+			return untyped __call__('fprintf', handle, format, args, restArgs);
+		}
+	}
 	
 	public static inline function get_html_translation_table() : NativeArray return untyped __call__('get_html_translation_table');
 	
-	public static inline function get_html_translation_table(?table:Int, ?flags:Int, encoding="UTF-8") : NativeArray return untyped __call__('get_html_translation_table', table, flags, encoding);
+	public static function get_html_translation_table(?table:Int, ?flags:Int, encoding="UTF-8") : NativeArray
+	{
+		if (untyped __physeq__(flags, null))
+		{
+			if (untyped __physeq__(table, null))
+			{
+				return untyped __call__('get_html_translation_table');
+			}
+			else
+			{
+				return untyped __call__('get_html_translation_table', table);
+			}
+		}
+		else
+		{
+			return untyped __call__('get_html_translation_table', table, flags, encoding);
+		}
+	}
 	
 	public static inline function hebrev(hebrew_text:String, max_chars_per_line=0) : String return untyped __call__('hebrev', hebrew_text, max_chars_per_line);
 	
@@ -40,13 +94,88 @@ class StringsNatives
 	
 	public static inline function hex2bin(data:String) : String return untyped __call__('hex2bin', data);
 	
-	public static inline function html_entity_decode(str:String, ?flags:Int, ?encoding:String) : String return untyped __call__('html_entity_decode', str, flags, encoding);
+	public static function html_entity_decode(str:String, ?flags:Int, ?encoding:String) : String
+	{
+		if (untyped __physeq__(encoding, null))
+		{
+			if (untyped __physeq__(flags, null))
+			{
+				return untyped __call__('html_entity_decode', str);
+			}
+			else
+			{
+				return untyped __call__('html_entity_decode', str, flags);
+			}
+		}
+		else
+		{
+			return untyped __call__('html_entity_decode', str, flags, encoding);
+		}
+	}
 	
-	public static inline function htmlentities(str:String, ?flags:Int, ?encoding:String, ?double_encode:Bool) : String return untyped __call__('htmlentities', str, flags, encoding, double_encode);
+	public static function htmlentities(str:String, ?flags:Int, ?encoding:String, ?double_encode:Bool) : String
+	{
+		if (untyped __physeq__(double_encode, null))
+		{
+			if (untyped __physeq__(encoding, null))
+			{
+				if (untyped __physeq__(flags, null))
+				{
+					return untyped __call__('htmlentities', str);
+				}
+				else
+				{
+					return untyped __call__('htmlentities', str, flags);
+				}
+			}
+			else
+			{
+				return untyped __call__('htmlentities', str, flags, encoding);
+			}
+		}
+		else
+		{
+			return untyped __call__('htmlentities', str, flags, encoding, double_encode);
+		}
+	}
 	
-	public static inline function htmlspecialchars_decode(str:String, ?flags:Int) : String return untyped __call__('htmlspecialchars_decode', str, flags);
+	public static function htmlspecialchars_decode(str:String, ?flags:Int) : String
+	{
+		if (untyped __physeq__(flags, null))
+		{
+			return untyped __call__('htmlspecialchars_decode', str);
+		}
+		else
+		{
+			return untyped __call__('htmlspecialchars_decode', str, flags);
+		}
+	}
 	
-	public static inline function htmlspecialchars(str:String, ?flags:Int, ?encoding:String), ?double_encode:Bool) : String return untyped untyped __call__('htmlspecialchars', str);
+	public static function htmlspecialchars(str:String, ?flags:Int, ?encoding:String, ?double_encode:Bool) : String return untyped
+	{
+		if (untyped __physeq__(double_encode, null))
+		{
+			if (untyped __physeq__(encoding, null))
+			{
+				if (untyped __physeq__(flags, null))
+				{
+					return untyped __call__('htmlspecialchars', str);
+				}
+				else
+				{
+					return untyped __call__('htmlspecialchars', str, flags);
+				}
+			}
+			else
+			{
+				return untyped __call__('htmlspecialchars', str, flags, encoding);
+			}
+		}
+		else
+		{
+			return untyped __call__('htmlspecialchars', str, flags, encoding, double_encode);
+		}
+	}
 	
 	public static inline function implode(glue="", pieces:NativeArray) : String return untyped __call__('implode', glue, pieces);
 	
@@ -56,7 +185,17 @@ class StringsNatives
 	
 	public static inline function localeconv() : NativeArray return untyped __call__('localeconv');
 	
-	public static inline function ltrim(str:String, ?character_mask:String) : String return untyped __call__('ltrim', str, character_mask);
+	public static function ltrim(str:String, ?character_mask:String) : String
+	{
+		if (untyped __physeq__(character_mask, null))
+		{
+			return untyped __call__('ltrim', str);
+		}
+		else
+		{
+			return untyped __call__('ltrim', str, character_mask);
+		}
+	}
 	
 	public static inline function md5_file(filename:String, raw_output=false) : String return untyped __call__('md5_file', filename, raw_output);
 	
@@ -74,11 +213,38 @@ class StringsNatives
 	
 	public static inline function ord(str:String) : Int return untyped __call__('ord', str);
 	
-	public static inline function parse_str(str:String, ?arr:NativeArray) : Void return untyped __call__('parse_str', str, arr);
+	public static function parse_str(str:String, ?arr:NativeArray) : Void
+	{
+		if (untyped __physeq__(arr, null))
+		{
+			untyped __call__('parse_str', str);
+		}
+		else
+		{
+			untyped __call__('parse_str', str, arr);
+		}
+	}
 	
 	public static inline function print(arg:String) : Int return untyped __call__('print', arg);
 	
-	public static inline function printf(format:String, ?args:Dynamic, ?restArgs:Dynamic) : Int return untyped __call__('printf', format, args, restArgs);
+	public static function printf(format:String, ?args:Dynamic, ?restArgs:Dynamic) : Int
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			if (untyped __physeq__(args, null))
+			{
+				return untyped __call__('printf', format);
+			}
+			else
+			{
+				return untyped __call__('printf', format, args);
+			}
+		}
+		else
+		{
+			return untyped __call__('printf', format, args, restArgs);
+		}
+	}
 	
 	public static inline function quoted_printable_decode(str:String) : String return untyped __call__('quoted_printable_decode', str);
 	
@@ -86,39 +252,136 @@ class StringsNatives
 	
 	public static inline function quotemeta(str:String) : String return untyped __call__('quotemeta', str);
 	
-	public static inline function rtrim(str:String, ?character_mask:String) : String return untyped __call__('rtrim', str, character_mask);
+	public static function rtrim(str:String, ?character_mask:String) : String
+	{
+		if (untyped __physeq__(character_mask, null))
+		{
+			return untyped __call__('rtrim', str);
+		}
+		else
+		{
+			return untyped __call__('rtrim', str, character_mask);
+		}
+	}
 	
-	public static inline function setlocale(category:Int, locale:String, ?restArgs:String) : String return untyped __call__('setlocale', category, locale, restArgs);
+	public static function setlocale(category:Int, locale:String, ?restArgs:String) : String
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			return untyped __call__('setlocale', category, locale);
+		}
+		else
+		{
+			return untyped __call__('setlocale', category, locale, restArgs);
+		}
+	}
 	
 	public static inline function sha1_file(filename:String, raw_output=false) : String return untyped __call__('sha1_file', filename, raw_output);
 	
 	public static inline function sha1(str:String, raw_output=false) : String return untyped __call__('sha1', str, raw_output);
 	
-	public static inline function similar_text(first:String, second:String, ?percent:Float) : Int return untyped __call__('similar_text', first, second, percent);
+	public static function similar_text(first:String, second:String, ?percent:Float) : Int
+	{
+		if (untyped __physeq__(percent, null))
+		{
+			return untyped __call__('similar_text', first, second);
+		}
+		else
+		{
+			return untyped __call__('similar_text', first, second, percent);
+		}
+	}
 	
 	public static inline function soundex(str:String) : String return untyped __call__('soundex', str);
 	
-	public static inline function sprintf(format:String, ?args:Dynamic, ?restArgs:Dynamic) : String return untyped __call__('sprintf', format, args, restArgs);
+	public static function sprintf(format:String, ?args:Dynamic, ?restArgs:Dynamic) : String
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			if (untyped __physeq__(args, null))
+			{
+				return untyped __call__('sprintf', format);
+			}
+			else
+			{
+				return untyped __call__('sprintf', format, args);
+			}
+		}
+		else
+		{
+			return untyped __call__('sprintf', format, args, restArgs);
+		}
+	}
 	
-	public static inline function sscanf(str:String, format:String, ?restArgs:Dynamic) : Dynamic return untyped __call__('sscanf', str, format, restArgs);
+	public static function sscanf(str:String, format:String, ?restArgs:Dynamic) : Dynamic
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			return untyped __call__('sscanf', str, format);
+		}
+		else
+		{
+			return untyped __call__('sscanf', str, format, restArgs);
+		}
+	}
 	
 	public static inline function str_getcsv(input:String, delimiter=",", enclosure='"', escape="\\") : NativeArray return untyped __call__('str_getcsv', input, delimiter, enclosure, escape);
 	
-	public static inline function str_ireplace(search:Dynamic, replace:Dynamic, subject:Dynamic, ?count:Int) : Dynamic return untyped __call__('str_ireplace', search, replace, subject, count);
+	public static function str_ireplace(search:Dynamic, replace:Dynamic, subject:Dynamic, ?count:Int) : Dynamic
+	{
+		if (untyped __physeq__(count, null))
+		{
+			return untyped __call__('str_ireplace', search, replace, subject);
+		}
+		else
+		{
+			return untyped __call__('str_ireplace', search, replace, subject, count);
+		}
+	}
 	
-	public static inline function str_pad(input:String, pad_length:Int, pad_string=" ", ?pad_type:Int) : String return untyped __call__('str_pad', input, pad_length, pad_string, pad_type);
+	public static function str_pad(input:String, pad_length:Int, pad_string=" ", ?pad_type:Int) : String
+	{
+		if (untyped __physeq__(pad_type, null))
+		{
+			return untyped __call__('str_pad', input, pad_length, pad_string);
+		}
+		else
+		{
+			return untyped __call__('str_pad', input, pad_length, pad_string, pad_type);
+		}
+	}
 	
 	public static inline function str_repeat(input:String, multiplier:Int) : String return untyped __call__('str_repeat', input, multiplier);
 	
-	public static inline function str_replace(search:Dynamic, replace:Dynamic, subject:Dynamic, ?count:Int) : Dynamic return untyped __call__('str_replace', search, replace, subject, count);
+	public static function str_replace(search:Dynamic, replace:Dynamic, subject:Dynamic, ?count:Int) : Dynamic
+	{
+		if (untyped __physeq__(count, null))
+		{
+			return untyped __call__('str_replace', search, replace, subject);
+		}
+		else
+		{
+			return untyped __call__('str_replace', search, replace, subject, count);
+		}
+	}
 	
 	public static inline function str_rot13(str:String) : String return untyped __call__('str_rot13', str);
 	
 	public static inline function str_shuffle(str:String) : String return untyped __call__('str_shuffle', str);
 	
-	public static inline function str_split(str:String, ?split_length:Int=1) : NativeArray return untyped __call__('str_split', str, split_length);
+	public static inline function str_split(str:String, split_length=1) : NativeArray return untyped __call__('str_split', str, split_length);
 	
-	public static inline function str_word_count(str:String, format=0, ?charlist:String) : Dynamic return untyped __call__('str_word_count', str, format, charlist);
+	public static function str_word_count(str:String, format=0, ?charlist:String) : Dynamic
+	{
+		if (untyped __physeq__(charlist, null))
+		{
+			return untyped __call__('str_word_count', str, format);
+		}
+		else
+		{
+			return untyped __call__('str_word_count', str, format, charlist);
+		}
+	}
 	
 	public static inline function strcasecmp(str1:String, str2:String) : Int return untyped __call__('strcasecmp', str1, str2);
 	
@@ -126,9 +389,36 @@ class StringsNatives
 	
 	public static inline function strcoll(str1:String, str2:String) : Int return untyped __call__('strcoll', str1, str2);
 	
-	public static inline function strcspn(subject:String, mask:String, ?start:Int, ?length:Int) : Int return untyped __call__('strcspn', subject, mask, start, length);
+	public static function strcspn(subject:String, mask:String, ?start:Int, ?length:Int) : Int
+	{
+		if (untyped __physeq__(length, null))
+		{
+			if (untyped __physeq__(start, null))
+			{
+				return untyped __call__('strcspn', subject, mask);
+			}
+			else
+			{
+				return untyped __call__('strcspn', subject, mask, start);
+			}
+		}
+		else
+		{
+			return untyped __call__('strcspn', subject, mask, start, length);
+		}
+	}
 	
-	public static inline function strip_tags(str:String, ?allowable_tags:String) : String return untyped __call__('strip_tags', str, allowable_tags);
+	public static function strip_tags(str:String, ?allowable_tags:String) : String
+	{
+		if (untyped __physeq__(allowable_tags, null))
+		{
+			return untyped __call__('strip_tags', str);
+		}
+		else
+		{
+			return untyped __call__('strip_tags', str, allowable_tags);
+		}
+	}
 	
 	public static inline function stripcslashes(str:String) : String return untyped __call__('stripcslashes', str);
 	
@@ -160,7 +450,24 @@ class StringsNatives
 	
 	public static inline function strrpos(haystack:String, needle:String, offset=0) : Int return untyped __call__('strrpos', haystack, needle, offset);
 	
-	public static inline function strspn(subject:String, mask:String, ?start:Int, ?length:Int) : Int return untyped __call__('strspn', subject, mask, start, length);
+	public static function strspn(subject:String, mask:String, ?start:Int, ?length:Int) : Int
+	{
+		if (untyped __physeq__(length, null))
+		{
+			if (untyped __physeq__(start, null))
+			{
+				return untyped __call__('strspn', subject, mask);
+			}
+			else
+			{
+				return untyped __call__('strspn', subject, mask, start);
+			}
+		}
+		else
+		{
+			return untyped __call__('strspn', subject, mask, start, length);
+		}
+	}
 	
 	public static inline function strstr(haystack:String, needle:Dynamic, before_needle=false) : String return untyped __call__('strstr', haystack, needle, before_needle);
 	
@@ -172,19 +479,69 @@ class StringsNatives
 	
 	public static inline function strtr(str:String, from:String, to:String) : String return untyped __call__('strtr', str, from, to);
 	
-	public static inline function substr_compare(main_str:String, str:String, offset:Int, ?length:Int, case_insensitivity=false) : Int return untyped __call__('substr_compare', main_str, str, offset, length, case_insensitivity);
+	public static function substr_compare(main_str:String, str:String, offset:Int, ?length:Int, case_insensitivity=false) : Int
+	{
+		if (untyped __physeq__(length, null))
+		{
+			return untyped __call__('substr_compare', main_str, str, offset);
+		}
+		else
+		{
+			return untyped __call__('substr_compare', main_str, str, offset, length, case_insensitivity);
+		}
+	}
 	
-	public static inline function substr_count(haystack:String, needle:String, offset=0, ?length:Int) : Int return untyped __call__('substr_count', haystack, needle, offset, length);
+	public static function substr_count(haystack:String, needle:String, offset=0, ?length:Int) : Int
+	{
+		if (untyped __physeq__(length, null))
+		{
+			return untyped __call__('substr_count', haystack, needle, offset);
+		}
+		else
+		{
+			return untyped __call__('substr_count', haystack, needle, offset, length);
+		}
+	}
 	
-	public static inline function substr_replace(str:Dynamic, replacement:Dynamic, start:Dynamic, ?length:Dynamic) : Dynamic return untyped __call__('substr_replace', str, replacement, start, length);
+	public static function substr_replace(str:Dynamic, replacement:Dynamic, start:Dynamic, ?length:Dynamic) : Dynamic
+	{
+		if (untyped __physeq__(length, null))
+		{
+			return untyped __call__('substr_replace', str, replacement, start);
+		}
+		else
+		{
+			return untyped __call__('substr_replace', str, replacement, start, length);
+		}
+	}
 	
-	public static inline function substr(str:String, start:Int, ?length:Int) : String return untyped __call__('substr', str, start, length);
+	public static function substr(str:String, start:Int, ?length:Int) : String
+	{
+		if (untyped __physeq__(length, null))
+		{
+			return untyped __call__('substr', str, start);
+		}
+		else
+		{
+			return untyped __call__('substr', str, start, length);
+		}
+	}
 	
 	public static inline function trim(str:String, character_mask=" \t\n\r\x00\x0B") : String return untyped __call__('trim', str, character_mask);
 	
 	public static inline function ucfirst(str:String) : String return untyped __call__('ucfirst', str);
 	
-	public static inline function ucwords(str:String, ?delimiters:String) : String return untyped __call__('ucwords', str, delimiters);
+	public static function ucwords(str:String, ?delimiters:String) : String
+	{
+		if (untyped __physeq__(delimiters, null))
+		{
+			return untyped __call__('ucwords', str);
+		}
+		else
+		{
+			return untyped __call__('ucwords', str, delimiters);
+		}
+	}
 	
 	public static inline function vfprintf(handle:Resource, format:String, args:NativeArray) : Int return untyped __call__('vfprintf', handle, format, args);
 	
@@ -192,5 +549,15 @@ class StringsNatives
 	
 	public static inline function vsprintf(format:String, args:NativeArray) : String return untyped __call__('vsprintf', format, args);
 	
-	public static inline function wordwrap(str:String, width=75, break_="\n", ?cut:Bool) : String return untyped __call__('wordwrap', str, width, break_, cut);
+	public static function wordwrap(str:String, width=75, break_="\n", ?cut:Bool) : String
+	{
+		if (untyped __physeq__(cut, null))
+		{
+			return untyped __call__('wordwrap', str, width, break_);
+		}
+		else
+		{
+			return untyped __call__('wordwrap', str, width, break_, cut);
+		}
+	}
 }
