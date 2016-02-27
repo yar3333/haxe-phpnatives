@@ -19,7 +19,7 @@ class Main
 	static var reType = reID + "(?:[<]\\s*" + reID + "(?:\\s*,\\s*" + reID + ")*\\s*[>])?";
 	
 	//                       1     2                 3              4
-	static var reParam = '([?]?)($reID)\\s*(?:[:]\\s*($reType))?(?:[=]([^,]+))?';
+	static var reParam = '([?]?)($reID)\\s*(?:[:]\\s*($reType))?(?:\\s*[=]\\s*([^,]+))?';
 	
 	static function main()
 	{
