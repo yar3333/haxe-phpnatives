@@ -2,9 +2,29 @@ package php;
 
 class InfoNatives
 {
-	public static inline function assert_options(what:Int, ?value:Dynamic) : Dynamic return untyped __call__('assert_options', what, value);
+	public static function assert_options(what:Int, ?value:Dynamic) : Dynamic
+	{
+		if (untyped __physeq__(value, null))
+		{
+			return untyped __call__('assert_options', what);
+		}
+		else
+		{
+			return untyped __call__('assert_options', what, value);
+		}
+	}
 	
-	public static inline function assert(assertion:Dynamic, ?description:String) : Bool return untyped __call__('assert', assertion, description);
+	public static function assert(assertion:Dynamic, ?description:String) : Bool
+	{
+		if (untyped __physeq__(description, null))
+		{
+			return untyped __call__('assert', assertion);
+		}
+		else
+		{
+			return untyped __call__('assert', assertion, description);
+		}
+	}
 	
 	public static inline function cli_get_process_title() : String return untyped __call__('cli_get_process_title');
 	
@@ -28,7 +48,7 @@ class InfoNatives
 	
 	public static inline function get_current_user() : String return untyped __call__('get_current_user');
 	
-	public static inline function get_defined_constants(?categorize:Bool=false) : NativeArray return untyped __call__('get_defined_constants', categorize);
+	public static inline function get_defined_constants(categorize=false) : NativeArray return untyped __call__('get_defined_constants', categorize);
 	
 	public static inline function get_extension_funcs(module_name:String) : NativeArray return untyped __call__('get_extension_funcs', module_name);
 	
@@ -36,13 +56,23 @@ class InfoNatives
 	
 	public static inline function get_included_files() : NativeArray return untyped __call__('get_included_files');
 	
-	public static inline function get_loaded_extensions(?zend_extensions:Bool=false) : NativeArray return untyped __call__('get_loaded_extensions', zend_extensions);
+	public static inline function get_loaded_extensions(zend_extensions=false) : NativeArray return untyped __call__('get_loaded_extensions', zend_extensions);
 	
 	public static inline function get_magic_quotes_gpc() : Bool return untyped __call__('get_magic_quotes_gpc');
 	
 	public static inline function get_magic_quotes_runtime() : Bool return untyped __call__('get_magic_quotes_runtime');
 	
-	public static inline function get_resources(?type:String) : NativeArray return untyped __call__('get_resources', type);
+	public static function get_resources(?type:String) : NativeArray
+	{
+		if (untyped __physeq__(type, null))
+		{
+			return untyped __call__('get_resources');
+		}
+		else
+		{
+			return untyped __call__('get_resources', type);
+		}
+	}
 	
 	public static inline function getenv(varname:String) : String return untyped __call__('getenv', varname);
 	
@@ -56,11 +86,31 @@ class InfoNatives
 	
 	public static inline function getmyuid() : Int return untyped __call__('getmyuid');
 	
-	public static inline function getopt(options:String, ?longopts:NativeArray) : NativeArray return untyped __call__('getopt', options, longopts);
+	public static function getopt(options:String, ?longopts:NativeArray) : NativeArray
+	{
+		if (untyped __physeq__(longopts, null))
+		{
+			return untyped __call__('getopt', options);
+		}
+		else
+		{
+			return untyped __call__('getopt', options, longopts);
+		}
+	}
 	
 	public static inline function getrusage(who=0) : NativeArray return untyped __call__('getrusage', who);
 	
-	public static inline function ini_get_all(?extension:String, ?details:Bool=true) : NativeArray return untyped __call__('ini_get_all', extension, details);
+	public static function ini_get_all(?extension:String, details=true) : NativeArray
+	{
+		if (untyped __physeq__(extension, null))
+		{
+			return untyped __call__('ini_get_all');
+		}
+		else
+		{
+			return untyped __call__('ini_get_all', extension, details);
+		}
+	}
 	
 	public static inline function ini_get(varname:String) : String return untyped __call__('ini_get', varname);
 	
@@ -68,9 +118,9 @@ class InfoNatives
 	
 	public static inline function ini_set(varname:String, newvalue:String) : String return untyped __call__('ini_set', varname, newvalue);
 	
-	public static inline function memory_get_peak_usage(?real_usage:Bool=false) : Int return untyped __call__('memory_get_peak_usage', real_usage);
+	public static inline function memory_get_peak_usage(real_usage=false) : Int return untyped __call__('memory_get_peak_usage', real_usage);
 	
-	public static inline function memory_get_usage(?real_usage:Bool=false) : Int return untyped __call__('memory_get_usage', real_usage);
+	public static inline function memory_get_usage(real_usage=false) : Int return untyped __call__('memory_get_usage', real_usage);
 	
 	public static inline function php_ini_loaded_file() : String return untyped __call__('php_ini_loaded_file');
 	
@@ -82,15 +132,41 @@ class InfoNatives
 	
 	public static inline function php_uname(mode="a") : String return untyped __call__('php_uname', mode);
 	
-	public static inline function phpcredits() : Bool return untyped __call__('phpcredits');
+	public static function phpcredits(?flag:Int) : Bool
+	{
+		if (untyped __physeq__(flag, null))
+		{
+			return untyped __call__('phpcredits');
+		}
+		else
+		{
+			return untyped __call__('phpcredits', flag);
+		}
+	}
 	
-	public static inline function phpcredits_ex(flag:Int) : Bool return untyped __call__('phpcredits', flag);
+	public static function phpinfo(?what:Int) : Bool
+	{
+		if (untyped __physeq__(what, null))
+		{
+			return untyped __call__('phpinfo');
+		}
+		else
+		{
+			return untyped __call__('phpinfo', what);
+		}
+	}
 	
-	public static inline function phpinfo() : Bool return untyped __call__('phpinfo');
-	
-	public static inline function phpinfo_ex(what:Int) : Bool return untyped __call__('phpinfo', what);
-	
-	public static inline function phpversion(?extension:String) : String return untyped __call__('phpversion', extension);
+	public static function phpversion(?extension:String) : String
+	{
+		if (untyped __physeq__(extension, null))
+		{
+			return untyped __call__('phpversion');
+		}
+		else
+		{
+			return untyped __call__('phpversion', extension);
+		}
+	}
 	
 	public static inline function putenv(setting:String) : Bool return untyped __call__('putenv', setting);
 	
@@ -104,7 +180,17 @@ class InfoNatives
 	
 	public static inline function sys_get_temp_dir() : String return untyped __call__('sys_get_temp_dir');
 	
-	public static inline function version_compare(version1:String, version2:String, ?operator:String) : Dynamic return untyped __call__('version_compare', version1, version2, operator);
+	public static function version_compare(version1:String, version2:String, ?operator:String) : Dynamic
+	{
+		if (untyped __physeq__(operator, null))
+		{
+			return untyped __call__('version_compare', version1, version2);
+		}
+		else
+		{
+			return untyped __call__('version_compare', version1, version2, operator);
+		}
+	}
 	
 	public static inline function zend_logo_guid() : String return untyped __call__('zend_logo_guid');
 	
