@@ -64,9 +64,17 @@ class MathNatives
 	
 	public static inline function log1p(number:Float) : Float return untyped __call__('log1p', number);
 	
-	public static inline function log(arg:Float) : Float return untyped __call__('log', arg);
-	
-	public static inline function log_ex(arg:Float, base:Float) : Float return untyped __call__('log', arg, base);
+	public static function log(arg:Float, ?base:Float) : Float
+	{
+		if (untyped __physeq__(base, null))
+		{
+			return untyped __call__('log', arg);
+		}
+		else
+		{
+			return untyped __call__('log', arg, base);
+		}
+	}
 	
 	public static inline function max(values:NativeArray) : Dynamic return untyped __call__('max', values);
 	
@@ -98,9 +106,17 @@ class MathNatives
 	
 	public static inline function rand() : Int return untyped __call__('rand');
 	
-	public static inline function round(val:Float, precision=0) : Float return untyped __call__('round', val, precision);
-	
-	public static inline function round_ex(val:Float, precision=0, mode:Int) : Float return untyped __call__('round', val, precision, mode);
+	public static function round(val:Float, precision=0, ?mode:Int) : Float
+	{
+		if (untyped __physeq__(mode, null))
+		{
+			return untyped __call__('round', val, precision);
+		}
+		else
+		{
+			return untyped __call__('round', val, precision, mode);
+		}
+	}
 	
 	public static inline function sin(arg:Float) : Float return untyped __call__('sin', arg);
 	
@@ -108,9 +124,17 @@ class MathNatives
 	
 	public static inline function sqrt(arg:Float) : Float return untyped __call__('sqrt', arg);
 	
-	public static inline function srand() : Void return untyped __call__('srand');
-	
-	public static inline function srand_ex(seed:Int) : Void return untyped __call__('srand', seed);
+	public static function srand(?seed:Int) : Void
+	{
+		if (untyped __physeq__(seed, null))
+		{
+			untyped __call__('srand');
+		}
+		else
+		{
+			untyped __call__('srand', seed);
+		}
+	}
 	
 	public static inline function tan(arg:Float) : Float return untyped __call__('tan', arg);
 	
