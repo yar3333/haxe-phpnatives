@@ -76,7 +76,17 @@ class MathNatives
 	
 	public static inline function mt_rand() : Int return untyped __call__('mt_rand');
 	
-	public static inline function mt_srand(?seed:Int) : Void return untyped __call__('mt_srand', seed);
+	public static function mt_srand(?seed:Int) : Void
+	{
+		if (untyped __physeq__(seed, null))
+		{
+			untyped __call__('mt_srand');
+		}
+		else
+		{
+			untyped __call__('mt_srand', seed);
+		}
+	}
 	
 	public static inline function octdec(octal_string:String) : Float return untyped __call__('octdec', octal_string);
 	
