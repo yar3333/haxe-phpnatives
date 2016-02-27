@@ -26,15 +26,13 @@ class StringsNatives
 	
 	public static inline function echo(arg1:String, ?restArgs:String) : Void return untyped __call__('echo', arg1, restArgs);
 	
-	public static inline function explode(delimiter:String, str:String) : NativeArray return untyped __call__('explode', delimiter, str);
-	
-	public static inline function explode_ex(delimiter:String, str:String, limit:Int) : NativeArray return untyped __call__('explode', delimiter, str, limit);
+	public static inline function explode(delimiter:String, str:String, ?limit:Int) : NativeArray return untyped __call__('explode', delimiter, str, limit);
 	
 	public static inline function fprintf(handle:Resource, format:String, ?args:Dynamic, ?restArgs:Dynamic) : Int return untyped __call__('fprintf', handle, format, args, restArgs);
 	
 	public static inline function get_html_translation_table() : NativeArray return untyped __call__('get_html_translation_table');
 	
-	//public static inline function get_html_translation_table(?table:Int=COMPLEX_VALUE, ?flags:Int=COMPLEX_VALUE, encoding="UTF-8") : NativeArray return untyped __call__('get_html_translation_table', table, flags, encoding);
+	public static inline function get_html_translation_table(?table:Int, ?flags:Int, encoding="UTF-8") : NativeArray return untyped __call__('get_html_translation_table', table, flags, encoding);
 	
 	public static inline function hebrev(hebrew_text:String, max_chars_per_line=0) : String return untyped __call__('hebrev', hebrew_text, max_chars_per_line);
 	
@@ -42,29 +40,15 @@ class StringsNatives
 	
 	public static inline function hex2bin(data:String) : String return untyped __call__('hex2bin', data);
 	
-	public static inline function html_entity_decode(str:String) : String return untyped __call__('html_entity_decode', str);
+	public static inline function html_entity_decode(str:String, ?flags:Int, ?encoding:String) : String return untyped __call__('html_entity_decode', str, flags, encoding);
 	
-	public static inline function html_entity_decode_ex(str:String, flags:Int) : String return untyped __call__('html_entity_decode', str, flags);
+	public static inline function htmlentities(str:String, ?flags:Int, ?encoding:String, ?double_encode:Bool) : String return untyped __call__('htmlentities', str, flags, encoding, double_encode);
 	
-	public static inline function html_entity_decode_ex_ex(str:String, flags:Int, encoding:String) : String return untyped __call__('html_entity_decode', str, flags, encoding);
+	public static inline function htmlspecialchars_decode(str:String, ?flags:Int) : String return untyped __call__('htmlspecialchars_decode', str, flags);
 	
-	public static inline function htmlentities(str:String) : String return untyped __call__('htmlentities', str);
+	public static inline function htmlspecialchars(str:String, ?flags:Int, ?encoding:String), ?double_encode:Bool) : String return untyped untyped __call__('htmlspecialchars', str);
 	
-	public static inline function htmlentities_ex(str:String, flags:Int) : String return untyped __call__('htmlentities', str, flags);
-	
-	public static inline function htmlentities_ex_ex(str:String, flags:Int, encoding:String) : String return untyped __call__('htmlentities', str, flags, encoding);
-	
-	public static inline function htmlentities_ex_ex_ex(str:String, flags:Int, encoding:String, double_encode:Bool) : String return untyped __call__('htmlentities', str, flags, encoding, double_encode);
-	
-	public static inline function htmlspecialchars_decode(str:String) : String return untyped __call__('htmlspecialchars_decode', str);
-	
-	public static inline function htmlspecialchars_decode_ex(str:String, flags:Int) : String return untyped __call__('htmlspecialchars_decode', str, flags);
-	
-	public static inline function htmlspecialchars(str:String) : String return untyped untyped __call__('htmlspecialchars', str);
-	
-	//public static inline function htmlspecialchars(str:String, ?flags:Int=COMPLEX_VALUE, ?encoding:String=COMPLEX_VALUE), ?double_encode:Bool=COMPLEX_VALUE) : String
-	
-	public static inline function implode(glue:String, pieces:NativeArray) : String return untyped __call__('implode', glue, pieces);
+	public static inline function implode(glue="", pieces:NativeArray) : String return untyped __call__('implode', glue, pieces);
 	
 	public static inline function lcfirst(str:String) : String return untyped __call__('lcfirst', str);
 	
@@ -122,9 +106,7 @@ class StringsNatives
 	
 	public static inline function str_ireplace(search:Dynamic, replace:Dynamic, subject:Dynamic, ?count:Int) : Dynamic return untyped __call__('str_ireplace', search, replace, subject, count);
 	
-	public static inline function str_pad(input:String, pad_length:Int, pad_string=" ") : String return untyped __call__('str_pad', input, pad_length, pad_string);
-	
-	public static inline function str_pad_ex(input:String, pad_length:Int, pad_string=" ", pad_type:Int) : String return untyped __call__('str_pad', input, pad_length, pad_string, pad_type);
+	public static inline function str_pad(input:String, pad_length:Int, pad_string=" ", ?pad_type:Int) : String return untyped __call__('str_pad', input, pad_length, pad_string, pad_type);
 	
 	public static inline function str_repeat(input:String, multiplier:Int) : String return untyped __call__('str_repeat', input, multiplier);
 	
@@ -202,9 +184,7 @@ class StringsNatives
 	
 	public static inline function ucfirst(str:String) : String return untyped __call__('ucfirst', str);
 	
-	public static inline function ucwords(str:String) : String return untyped __call__('ucwords', str);
-	
-	public static inline function ucwords_ex(str:String, delimiters:String) : String return untyped __call__('ucwords', str, delimiters);
+	public static inline function ucwords(str:String, ?delimiters:String) : String return untyped __call__('ucwords', str, delimiters);
 	
 	public static inline function vfprintf(handle:Resource, format:String, args:NativeArray) : Int return untyped __call__('vfprintf', handle, format, args);
 	
@@ -212,7 +192,5 @@ class StringsNatives
 	
 	public static inline function vsprintf(format:String, args:NativeArray) : String return untyped __call__('vsprintf', format, args);
 	
-	public static inline function wordwrap(str:String, width=75, break_="\n") : String return untyped __call__('wordwrap', str, width, break_);
-	
-	public static inline function wordwrap_ex(str:String, width=75, break_="\n", cut:Bool) : String return untyped __call__('wordwrap', str, width, break_, cut);
+	public static inline function wordwrap(str:String, width=75, break_="\n", ?cut:Bool) : String return untyped __call__('wordwrap', str, width, break_, cut);
 }
