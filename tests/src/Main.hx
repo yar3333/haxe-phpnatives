@@ -13,6 +13,7 @@ import php.MathNatives;
 import php.UrlNatives;
 import php.FilesystemNatives;
 import php.OutcontrolNatives;
+import php.MiscNatives;
 
 class Main extends TestCase
 {
@@ -34,5 +35,8 @@ class Main extends TestCase
 		assertEquals(2, PcreNatives.preg_match_all("/a./", "123a4hnt3a5", matches));
 		assertEquals(1, ArrayNatives.count(matches));
 		assertEquals(2, ArrayNatives.count(matches[0]));
+		
+		assertEquals(1, PcreNatives.preg_match(untyped __php__("\"/\\*/\""), "a*b"));
+		assertEquals(1, PcreNatives.preg_match("/\\*/", "a*b"));
 	}
 }
