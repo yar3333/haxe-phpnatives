@@ -67,8 +67,6 @@ class StringsNatives
 		}
 	}
 	
-	public static inline function get_html_translation_table() : NativeArray return untyped __call__('get_html_translation_table');
-	
 	public static function get_html_translation_table(?table:Int, ?flags:Int, encoding="UTF-8") : NativeArray
 	{
 		if (untyped __physeq__(flags, null))
