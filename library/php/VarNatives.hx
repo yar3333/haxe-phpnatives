@@ -4,7 +4,17 @@ class VarNatives
 {
 	public static inline function boolval(var_:Dynamic) : Bool return untyped __call__('boolval', var_);
 	
-	public static inline function debug_zval_dump(variable:Dynamic, ?restArgs:Dynamic) : Void return untyped __call__('debug_zval_dump', variable, restArgs);
+	public static function debug_zval_dump(variable:Dynamic, ?restArgs:Dynamic) : Void
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			untyped __call__('debug_zval_dump', variable);
+		}
+		else
+		{
+			untyped __call__('debug_zval_dump', variable, restArgs);
+		}
+	}
 	
 	public static inline function empty(var_:Dynamic) : Bool return untyped __call__('empty', var_);
 	
@@ -16,7 +26,17 @@ class VarNatives
 	
 	public static inline function gettype(var_:Dynamic) : String return untyped __call__('gettype', var_);
 	
-	public static inline function import_request_variables(types:String, ?prefix:String) : Bool return untyped __call__('import_request_variables', types, prefix);
+	public static function import_request_variables(types:String, ?prefix:String) : Bool
+	{
+		if (untyped __physeq__(prefix, null))
+		{
+			return untyped __call__('import_request_variables', types);
+		}
+		else
+		{
+			return untyped __call__('import_request_variables', types, prefix);
+		}
+	}
 	
 	public static inline function intval(var_:Dynamic, base=10) : Int return untyped __call__('intval', var_, base);
 	
@@ -24,7 +44,17 @@ class VarNatives
 	
 	public static inline function is_bool(var_:Dynamic) : Bool return untyped __call__('is_bool', var_);
 	
-	public static inline function is_callable(var_:Dynamic, syntax_only=false, ?callable_name:String) : Bool return untyped __call__('is_callable', var_, syntax_only, callable_name);
+	public static function is_callable(var_:Dynamic, syntax_only=false, ?callable_name:String) : Bool
+	{
+		if (untyped __physeq__(callable_name, null))
+		{
+			return untyped __call__('is_callable', var_, syntax_only);
+		}
+		else
+		{
+			return untyped __call__('is_callable', var_, syntax_only, callable_name);
+		}
+	}
 	
 	public static inline function is_float(var_:Dynamic) : Bool return untyped __call__('is_float', var_);
 	
@@ -54,13 +84,31 @@ class VarNatives
 	
 	public static inline function strval(var_:Dynamic) : String return untyped __call__('strval', var_);
 	
-	public static inline function unserialize(str:String, ?options:NativeArray) : Dynamic return untyped __call__('unserialize', str, options);
+	public static function unserialize(str:String, ?options:NativeArray) : Dynamic
+	{
+		if (untyped __physeq__(options, null))
+		{
+			return untyped __call__('unserialize', str);
+		}
+		else
+		{
+			return untyped __call__('unserialize', str, options);
+		}
+	}
 	
 	public static inline function unset(var_:Dynamic) : Void return untyped __call__('unset', var_);
 	
-	public static inline function unset_ex(var_:Dynamic, restArgs:Dynamic) : Void return untyped __call__('unset', var_, restArgs);
-	
-	public static inline function var_dump(expression:Dynamic, ?restArgs:Dynamic) : Void return untyped __call__('var_dump', expression, restArgs);
+	public static function var_dump(expression:Dynamic, ?restArgs:Dynamic) : Void
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			untyped __call__('var_dump', expression);
+		}
+		else
+		{
+			untyped __call__('var_dump', expression, restArgs);
+		}
+	}
 	
 	public static inline function var_export(expression:Dynamic, return_=false) : Dynamic return untyped __call__('var_export', expression, return_);
 }
