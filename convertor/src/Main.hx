@@ -25,53 +25,40 @@ class Main
 	
 	static function main()
 	{
-		processGroups(["var"], "php.VarNatives", []);
-		processGroups(["array"], "php.ArrayNatives", []);
-		processGroups(["imap"], "php.ImapNatives", [ "import php.imap.*" ]);
-		processGroups(["datetime"], "php.DatetimeNatives", []);
-		processGroups(["info"], "php.InfoNatives", []);
-		processGroups(["strings"], "php.StringsNatives", []);
-		processGroups(["mbstring"], "php.MbstringNatives", []);
-		processGroups(["pcre"], "php.PcreNatives", []);
-		processGroups(["iconv"], "php.IconvNatives", []);
-		processGroups(["math"], "php.MathNatives", []);
-		processGroups(["url"], "php.UrlNatives", []);
-		processGroups(["filesystem"], "php.FilesystemNatives", []);
-		processGroups(["outcontrol"], "php.OutcontrolNatives", []);
-		processGroups(["misc"], "php.MiscNatives", []);
+		processGroup("var",			"php.VarNatives", 		[]);
+		processGroup("array",		"php.ArrayNatives", 	[]);
+		processGroup("imap",		"php.ImapNatives", 		[ "import php.imap.*" ]);
+		processGroup("datetime",	"php.DatetimeNatives", 	[]);
+		processGroup("info",		"php.InfoNatives", 		[]);
+		processGroup("strings",		"php.StringsNatives", 	[]);
+		processGroup("mbstring",	"php.MbstringNatives", 	[]);
+		processGroup("pcre",		"php.PcreNatives", 		[]);
+		processGroup("iconv",		"php.IconvNatives", 	[]);
+		processGroup("math",		"php.MathNatives", 		[]);
+		processGroup("url",			"php.UrlNatives", 		[]);
+		processGroup("filesystem", 	"php.FilesystemNatives",[]);
+		processGroup("outcontrol", 	"php.OutcontrolNatives",[]);
+		processGroup("misc",		"php.MiscNatives", 		[]);
 	}
 	
-	static function processGroups(groups:Array<String>, packageAndClass:String, imports:Array<String>)
+	static function processGroup(group:String, packageAndClass:String, imports:Array<String>)
 	{
+		Log.start("Process " + group);
+		
 		var methods = [];
 		
-		for (group in groups)
+		var text = File.getContent("bin/" + group + ".json");
+		var elements : Array<Element> = TJSON.parse(text);
+		for (element in elements)
 		{
-			Log.start("Process " + group);
-			
-			if (methods.length > 0) methods.push("");
-			
-			methods.push("//{ " + group);
-			methods.push("");
-			
-			var text = File.getContent("bin/" + group + ".json");
-			var elements : Array<Element> = TJSON.parse(text);
-			for (element in elements)
+			if (element.prototype != null)
 			{
-				if (element.prototype != null)
-				{
-					Log.start("Convert " + element.name);
-					File.saveContent("bin/temp.php", element.prototype);
-					Sys.command("haxelib", [ "run", "refactor", "convertFile", "bin/temp.php", "bin/temp.hx", "c-like_php_to_haxe.rules" ]);
-					methods = methods.concat(processMethod(File.getContent("bin/temp.hx").split("\n")));
-					Log.finishSuccess();
-				}
+				Log.start("Convert " + element.name);
+				File.saveContent("bin/temp.php", element.prototype);
+				Sys.command("haxelib", [ "run", "refactor", "convertFile", "bin/temp.php", "bin/temp.hx", "c-like_php_to_haxe.rules" ]);
+				methods = methods.concat(processMethod(File.getContent("bin/temp.hx").split("\n")));
+				Log.finishSuccess();
 			}
-			
-			methods.push("");
-			methods.push("//}");
-			
-			Log.finishSuccess();
 		}
 		
 		FileSystem.deleteFile("bin/temp.php");
@@ -88,6 +75,8 @@ class Main
 		  + methods.map.fn("\t" + _ + "\n").join("")
 		  + "}\n"
 		);
+		
+		Log.finishSuccess();
 	}
 	
 	static function processMethod(method:Array<String>) : Array<String>
