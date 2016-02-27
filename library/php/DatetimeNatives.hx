@@ -14,55 +14,271 @@ class DatetimeNatives
 	
 	public static inline function date_sun_info(time:Int, latitude:Float, longitude:Float) : NativeArray return untyped __call__('date_sun_info', time, latitude, longitude);
 	
-	//mixed date_sunrise(timestamp:Int, ?format:Int=SUNFUNCS_RET_STRING, ?latitude:Float=COMPLEX_VALUE), ?longitude:Float=COMPLEX_VALUE), ?zenith:Float=COMPLEX_VALUE), ?gmt_offset:Float=0)
+	public static function date_sunrise(timestamp:Int, ?format:Int, ?latitude:Float, ?longitude:Float, ?zenith:Float, gmt_offset=0.0) : Dynamic
+	{
+		if (untyped __physeq__(zenith, null))
+		{
+			if (untyped __physeq__(longitude, null))
+			{
+				if (untyped __physeq__(latitude, null))
+				{
+					if (untyped __physeq__(format, null))
+					{
+						return untyped __call__('date_sunrise', timestamp);
+					}
+					else
+					{
+						return untyped __call__('date_sunrise', timestamp, format);
+					}
+				}
+				else
+				{
+					return untyped __call__('date_sunrise', timestamp, format, latitude);
+				}
+			}
+			else
+			{
+				return untyped __call__('date_sunrise', timestamp, format, latitude, longitude);
+			}
+		}
+		else
+		{
+			return untyped __call__('date_sunrise', timestamp, format, latitude, longitude, zenith, gmt_offset);
+		}
+	}
 	
-	//mixed date_sunset(timestamp:Int, ?format:Int=SUNFUNCS_RET_STRING, ?latitude:Float=COMPLEX_VALUE), ?longitude:Float=COMPLEX_VALUE), ?zenith:Float=COMPLEX_VALUE), ?gmt_offset:Float=0)
+	public static function date_sunset(timestamp:Int, ?format:Int, ?latitude:Float, ?longitude:Float, ?zenith:Float, gmt_offset=0.0) : Dynamic
+	{
+		if (untyped __physeq__(zenith, null))
+		{
+			if (untyped __physeq__(longitude, null))
+			{
+				if (untyped __physeq__(latitude, null))
+				{
+					if (untyped __physeq__(format, null))
+					{
+						return untyped __call__('date_sunset', timestamp);
+					}
+					else
+					{
+						return untyped __call__('date_sunset', timestamp, format);
+					}
+				}
+				else
+				{
+					return untyped __call__('date_sunset', timestamp, format, latitude);
+				}
+			}
+			else
+			{
+				return untyped __call__('date_sunset', timestamp, format, latitude, longitude);
+			}
+		}
+		else
+		{
+			return untyped __call__('date_sunset', timestamp, format, latitude, longitude, zenith, gmt_offset);
+		}
+	}
 	
-	public static inline function date(format:String) : String return untyped __call__('date', format);
+	public static function date(format:String, ?timestamp:Int) : String
+	{
+		if (untyped __physeq__(timestamp, null))
+		{
+			return untyped __call__('date', format);
+		}
+		else
+		{
+			return untyped __call__('date', format, timestamp);
+		}
+	}
 	
-	public static inline function date_ex(format:String, timestamp:Int) : String return untyped __call__('date', format, timestamp);
+	public static function getdate(?timestamp:Int) : NativeArray
+	{
+		if (untyped __physeq__(timestamp, null))
+		{
+			return untyped __call__('getdate');
+		}
+		else
+		{
+			return untyped __call__('getdate', timestamp);
+		}
+	}
 	
-	public static inline function getdate() : NativeArray return untyped __call__('getdate');
+	public static inline function gettimeofday(return_float=false) : Dynamic return untyped __call__('gettimeofday', return_float);
 	
-	public static inline function getdate_ex(timestamp:Int) : NativeArray return untyped __call__('getdate', timestamp);
+	public static function gmdate(format:String, ?timestamp:Int) : String
+	{
+		if (untyped __physeq__(timestamp, null))
+		{
+			return untyped __call__('gmdate', format);
+		}
+		else
+		{
+			return untyped __call__('gmdate', format, timestamp);
+		}
+	}
 	
-	public static inline function gettimeofday(?return_float:Bool=false) : Dynamic return untyped __call__('gettimeofday', return_float);
+	public static function gmmktime(?hour:Int, ?minute:Int, ?second:Int, ?month:Int, ?day:Int, ?year:Int, is_dst=-1) : Int
+	{
+		if (untyped __physeq__(year, null))
+		{
+			if (untyped __physeq__(day, null))
+			{
+				if (untyped __physeq__(month, null))
+				{
+					if (untyped __physeq__(second, null))
+					{
+						if (untyped __physeq__(minute, null))
+						{
+							if (untyped __physeq__(hour, null))
+							{
+								return untyped __call__('gmmktime');
+							}
+							else
+							{
+								return untyped __call__('gmmktime', hour);
+							}
+						}
+						else
+						{
+							return untyped __call__('gmmktime', hour, minute);
+						}
+					}
+					else
+					{
+						return untyped __call__('gmmktime', hour, minute, second);
+					}
+				}
+				else
+				{
+					return untyped __call__('gmmktime', hour, minute, second, month);
+				}
+			}
+			else
+			{
+				return untyped __call__('gmmktime', hour, minute, second, month, day);
+			}
+		}
+		else
+		{
+			return untyped __call__('gmmktime', hour, minute, second, month, day, year, is_dst);
+		}
+	}
 	
-	public static inline function gmdate(format:String) : String return untyped __call__('gmdate', format);
+	public static function gmstrftime(format:String, ?timestamp:Int) : String
+	{
+		if (untyped __physeq__(timestamp, null))
+		{
+			return untyped __call__('gmstrftime', format);
+		}
+		else
+		{
+			return untyped __call__('gmstrftime', format, timestamp);
+		}
+	}
 	
-	public static inline function gmdate_ex(format:String, timestamp:Int) : String return untyped __call__('gmdate', format, timestamp);
+	public static function idate(format:String, ?timestamp:Int) : Int
+	{
+		if (untyped __physeq__(timestamp, null))
+		{
+			return untyped __call__('idate', format);
+		}
+		else
+		{
+			return untyped __call__('idate', format, timestamp);
+		}
+	}
 	
-	//int gmmktime(?hour:Int=COMPLEX_VALUE), ?minute:Int=COMPLEX_VALUE), ?second:Int=COMPLEX_VALUE), ?month:Int=COMPLEX_VALUE), ?day:Int=COMPLEX_VALUE), ?year:Int=COMPLEX_VALUE), ?is_dst:Int=-1)
+	public static function localtime(?timestamp:Int, is_associative=false) : NativeArray
+	{
+		if (untyped __physeq__(timestamp, null))
+		{
+			return untyped __call__('localtime');
+		}
+		else
+		{
+			return untyped __call__('localtime', timestamp, is_associative);
+		}
+	}
 	
-	public static inline function gmstrftime(format:String) : String return untyped __call__('gmstrftime', format);
+	public static inline function microtime(get_as_float=false) : Dynamic return untyped __call__('microtime', get_as_float);
 	
-	public static inline function gmstrftime_ex(format:String, timestamp:Int) : String return untyped __call__('gmstrftime', format, timestamp);
+	public static function mktime(?hour:Int, ?minute:Int, ?second:Int, ?month:Int, ?day:Int, ?year:Int, is_dst=-1) : Int
+	{
+		if (untyped __physeq__(year, null))
+		{
+			if (untyped __physeq__(day, null))
+			{
+				if (untyped __physeq__(month, null))
+				{
+					if (untyped __physeq__(second, null))
+					{
+						if (untyped __physeq__(minute, null))
+						{
+							if (untyped __physeq__(hour, null))
+							{
+								return untyped __call__('mktime');
+							}
+							else
+							{
+								return untyped __call__('mktime', hour);
+							}
+						}
+						else
+						{
+							return untyped __call__('mktime', hour, minute);
+						}
+					}
+					else
+					{
+						return untyped __call__('mktime', hour, minute, second);
+					}
+				}
+				else
+				{
+					return untyped __call__('mktime', hour, minute, second, month);
+				}
+			}
+			else
+			{
+				return untyped __call__('mktime', hour, minute, second, month, day);
+			}
+		}
+		else
+		{
+			return untyped __call__('mktime', hour, minute, second, month, day, year, is_dst);
+		}
+	}
 	
-	public static inline function idate(format:String) : Int return untyped __call__('idate', format);
-	
-	public static inline function idate_ex(format:String, timestamp:Int) : Int return untyped __call__('idate', format, timestamp);
-	
-	public static inline function localtime() : NativeArray return untyped __call__('localtime');
-	
-	public static inline function localtime_ex(timestamp:Int, is_associative=false) : NativeArray return untyped __call__('localtime', timestamp, is_associative);
-	
-	public static inline function microtime(?get_as_float:Bool=false) : Dynamic return untyped __call__('microtime', get_as_float);
-	
-	//int mktime(?hour:Int=COMPLEX_VALUE), ?minute:Int=COMPLEX_VALUE), ?second:Int=COMPLEX_VALUE), ?month:Int=COMPLEX_VALUE), ?day:Int=COMPLEX_VALUE), ?year:Int=COMPLEX_VALUE), ?is_dst:Int=-1)
-	
-	public static inline function strftime(format:String) : String return untyped __call__('strftime', format);
-	
-	public static inline function strftime_ex(format:String, timestamp:Int) : String return untyped __call__('strftime', format, timestamp);
+	public static function strftime(format:String, ?timestamp:Int) : String
+	{
+		if (untyped __physeq__(timestamp, null))
+		{
+			return untyped __call__('strftime', format);
+		}
+		else
+		{
+			return untyped __call__('strftime', format, timestamp);
+		}
+	}
 	
 	public static inline function strptime(date:String, format:String) : NativeArray return untyped __call__('strptime', date, format);
 	
-	public static inline function strtotime(time:String) : Int return untyped __call__('strtotime', time);
-	
-	public static inline function strtotime_ex(time:String, now:Int) : Int return untyped __call__('strtotime', time, now);
+	public static function strtotime(time:String, ?now:Int) : Int
+	{
+		if (untyped __physeq__(now, null))
+		{
+			return untyped __call__('strtotime', time);
+		}
+		else
+		{
+			return untyped __call__('strtotime', time, now);
+		}
+	}
 	
 	public static inline function time() : Int return untyped __call__('time');
 	
-	public static inline function timezone_name_from_abbr(abbr:String, ?gmtOffset:Int=-1, ?isdst:Int=-1) : String return untyped __call__('timezone_name_from_abbr', abbr, gmtOffset, isdst);
+	public static inline function timezone_name_from_abbr(abbr:String, gmtOffset=-1, isdst=-1) : String return untyped __call__('timezone_name_from_abbr', abbr, gmtOffset, isdst);
 	
 	public static inline function timezone_version_get() : String return untyped __call__('timezone_version_get');
 }
