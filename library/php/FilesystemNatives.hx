@@ -2,7 +2,17 @@ package php;
 
 class FilesystemNatives
 {
-	public static inline function basename(path:String, ?suffix:String) : String return untyped __call__('basename', path, suffix);
+	public static function basename(path:String, ?suffix:String) : String
+	{
+		if (untyped __physeq__(suffix, null))
+		{
+			return untyped __call__('basename', path);
+		}
+		else
+		{
+			return untyped __call__('basename', path, suffix);
+		}
+	}
 	
 	public static inline function chgrp(filename:String, group:Dynamic) : Bool return untyped __call__('chgrp', filename, group);
 	
@@ -10,9 +20,29 @@ class FilesystemNatives
 	
 	public static inline function chown(filename:String, user:Dynamic) : Bool return untyped __call__('chown', filename, user);
 	
-	public static inline function clearstatcache(clear_realpath_cache=false, ?filename:String) : Void return untyped __call__('clearstatcache', clear_realpath_cache, filename);
+	public static function clearstatcache(clear_realpath_cache=false, ?filename:String) : Void
+	{
+		if (untyped __physeq__(filename, null))
+		{
+			untyped __call__('clearstatcache', clear_realpath_cache);
+		}
+		else
+		{
+			untyped __call__('clearstatcache', clear_realpath_cache, filename);
+		}
+	}
 	
-	public static inline function copy(source:String, dest:String, ?context:Resource) : Bool return untyped __call__('copy', source, dest, context);
+	public static function copy(source:String, dest:String, ?context:Resource) : Bool
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('copy', source, dest);
+		}
+		else
+		{
+			return untyped __call__('copy', source, dest, context);
+		}
+	}
 	
 	public static inline function dirname(path:String, levels=1) : String return untyped __call__('dirname', path, levels);
 	
@@ -30,17 +60,81 @@ class FilesystemNatives
 	
 	public static inline function fgetcsv(handle:Resource, length=0, delimiter=",", enclosure='"', escape="\\") : NativeArray return untyped __call__('fgetcsv', handle, length, delimiter, enclosure, escape);
 	
-	public static inline function fgets(handle:Resource, ?length:Int) : String return untyped __call__('fgets', handle, length);
+	public static function fgets(handle:Resource, ?length:Int) : String
+	{
+		if (untyped __physeq__(length, null))
+		{
+			return untyped __call__('fgets', handle);
+		}
+		else
+		{
+			return untyped __call__('fgets', handle, length);
+		}
+	}
 	
-	public static inline function fgetss(handle:Resource, ?length:Int, ?allowable_tags:String) : String return untyped __call__('fgetss', handle, length, allowable_tags);
+	public static function fgetss(handle:Resource, ?length:Int, ?allowable_tags:String) : String
+	{
+		if (untyped __physeq__(allowable_tags, null))
+		{
+			if (untyped __physeq__(length, null))
+			{
+				return untyped __call__('fgetss', handle);
+			}
+			else
+			{
+				return untyped __call__('fgetss', handle, length);
+			}
+		}
+		else
+		{
+			return untyped __call__('fgetss', handle, length, allowable_tags);
+		}
+	}
 	
 	public static inline function file_exists(filename:String) : Bool return untyped __call__('file_exists', filename);
 	
-	public static inline function file_get_contents(filename:String, use_include_path=false, ?context:Resource, offset=0, ?maxlen:Int) : String return untyped __call__('file_get_contents', filename, use_include_path, context, offset, maxlen);
+	public static function file_get_contents(filename:String, use_include_path=false, ?context:Resource, offset=0, ?maxlen:Int) : String
+	{
+		if (untyped __physeq__(maxlen, null))
+		{
+			if (untyped __physeq__(context, null))
+			{
+				return untyped __call__('file_get_contents', filename, use_include_path);
+			}
+			else
+			{
+				return untyped __call__('file_get_contents', filename, use_include_path, context, offset);
+			}
+		}
+		else
+		{
+			return untyped __call__('file_get_contents', filename, use_include_path, context, offset, maxlen);
+		}
+	}
 	
-	public static inline function file_put_contents(filename:String, data:Dynamic, flags=0, ?context:Resource) : Int return untyped __call__('file_put_contents', filename, data, flags, context);
+	public static function file_put_contents(filename:String, data:Dynamic, flags=0, ?context:Resource) : Int
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('file_put_contents', filename, data, flags);
+		}
+		else
+		{
+			return untyped __call__('file_put_contents', filename, data, flags, context);
+		}
+	}
 	
-	public static inline function file(filename:String, flags=0, ?context:Resource) : NativeArray return untyped __call__('file', filename, flags, context);
+	public static function file(filename:String, flags=0, ?context:Resource) : NativeArray
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('file', filename, flags);
+		}
+		else
+		{
+			return untyped __call__('file', filename, flags, context);
+		}
+	}
 	
 	public static inline function fileatime(filename:String) : Int return untyped __call__('fileatime', filename);
 	
@@ -60,11 +154,31 @@ class FilesystemNatives
 	
 	public static inline function filetype(filename:String) : String return untyped __call__('filetype', filename);
 	
-	public static inline function flock(handle:Resource, operation:Int, ?wouldblock:Int) : Bool return untyped __call__('flock', handle, operation, wouldblock);
+	public static function flock(handle:Resource, operation:Int, ?wouldblock:Int) : Bool
+	{
+		if (untyped __physeq__(wouldblock, null))
+		{
+			return untyped __call__('flock', handle, operation);
+		}
+		else
+		{
+			return untyped __call__('flock', handle, operation, wouldblock);
+		}
+	}
 	
 	public static inline function fnmatch(pattern:String, str:String, flags=0) : Bool return untyped __call__('fnmatch', pattern, str, flags);
 	
-	public static inline function fopen(filename:String, mode:String, use_include_path=false, ?context:Resource) : Resource return untyped __call__('fopen', filename, mode, use_include_path, context);
+	public static function fopen(filename:String, mode:String, use_include_path=false, ?context:Resource) : Resource
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('fopen', filename, mode, use_include_path);
+		}
+		else
+		{
+			return untyped __call__('fopen', filename, mode, use_include_path, context);
+		}
+	}
 	
 	public static inline function fpassthru(handle:Resource) : Int return untyped __call__('fpassthru', handle);
 	
@@ -72,9 +186,29 @@ class FilesystemNatives
 	
 	public static inline function fread(handle:Resource, length:Int) : String return untyped __call__('fread', handle, length);
 	
-	public static inline function fscanf(handle:Resource, format:String, ?restArgs:Dynamic) : Dynamic return untyped __call__('fscanf', handle, format, restArgs);
+	public static function fscanf(handle:Resource, format:String, ?restArgs:Dynamic) : Dynamic
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			return untyped __call__('fscanf', handle, format);
+		}
+		else
+		{
+			return untyped __call__('fscanf', handle, format, restArgs);
+		}
+	}
 	
-	public static inline function fseek(handle:Resource, offset:Int, ?whence:Int) : Int return untyped __call__('fseek', handle, offset, whence);
+	public static function fseek(handle:Resource, offset:Int, ?whence:Int) : Int
+	{
+		if (untyped __physeq__(whence, null))
+		{
+			return untyped __call__('fseek', handle, offset);
+		}
+		else
+		{
+			return untyped __call__('fseek', handle, offset, whence);
+		}
+	}
 	
 	public static inline function fstat(handle:Resource) : NativeArray return untyped __call__('fstat', handle);
 	
@@ -82,7 +216,17 @@ class FilesystemNatives
 	
 	public static inline function ftruncate(handle:Resource, size:Int) : Bool return untyped __call__('ftruncate', handle, size);
 	
-	public static inline function fwrite(handle:Resource, str:String, ?length:Int) : Int return untyped __call__('fwrite', handle, str, length);
+	public static function fwrite(handle:Resource, str:String, ?length:Int) : Int
+	{
+		if (untyped __physeq__(length, null))
+		{
+			return untyped __call__('fwrite', handle, str);
+		}
+		else
+		{
+			return untyped __call__('fwrite', handle, str, length);
+		}
+	}
 	
 	public static inline function glob(pattern:String, flags=0) : NativeArray return untyped __call__('glob', pattern, flags);
 	
@@ -110,21 +254,71 @@ class FilesystemNatives
 	
 	public static inline function lstat(filename:String) : NativeArray return untyped __call__('lstat', filename);
 	
-	public static inline function mkdir(pathname:String, mode=0x1FF, recursive=false, ?context:Resource) : Bool return untyped __call__('mkdir', pathname, mode, recursive, context);
+	public static function mkdir(pathname:String, mode=0x1FF, recursive=false, ?context:Resource) : Bool
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('mkdir', pathname, mode, recursive);
+		}
+		else
+		{
+			return untyped __call__('mkdir', pathname, mode, recursive, context);
+		}
+	}
 	
 	public static inline function move_uploaded_file(filename:String, destination:String) : Bool return untyped __call__('move_uploaded_file', filename, destination);
 	
-	public static inline function parse_ini_file(filename:String, process_sections=false, ?scanner_mode:Int) : NativeArray return untyped __call__('parse_ini_file', filename, process_sections, scanner_mode);
+	public static function parse_ini_file(filename:String, process_sections=false, ?scanner_mode:Int) : NativeArray
+	{
+		if (untyped __physeq__(scanner_mode, null))
+		{
+			return untyped __call__('parse_ini_file', filename, process_sections);
+		}
+		else
+		{
+			return untyped __call__('parse_ini_file', filename, process_sections, scanner_mode);
+		}
+	}
 	
-	public static inline function parse_ini_string(ini:String, process_sections=false, ?scanner_mode:Int) : NativeArray return untyped __call__('parse_ini_string', ini, process_sections, scanner_mode);
+	public static function parse_ini_string(ini:String, process_sections=false, ?scanner_mode:Int) : NativeArray
+	{
+		if (untyped __physeq__(scanner_mode, null))
+		{
+			return untyped __call__('parse_ini_string', ini, process_sections);
+		}
+		else
+		{
+			return untyped __call__('parse_ini_string', ini, process_sections, scanner_mode);
+		}
+	}
 	
-	public static inline function pathinfo(path:String, ?options:Int) : Dynamic return untyped __call__('pathinfo', path, options);
+	public static function pathinfo(path:String, ?options:Int) : Dynamic
+	{
+		if (untyped __physeq__(options, null))
+		{
+			return untyped __call__('pathinfo', path);
+		}
+		else
+		{
+			return untyped __call__('pathinfo', path, options);
+		}
+	}
 	
 	public static inline function pclose(handle:Resource) : Int return untyped __call__('pclose', handle);
 	
 	public static inline function popen(command:String, mode:String) : Resource return untyped __call__('popen', command, mode);
 	
-	public static inline function readfile(filename:String, use_include_path=false, ?context:Resource) : Int return untyped __call__('readfile', filename, use_include_path, context);
+	public static function readfile(filename:String, use_include_path=false, ?context:Resource) : Int
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('readfile', filename, use_include_path);
+		}
+		else
+		{
+			return untyped __call__('readfile', filename, use_include_path, context);
+		}
+	}
 	
 	public static inline function readlink(path:String) : String return untyped __call__('readlink', path);
 	
@@ -134,11 +328,31 @@ class FilesystemNatives
 	
 	public static inline function realpath(path:String) : String return untyped __call__('realpath', path);
 	
-	public static inline function rename(oldname:String, newname:String, ?context:Resource) : Bool return untyped __call__('rename', oldname, newname, context);
+	public static function rename(oldname:String, newname:String, ?context:Resource) : Bool
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('rename', oldname, newname);
+		}
+		else
+		{
+			return untyped __call__('rename', oldname, newname, context);
+		}
+	}
 	
 	public static inline function rewind(handle:Resource) : Bool return untyped __call__('rewind', handle);
 	
-	public static inline function rmdir(dirname:String, ?context:Resource) : Bool return untyped __call__('rmdir', dirname, context);
+	public static function rmdir(dirname:String, ?context:Resource) : Bool
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('rmdir', dirname);
+		}
+		else
+		{
+			return untyped __call__('rmdir', dirname, context);
+		}
+	}
 	
 	public static inline function stat(filename:String) : NativeArray return untyped __call__('stat', filename);
 	
@@ -148,9 +362,46 @@ class FilesystemNatives
 	
 	public static inline function tmpfile() : Resource return untyped __call__('tmpfile');
 	
-	public static inline function touch(filename:String, ?time:Int, ?atime:Int) : Bool return untyped __call__('touch', filename, time, atime);
+	public static function touch(filename:String, ?time:Int, ?atime:Int) : Bool
+	{
+		if (untyped __physeq__(atime, null))
+		{
+			if (untyped __physeq__(time, null))
+			{
+				return untyped __call__('touch', filename);
+			}
+			else
+			{
+				return untyped __call__('touch', filename, time);
+			}
+		}
+		else
+		{
+			return untyped __call__('touch', filename, time, atime);
+		}
+	}
 	
-	public static inline function umask(?mask:Int) : Int return untyped __call__('umask', mask);
+	public static function umask(?mask:Int) : Int
+	{
+		if (untyped __physeq__(mask, null))
+		{
+			return untyped __call__('umask');
+		}
+		else
+		{
+			return untyped __call__('umask', mask);
+		}
+	}
 	
-	public static inline function unlink(filename:String, ?context:Resource) : Bool return untyped __call__('unlink', filename, context);
+	public static function unlink(filename:String, ?context:Resource) : Bool
+	{
+		if (untyped __physeq__(context, null))
+		{
+			return untyped __call__('unlink', filename);
+		}
+		else
+		{
+			return untyped __call__('unlink', filename, context);
+		}
+	}
 }
