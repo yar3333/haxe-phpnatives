@@ -14,9 +14,29 @@ class MiscNatives
 	
 	public static inline function eval(code:String) : Dynamic return untyped __call__('eval', code);
 	
-	public static inline function exit(?status:String) : Void return untyped __call__('exit', status);
+	public static function exit(?status:String) : Void
+	{
+		if (untyped __physeq__(status, null))
+		{
+			untyped __call__('exit');
+		}
+		else
+		{
+			untyped __call__('exit', status);
+		}
+	}
 	
-	public static inline function get_browser(?user_agent:String, return_array=false) : Dynamic return untyped __call__('get_browser', user_agent, return_array);
+	public static function get_browser(?user_agent:String, return_array=false) : Dynamic
+	{
+		if (untyped __physeq__(user_agent, null))
+		{
+			return untyped __call__('get_browser');
+		}
+		else
+		{
+			return untyped __call__('get_browser', user_agent, return_array);
+		}
+	}
 	
 	public static inline function __halt_compiler() : Void return untyped __call__('__halt_compiler');
 	
@@ -24,11 +44,48 @@ class MiscNatives
 	
 	public static inline function highlight_string(str:String, return_=false) : Dynamic return untyped __call__('highlight_string', str, return_);
 	
-	public static inline function ignore_user_abort(?value:Bool) : Int return untyped __call__('ignore_user_abort', value);
+	public static function ignore_user_abort(?value:Bool) : Int
+	{
+		if (untyped __physeq__(value, null))
+		{
+			return untyped __call__('ignore_user_abort');
+		}
+		else
+		{
+			return untyped __call__('ignore_user_abort', value);
+		}
+	}
 	
-	public static inline function pack(format:String, ?args:Dynamic, ?restArgs:Dynamic) : String return untyped __call__('pack', format, args, restArgs);
+	public static function pack(format:String, ?args:Dynamic, ?restArgs:Dynamic) : String
+	{
+		if (untyped __physeq__(restArgs, null))
+		{
+			if (untyped __physeq__(args, null))
+			{
+				return untyped __call__('pack', format);
+			}
+			else
+			{
+				return untyped __call__('pack', format, args);
+			}
+		}
+		else
+		{
+			return untyped __call__('pack', format, args, restArgs);
+		}
+	}
 	
-	public static inline function php_check_syntax(filename:String, ?error_message:String) : Bool return untyped __call__('php_check_syntax', filename, error_message);
+	public static function php_check_syntax(filename:String, ?error_message:String) : Bool
+	{
+		if (untyped __physeq__(error_message, null))
+		{
+			return untyped __call__('php_check_syntax', filename);
+		}
+		else
+		{
+			return untyped __call__('php_check_syntax', filename, error_message);
+		}
+	}
 	
 	public static inline function php_strip_whitespace(filename:String) : String return untyped __call__('php_strip_whitespace', filename);
 	
