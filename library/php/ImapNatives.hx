@@ -165,28 +165,30 @@ class ImapNatives
 	
 	public static inline function imap_savebody(imap_stream:ImapStream, file:Dynamic, msg_number:Int, part_number="", options=0) : Bool return untyped __call__('imap_savebody', imap_stream, file, msg_number, part_number, options);
 	
-	public static inline function imap_search(imap_stream:ImapStream, criteria:String) : NativeArray return untyped __call__('imap_search', imap_stream, criteria);
-	
-	public static function imap_search_ex(imap_stream:ImapStream, criteria:String, options:Int, ?charset:String) : NativeArray
+	public static function imap_search(imap_stream:ImapStream, criteria:String, ?options:Int, ?charset:String) : NativeArray
 	{
 		if (untyped __physeq__(charset, null))
 		{
-			return untyped __call__('imap_search', imap_stream, criteria, options);
+			if (untyped __physeq__(options, null))
+			{
+				return untyped __call__('imap_search', imap_stream, criteria);
+			}
+			else
+			{
+				return untyped __call__('imap_search', imap_stream, criteria, options);
+			}
 		}
 		else
 		{
 			return untyped __call__('imap_search', imap_stream, criteria, options, charset);
 		}
 	}
-
 	
 	public static inline function imap_set_quota(imap_stream:ImapStream, quota_root:String, quota_limit:Int) : Bool return untyped __call__('imap_set_quota', imap_stream, quota_root, quota_limit);
 	
 	public static inline function imap_setacl(imap_stream:ImapStream, mailbox:String, id:String, rights:String) : Bool return untyped __call__('imap_setacl', imap_stream, mailbox, id, rights);
 	
-	public static inline function imap_setflag_full(imap_stream:ImapStream, sequence:String, flag:String) : Bool return untyped __call__('imap_setflag_full', imap_stream, sequence, flag);
-	
-	public static function imap_setflag_full_ex(imap_stream:ImapStream, sequence:String, flag:String, ?options:Int) : Bool
+	public static function imap_setflag_full(imap_stream:ImapStream, sequence:String, flag:String, ?options:Int) : Bool
 	{
 		if (untyped __physeq__(options, null))
 		{
@@ -197,7 +199,6 @@ class ImapNatives
 			return untyped __call__('imap_setflag_full', imap_stream, sequence, flag, options);
 		}
 	}
-
 	
 	public static function imap_sort(imap_stream:ImapStream, criteria:Int, reverse:Int, options=0, ?search_criteria:String, ?charset:String) : NativeArray
 	{
@@ -223,9 +224,17 @@ class ImapNatives
 	
 	public static inline function imap_subscribe(imap_stream:ImapStream, mailbox:String) : Bool return untyped __call__('imap_subscribe', imap_stream, mailbox);
 	
-	public static inline function imap_thread(imap_stream:ImapStream) : NativeArray return untyped __call__('imap_thread', imap_stream);
-	
-	public static inline function imap_thread_ex(imap_stream:ImapStream, options:Int) : NativeArray return untyped __call__('imap_thread', imap_stream, options);
+	public static function imap_thread(imap_stream:ImapStream, ?options:Int) : NativeArray
+	{
+		if (untyped __physeq__(options, null))
+		{
+			return untyped __call__('imap_thread', imap_stream);
+		}
+		else
+		{
+			return untyped __call__('imap_thread', imap_stream, options);
+		}
+	}
 	
 	public static inline function imap_timeout(timeout_type:Int, ?timeout:Int=-1) : Dynamic return untyped __call__('imap_timeout', timeout_type, timeout);
 	
