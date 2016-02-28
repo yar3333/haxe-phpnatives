@@ -1,5 +1,7 @@
 package php;
 
+import haxe.macro.Expr;
+
 class PcreNatives
 {
 	public static function preg_filter(pattern:Dynamic, replacement:Dynamic, subject:Dynamic, limit=-1, ?count:Int) : Dynamic
@@ -19,7 +21,7 @@ class PcreNatives
 	public static inline function preg_last_error() : Int return untyped __call__('preg_last_error');
 	
 	public static inline function preg_match_all(pattern:String, subject:String) : Int return untyped __call__('preg_match_all', pattern, subject);
-	public static inline function preg_match_all_ex(pattern:String, subject:String, matches:NativeArray, ?flags:Int, offset=0) : Int return untyped __call__('preg_match_all', pattern, subject, matches, untyped __physeq__(flags, null) ? PREG_PATTERN_ORDER : flags, offset);
+	public static inline function preg_match_all_ex(pattern:String, subject:String, matches:NativeArray, ?flags:Int, offset=0) : Int return untyped __call__('preg_match_all', pattern, subject, matches, untyped __physeq__(flags, null) ? __php__("PREG_PATTERN_ORDER") : flags, offset);
 	
 	public static inline function preg_match(pattern:String, subject:String) : Int return untyped __call__('preg_match', pattern, subject);
 	public static inline function preg_match_ex(pattern:String, subject:String, matches:NativeArray, flags=0, offset=0) : Int return untyped __call__('preg_match', pattern, subject, matches, flags, offset);
