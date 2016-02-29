@@ -15,6 +15,11 @@ import php.FilesystemNatives;
 import php.OutcontrolNatives;
 import php.MiscNatives;
 
+import php.DateTimeZone;
+import php.DateInterval;
+import php.DateTime;
+import php.DateTimeInterface;
+
 class Main extends TestCase
 {
 	static public function main()
