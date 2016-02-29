@@ -25,23 +25,23 @@ class Main
 	
 	static function main()
 	{
-		processGroup("var",			"php.VarNatives", 		[]);
-		processGroup("array",		"php.ArrayNatives", 	[]);
-		processGroup("imap",		"php.ImapNatives", 		[ "import php.imap.*" ]);
-		processGroup("datetime",	"php.DatetimeNatives", 	[]);
-		processGroup("info",		"php.InfoNatives", 		[]);
-		processGroup("strings",		"php.StringsNatives", 	[]);
-		processGroup("mbstring",	"php.MbstringNatives", 	[]);
-		processGroup("pcre",		"php.PcreNatives", 		[]);
-		processGroup("iconv",		"php.IconvNatives", 	[]);
-		processGroup("math",		"php.MathNatives", 		[]);
-		processGroup("url",			"php.UrlNatives", 		[]);
-		processGroup("filesystem", 	"php.FilesystemNatives",[]);
-		processGroup("outcontrol", 	"php.OutcontrolNatives",[]);
-		processGroup("misc",		"php.MiscNatives", 		[]);
+		processFunctions("var",			"php.VarNatives", 		[]);
+		processFunctions("array",		"php.ArrayNatives", 	[]);
+		processFunctions("imap",		"php.ImapNatives", 		[ "import php.imap.*" ]);
+		processFunctions("datetime",	"php.DatetimeNatives", 	[]);
+		processFunctions("info",		"php.InfoNatives", 		[]);
+		processFunctions("strings",		"php.StringsNatives", 	[]);
+		processFunctions("mbstring",	"php.MbstringNatives", 	[]);
+		processFunctions("pcre",		"php.PcreNatives", 		[]);
+		processFunctions("iconv",		"php.IconvNatives", 	[]);
+		processFunctions("math",		"php.MathNatives", 		[]);
+		processFunctions("url",			"php.UrlNatives", 		[]);
+		processFunctions("filesystem", 	"php.FilesystemNatives",[]);
+		processFunctions("outcontrol", 	"php.OutcontrolNatives",[]);
+		processFunctions("misc",		"php.MiscNatives", 		[]);
 	}
 	
-	static function processGroup(group:String, packageAndClass:String, imports:Array<String>)
+	static function processFunctions(group:String, packageAndClass:String, imports:Array<String>)
 	{
 		Log.start("Process " + group);
 		

@@ -1,5 +1,5 @@
 syntax: glob
-convertor/bin/
 library/library.zip
 tests/bin/
 defparamsfixer/bin/
+convertorFunctions/bin/
