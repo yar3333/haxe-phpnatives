@@ -34,15 +34,15 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 	}
 	
 	@:to
-	public function toArray<V>() : Array<V>
+	public function toArray() : Array<V>
 	{
-		return Lib.toHaxeArray(this);
+		return cast Lib.toHaxeArray(this);
 	}
 	
 	@:to
-	public function toMap<K, V>() : Map<K, V>
+	public function toMap() : Map<K, V>
 	{
-		return Lib.hashOfAssociativeArray(this);
+		return cast Lib.hashOfAssociativeArray(this);
 	}
 
 	@:arrayAccess
