@@ -40,7 +40,9 @@ class Main
 			if (element.name != null && element.body != null)
 			{
 				var name = element.name.replace("The ", "").replace(" class", "").trim();
-				processClass(pack, name, element.body, imports);
+				var isInterface = name.indexOf(" interface") >= 0;
+				if (isInterface) name = name.replace(" interface", "");
+				processClass(isInterface, pack, name, element.body, imports);
 			}
 		}
 		
@@ -50,21 +52,21 @@ class Main
 		Log.finishSuccess();
 	}
 	
-	static function processClass(pack:String, klass:String, body:String, imports:Array<String>)
+	static function processClass(isInterface:Bool, pack:String, klass:String, body:String, imports:Array<String>)
 	{
 		Log.start("Convert " + klass);
 		
 		var doc = new HtmlDocument("<root>" + body + "</root>", true);
 		
 		var reTitle = new Regex("/\\s+/ /g");
-		var title = "class " + reTitle.replace(doc.find(">root>.classsynopsisinfo")[0].innerText.trim());
+		var title = reTitle.replace(doc.find(">root>.classsynopsisinfo")[0].innerText.trim());
 		
 		var fields = doc.find(">root>.fieldsynopsis").map.fn(_.innerText.replace("\n", " "));
 		File.saveContent("bin/temp.php", fields.join("\n").trim());
 		Sys.command("haxelib", [ "run", "refactor", "convertFile", "bin/temp.php", "bin/temp.hx", "c-like_php_fields_to_haxe.rules" ]);
 		fields = File.getContent("bin/temp.hx").split("\n");
 		
-		var methods = doc.find(">root>.methodsynopsis").map.fn(_.innerText.replace("\n", " "));
+		var methods = doc.find(">root>.constructorsynopsis, >root>.methodsynopsis").map.fn(_.innerText.replace("\n", " "));
 		File.saveContent("bin/temp.php", methods.join("\n").trim());
 		Sys.command("haxelib", [ "run", "refactor", "convertFile", "bin/temp.php", "bin/temp.hx", "c-like_php_methods_to_haxe.rules" ]);
 		methods = File.getContent("bin/temp.hx").split("\n");
@@ -82,7 +84,7 @@ class Main
 			+ "\n"
 			+ imports.map.fn(_ + ";\n").join("") + (imports.length > 0 ? "\n" : "")
 			+ "@:native(\"" + klass + "\")\n"
-			+ title.rtrim(" \t\r\n{") + "\n"
+			+ "extern " + (isInterface ? "interface" : "class") + " " + title.rtrim(" \t\r\n{") + "\n"
 			+ "{\n"
 			+ (fieldsStr != "" ? "\t" + fieldsStr + "\n" : "")
 			+ (fieldsStr.length > 0 && methodsStr.length > 0 ? "\n" : "")
