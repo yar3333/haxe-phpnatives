@@ -1,0 +1,57 @@
+ID = (?:[_a-zA-Z][_a-zA-Z0-9]*|[.][.][.])
+NUMBER = [-]?[0-9]+
+STRING = "(?:\\.|[^"])*?"|'(?:\\.|[^'])*?'
+SPACES = [ \t\r\n]
+
+/\bpublic\s*//
+    
+/[=]\s*ID(?:\s*[|]\s*ID)+\s*//
+/[=]\s*ID(?:\s*[(]\s*(?:STRING)?\s*[)])?//
+
+/[)]\s*[)]/)/
+/[)](\s*,)/$1/
+
+/[(]\s*(?:void|Void)\s*[)]/()/
+
+/[$](?:return|var|case)\b/$0_/
+
+/^\s*((?:static\s+)?)(ID)\s+(ID)\s*\(([^)]*)\)\s*;?\s*$/\t$1function $3($4) : $2;/m
+/^\s*((?:static\s+)?)(ID)\s*\(([^)]*)\)\s*;?\s*$/\t$1function $2($3) : Void;/m
+
+/\s+[(]/(/
+/\s+,/,/
+/[(]\s+/(/
+/\s*[[]\s*,\s*/, ?/
+/\s*[[]\s*/?/
+/]//
+
+/\b__construct\b/new
+
+/\b((?:[?]\s*)?ID)\s+[&]?[$](ID)/$2:$1
+
+/\s+[)]/)
+
+/([?]ID\s*[:]\s*ID)\s*[=]\s*NULL/$1
+/[?](ID)\s*[:]\s*int\s*[=]\s*(0)/$1=$2
+/([(,]\s*)([?]?var|case|return)\b/$1$2_
+/([(,]\s*)(?:[?]?[.][.][.])/$1?restArgs
+/([(,]\s*)(?:[?]?string)\b/$1str
+/([(,]\s*)(?:[?]?array)\b/$1arr
+
+/((?:^|,)\s*)(?:[?]\s*)?ID\s+\\$(ID)(?:\s*[=][^,)]+)?/$1$2
+
+/([:]\s*)int\b/$1Int
+/([:]\s*)integer\b/$1Int
+/([:]\s*)float\b/$1Float
+/([:]\s*)bool\b/$1Bool
+/([:]\s*)boolean\b/$1Bool
+/([:]\s*)string\b/$1String
+/([:]\s*)array\b/$1NativeArray
+/([:]\s*)mixed\b/$1Dynamic
+/([:]\s*)mixes\b/$1Dynamic
+/([:]\s*)object\b/$1Dynamic
+/([:]\s*)void\b/$1Void
+/([:]\s*)resource\b/$1Resource
+
+/,\s*/, /
+/',\s*[)]/')/

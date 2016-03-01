@@ -3,3 +3,4 @@ library/library.zip
 tests/bin/
 defparamsfixer/bin/
 convertorFunctions/bin/
+convertorClasses/bin/
