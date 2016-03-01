@@ -1,4 +1,4 @@
-package php;
+package php.calendar;
 
 @:native("DateTime")
 extern class DateTime
