@@ -21,6 +21,9 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 		}
 	}
 	
+	public var length(get, never) : Int;
+	inline function get_length() return untyped __call__("count", this);
+	
 	@:from
 	public static function fromMap<K, V>(m:Map<K, V>) : TypedArray<K, V>
 	{

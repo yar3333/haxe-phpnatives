@@ -82,7 +82,17 @@ class MathNatives
 	
 	public static inline function mt_getrandmax() : Int return untyped __call__('mt_getrandmax');
 	
-	public static inline function mt_rand() : Int return untyped __call__('mt_rand');
+	public static inline function mt_rand(?min:Int, ?max:Int) : Int
+	{
+		if (untyped __physeq__(min, null) || __physeq__(max, null))
+		{
+			return untyped __call__('mt_rand');
+		}
+		else
+		{
+			return untyped __call__('mt_rand', min, max);
+		}
+	}
 	
 	public static function mt_srand(?seed:Int) : Void
 	{
