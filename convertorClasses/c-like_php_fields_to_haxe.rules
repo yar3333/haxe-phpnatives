@@ -4,6 +4,7 @@ STRING = "(?:\\.|[^"])*?"|'(?:\\.|[^'])*?'
 SPACES = [ \t\r\n]
     
 /^\s*public\s*(ID)\s*[$](ID).*$/\tvar $2 : $1;/m
+/^\s*protected\s*(ID)\s*[$](ID).*$/\tprivate var $2 : $1;/m
 
 /^\s*const\s*(ID)\s*(ID).*$/\tstatic var $2(default, null) : $1;/m
 

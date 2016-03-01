@@ -4,7 +4,8 @@ NUMBER = [-]?[0-9]+(?:[.][0-9]+)?
 STRING = "(?:\\.|[^"])*?"|'(?:\\.|[^'])*?'
 SPACES = [ \t\r\n]
 
-/\bpublic\s*//
+/\b(?:public|final)\s*//
+/\b(?:protected)\s*/private/
     
 /[=]\s*LONGID(?:\s*[|]\s*LONGID)+\s*//
 /[=]\s*LONGID(?:\s*[(]\s*(?:STRING)?\s*[)])?//
@@ -18,7 +19,7 @@ SPACES = [ \t\r\n]
 
 /[$](?:return|var|case)\b/$0_/
 
-/^\s*((?:static\s+)?)(ID)\s+(ID)\s*\(([^)]*)\)\s*;?\s*$/\t$1function $3($4) : $2;/m
+/^\s*((?:static\s+)?)((?:private\s+)?)(ID)\s+(ID)\s*\(([^)]*)\)\s*;?\s*$/\t$2$1function $4($5) : $3;/m
 /^\s*((?:static\s+)?)(ID)\s*\(([^)]*)\)\s*;?\s*$/\t$1function $2($3) : Void;/m
 
 /\s+[(]/(/

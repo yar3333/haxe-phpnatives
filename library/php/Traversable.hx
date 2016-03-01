@@ -1,0 +1,5 @@
+package php;
+
+interface Traversable 
+{
+}

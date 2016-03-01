@@ -93,6 +93,8 @@ class Main
 		);
 		
 		Log.finishSuccess();
+		
+		Sys.command("haxelib", [ "run", "refactor", "override", dir ]);
 	}
 	
 	static function processLine(line:String) : String

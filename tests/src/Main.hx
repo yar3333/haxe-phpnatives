@@ -15,10 +15,12 @@ import php.FilesystemNatives;
 import php.OutcontrolNatives;
 import php.MiscNatives;
 
-import php.DateTimeZone;
-import php.DateInterval;
-import php.DateTime;
-import php.DateTimeInterface;
+import php.calendar.DateInterval;
+import php.calendar.DatePeriod;
+import php.calendar.DateTime;
+import php.calendar.DateTimeImmutable;
+import php.calendar.DateTimeInterface;
+import php.calendar.DateTimeZone;
 
 class Main extends TestCase
 {
