@@ -1,5 +1,6 @@
 package php;
 
-interface Traversable 
+@:native("Traversable")
+interface Traversable
 {
 }
