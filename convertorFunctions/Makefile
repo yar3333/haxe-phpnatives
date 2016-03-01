@@ -25,6 +25,7 @@ TARGET_FILES += $(OUT_DIR)/php/FilesystemNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/OutcontrolNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/MiscNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/CtypeNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/JsonNatives.hx
 
 build: $(TARGET_FILES)
 	
@@ -74,6 +75,9 @@ $(OUT_DIR)/php/MiscNatives.hx: bin/misc.json
 
 $(OUT_DIR)/php/CtypeNatives.hx: bin/ctype.json
 	$(CONVERTOR) $< php.CtypeNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/JsonNatives.hx: bin/json.json
+	$(CONVERTOR) $< php.JsonNatives $(OUT_DIR)
 
 	
 bin/array.json:
@@ -150,3 +154,8 @@ bin/ctype.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.ctype.php" \
 		--output-json-file bin/ctype.json
+
+bin/json.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/ref.json.php" \
+		--output-json-file bin/json.json
