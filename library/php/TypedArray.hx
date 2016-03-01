@@ -7,7 +7,7 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 		this = untyped __call__("array");
 	}
 	
-	public function iterator()
+	public function iterator() : Iterator<V>
 	{
 		var a = Lib.toHaxeArray(untyped __call__("array_values", this));
 		return a.iterator();

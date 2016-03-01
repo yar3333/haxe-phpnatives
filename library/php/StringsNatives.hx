@@ -476,6 +476,7 @@ class StringsNatives
 	public static inline function strtoupper(str:String) : String return untyped __call__('strtoupper', str);
 	
 	public static inline function strtr(str:String, from:String, to:String) : String return untyped __call__('strtr', str, from, to);
+	public static inline function strtr_arr(str:String, replace_pairs:TypedArray<String, String>) : String return untyped __call__('strtr', str, replace_pairs);
 	
 	public static function substr_compare(main_str:String, str:String, offset:Int, ?length:Int, case_insensitivity=false) : Int
 	{
