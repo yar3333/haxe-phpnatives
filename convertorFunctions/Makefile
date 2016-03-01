@@ -6,25 +6,75 @@ DOWNLOADER_OPTIONS += --product-text-property "prototype:div.methodsynopsis.dc-d
 DOWNLOADER_OPTIONS += --product-html-property "parameters:div.refsect1.parameters>p>dl:/[\\t\\r\\n ]+/ /"
 DOWNLOADER_OPTIONS += --product-text-property "ret:div.refsect1.returnvalues>p:/[\\t\\r\\n ]+/ /"
 
-JSON_FILES  = bin/array.json
-JSON_FILES += bin/var.json
-JSON_FILES += bin/imap.json
-JSON_FILES += bin/datetime.json
-JSON_FILES += bin/info.json
-JSON_FILES += bin/strings.json
-JSON_FILES += bin/mbstring.json
-JSON_FILES += bin/pcre.json
-JSON_FILES += bin/iconv.json
-JSON_FILES += bin/math.json
-JSON_FILES += bin/url.json
-JSON_FILES += bin/filesystem.json
-JSON_FILES += bin/outcontrol.json
-JSON_FILES += bin/misc.json
+CONVERTOR = neko bin/convertor.n
 
-build: $(JSON_FILES)
-	neko bin/convertor.n
-	haxelib run refactor replaceInFile ../library/php/ImapNatives.hx "/:Resource/:ImapStream/"
-	haxelib run refactor replaceInFile ../library/php/ImapNatives.hx "/: Resource/: ImapStream/"
+OUT_DIR = ../library
+
+TARGET_FILES  = $(OUT_DIR)/php/VarNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/ArrayNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/ImapNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/DatetimeNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/InfoNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/StringsNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/MbstringNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/PcreNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/IconvNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/MathNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/UrlNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/FilesystemNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/OutcontrolNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/MiscNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/CtypeNatives.hx
+
+build: $(TARGET_FILES)
+	
+$(OUT_DIR)/php/VarNatives.hx: bin/var.json
+	$(CONVERTOR) $< php.VarNatives $(OUT_DIR)
+	
+$(OUT_DIR)/php/ArrayNatives.hx: bin/array.json
+	$(CONVERTOR) $< php.ArrayNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/ImapNatives.hx: bin/imap.json
+	$(CONVERTOR) $< php.ImapNatives $(OUT_DIR) "import php.imap.*"
+	haxelib run refactor replaceInFile $@ "/:Resource/:ImapStream/"
+	haxelib run refactor replaceInFile $@ "/: Resource/: ImapStream/"
+
+$(OUT_DIR)/php/DatetimeNatives.hx: bin/datetime.json
+	$(CONVERTOR) $< php.DatetimeNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/InfoNatives.hx: bin/info.json
+	$(CONVERTOR) $< php.InfoNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/StringsNatives.hx: bin/strings.json
+	$(CONVERTOR) $< php.StringsNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/MbstringNatives.hx: bin/mbstring.json
+	$(CONVERTOR) $< php.MbstringNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/PcreNatives.hx: bin/pcre.json
+	$(CONVERTOR) $< php.PcreNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/IconvNatives.hx: bin/iconv.json
+	$(CONVERTOR) $< php.IconvNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/MathNatives.hx: bin/math.json
+	$(CONVERTOR) $< php.MathNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/UrlNatives.hx: bin/url.json
+	$(CONVERTOR) $< php.UrlNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/FilesystemNatives.hx: bin/filesystem.json
+	$(CONVERTOR) $< php.FilesystemNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/OutcontrolNatives.hx: bin/outcontrol.json
+	$(CONVERTOR) $< php.OutcontrolNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/MiscNatives.hx: bin/misc.json
+	$(CONVERTOR) $< php.MiscNatives $(OUT_DIR)
+
+$(OUT_DIR)/php/CtypeNatives.hx: bin/ctype.json
+	$(CONVERTOR) $< php.CtypeNatives $(OUT_DIR)
+
 	
 bin/array.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
@@ -96,3 +146,7 @@ bin/misc.json:
 		--list-url "http://php.net/manual/en/book.misc.php" \
 		--output-json-file bin/misc.json
 
+bin/ctype.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/ref.ctype.php" \
+		--output-json-file bin/ctype.json

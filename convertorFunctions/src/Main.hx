@@ -5,7 +5,7 @@ import sys.FileSystem;
 import sys.io.File;
 import tjson.TJSON;
 using stdlib.Lambda;
-using StringTools;
+using stdlib.StringTools;
 
 typedef Element =
 {
@@ -17,37 +17,37 @@ typedef Element =
 
 class Main
 {
-	static var groups = [ "array", "var", "imap"  ];
-	
 	static var reID = "[a-zA-Z_][a-zA-Z0-9_]*";
 	static var reNameAndType = "\\s*" + reID + "\\s*[:]\\s*" + reID + "\\s*";
 	static var reArgsStr = "[(]" + reNameAndType + "(?:,\\s*" + reNameAndType + ")*[)]";
 	
 	static function main()
 	{
-		processFunctions("var",			"php.VarNatives", 		[]);
-		processFunctions("array",		"php.ArrayNatives", 	[]);
-		processFunctions("imap",		"php.ImapNatives", 		[ "import php.imap.*" ]);
-		processFunctions("datetime",	"php.DatetimeNatives", 	[]);
-		processFunctions("info",		"php.InfoNatives", 		[]);
-		processFunctions("strings",		"php.StringsNatives", 	[]);
-		processFunctions("mbstring",	"php.MbstringNatives", 	[]);
-		processFunctions("pcre",		"php.PcreNatives", 		[]);
-		processFunctions("iconv",		"php.IconvNatives", 	[]);
-		processFunctions("math",		"php.MathNatives", 		[]);
-		processFunctions("url",			"php.UrlNatives", 		[]);
-		processFunctions("filesystem", 	"php.FilesystemNatives",[]);
-		processFunctions("outcontrol", 	"php.OutcontrolNatives",[]);
-		processFunctions("misc",		"php.MiscNatives", 		[]);
+		var args = Sys.args();
+		
+		if (args.length >= 3 && args.length <= 4)
+		{
+			processFunctions
+			(
+				args[0],
+				args[1],
+				Path.removeTrailingSlashes(args[2]),
+				args.length > 3 ? args[3].rtrim(";").split(";") : []
+			);
+		}
+		else
+		{
+			Sys.println("Arguments: <jsonFile> <outClassName> <outDir> [ <imports> ]");
+		}
 	}
 	
-	static function processFunctions(group:String, packageAndClass:String, imports:Array<String>)
+	static function processFunctions(jsonFile:String, packageAndClass:String, outDir:String, imports:Array<String>)
 	{
-		Log.start("Process " + group);
+		Log.start("Process " + jsonFile);
 		
 		var methods = [];
 		
-		var text = File.getContent("bin/" + group + ".json");
+		var text = File.getContent(jsonFile);
 		var elements : Array<Element> = TJSON.parse(text);
 		for (element in elements)
 		{
@@ -66,7 +66,7 @@ class Main
 		
 		File.saveContent
 		(
-			"../library/" + packageAndClass.replace(".", "/") + ".hx",
+			outDir + "/" + packageAndClass.replace(".", "/") + ".hx",
 			"package " + Path.directory(packageAndClass.replace(".", "/")).replace("/", ".") + ";\n"
 		  + "\n"
 		  + imports.map.fn(_ + ";\n").join("") + (imports.length > 0 ? "\n" : "")
