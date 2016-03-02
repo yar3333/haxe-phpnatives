@@ -1,10 +1,14 @@
 package php.misc;
 
 import haxe.Constraints.Function;
+import php.interfaces.ArrayAccess;
+import php.interfaces.Countable;
+import php.interfaces.IteratorAggregate;
 import php.interfaces.Serializable;
+import php.iterators.ArrayIterator;
 
 @:native("ArrayObject")
-extern class ArrayObject implements IteratorAggregate<Dynamic> implements ArrayAccess<Dynamic> implements Serializable implements php.interfaces.Countable
+extern class ArrayObject implements IteratorAggregate implements ArrayAccess implements Serializable implements Countable
 {
 	static var STD_PROP_LIST(default, null) : Int;
 	static var ARRAY_AS_PROPS(default, null) : Int;
@@ -30,5 +34,5 @@ extern class ArrayObject implements IteratorAggregate<Dynamic> implements ArrayA
 	function setIteratorClass(iterator_class:String) : Void;
 	function uasort(cmp_function:Function) : Void;
 	function uksort(cmp_function:Function) : Void;
-	function unserialize(serialized:String) : Void;
+	function unserialize(serialized:String) : Dynamic;
 }

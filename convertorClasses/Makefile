@@ -12,6 +12,7 @@ TARGET_FILES  = $(OUT_DIR)/php/calendar
 TARGET_FILES += $(OUT_DIR)/php/xml
 TARGET_FILES += $(OUT_DIR)/php/interfaces
 TARGET_FILES += $(OUT_DIR)/php/misc
+TARGET_FILES += $(OUT_DIR)/php/iterators
 
 #remake_xml: remove_xml $(OUT_DIR)/php/xml
 	
@@ -32,6 +33,9 @@ $(OUT_DIR)/php/interfaces: bin/interfaces.json bin/spl.interfaces.json
 
 $(OUT_DIR)/php/misc: bin/spl.misc.json
 	$(CONVERTOR) $< php.misc $(OUT_DIR)
+
+$(OUT_DIR)/php/iterators: bin/spl.iterators.json
+	$(CONVERTOR) $< php.iterators $(OUT_DIR)
 
 bin/calendar.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
@@ -56,4 +60,9 @@ bin/spl.misc.json:
 bin/spl.interfaces.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/spl.interfaces.php" \
+		--output-json-file $@
+
+bin/spl.iterators.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/spl.iterators.php" \
 		--output-json-file $@
