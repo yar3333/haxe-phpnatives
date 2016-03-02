@@ -19,6 +19,7 @@ SPACES = [ \t\r\n]
 
 /[$](?:return|var|case)\b/$0_/
 
+/(?:\n|^)\s*(?:static\s+)?(?:private\s+)?ID\s+ID[:][:]ID\s*[(][^\n]+//m
 /^\s*((?:static\s+)?)((?:private\s+)?)(ID)\s+(ID)\s*\(([^)]*)\)\s*;?\s*$/\t$2$1function $4($5) : $3;/m
 /^\s*((?:static\s+)?)(ID)\s*\(([^)]*)\)\s*;?\s*$/\t$1function $2($3) : Void;/m
 

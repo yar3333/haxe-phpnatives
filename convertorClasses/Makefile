@@ -12,6 +12,11 @@ OUT_DIR = ../library
 TARGET_FILES  = $(OUT_DIR)/php/calendar
 TARGET_FILES += $(OUT_DIR)/php/xml
 
+remake_xml: remove_xml $(OUT_DIR)/php/xml
+	
+remove_xml:
+	rm -rf $(OUT_DIR)/php/xml
+
 build: $(TARGET_FILES)
 
 $(OUT_DIR)/php/calendar: bin/calendar.json
