@@ -26,8 +26,9 @@ $(OUT_DIR)/php/calendar: bin/calendar.json
 $(OUT_DIR)/php/xml: bin/xml.json
 	$(CONVERTOR) $< php.xml $(OUT_DIR)
 
-$(OUT_DIR)/php/interfaces: bin/interfaces.json
-	$(CONVERTOR) $< php.interfaces $(OUT_DIR)
+$(OUT_DIR)/php/interfaces: bin/interfaces.json bin/spl.interfaces.json
+	$(CONVERTOR) bin/interfaces.json php.interfaces $(OUT_DIR)
+	$(CONVERTOR) bin/spl.interfaces.json php.interfaces $(OUT_DIR)
 
 $(OUT_DIR)/php/misc: bin/spl.misc.json
 	$(CONVERTOR) $< php.misc $(OUT_DIR)
@@ -52,4 +53,7 @@ bin/spl.misc.json:
 		--list-url "http://php.net/manual/en/spl.misc.php" \
 		--output-json-file $@
 
-
+bin/spl.interfaces.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/spl.interfaces.php" \
+		--output-json-file $@
