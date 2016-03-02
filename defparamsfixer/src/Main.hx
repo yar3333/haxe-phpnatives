@@ -11,8 +11,6 @@ typedef Param = { name:String, type:String, value:String, optional:Bool };
 
 class Main
 {
-	static var groups = [ "array", "var", "imap"  ];
-	
 	static var reID = "[a-zA-Z_][a-zA-Z0-9_]*";
 	static var reNameAndType = "\\s*" + reID + "\\s*[:]\\s*" + reID + "\\s*";
 	static var reArgsStr = "[(]" + reNameAndType + "(?:,\\s*" + reNameAndType + ")*[)]";
@@ -25,7 +23,7 @@ class Main
 	{
 		var args = Sys.args();
 		
-		if (args.length > 0)
+		if (args.length == 1)
 		{
 			var filePath = args[0];
 			var lines = File.getContent(filePath).replace("\r\n", "\n").replace("\r", "\n").split("\n");
@@ -33,8 +31,7 @@ class Main
 		}
 		else
 		{
-			//var line = "public static inline function is_callable(var_:Dynamic, syntax_only=false, ?callable_name:String) : Bool return untyped __call__('is_callable', var_, syntax_only, callable_name);";
-			//Sys.println(processLine(line));
+			Sys.println("Arguments: <fileToProcess.hx>");
 		}
 	}
 	

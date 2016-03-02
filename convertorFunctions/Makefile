@@ -7,6 +7,7 @@ DOWNLOADER_OPTIONS += --product-html-property "parameters:div.refsect1.parameter
 DOWNLOADER_OPTIONS += --product-text-property "ret:div.refsect1.returnvalues>p:/[\\t\\r\\n ]+/ /"
 
 CONVERTOR = neko bin/convertor.n
+DEF_PARAMS_FIXER = neko ../defparamsfixer/bin/defparamsfixer.n
 
 OUT_DIR = ../library
 
@@ -26,6 +27,7 @@ TARGET_FILES += $(OUT_DIR)/php/OutcontrolNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/MiscNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/CtypeNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/JsonNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/FileinfoNatives.hx
 
 build: $(TARGET_FILES)
 	
@@ -79,7 +81,11 @@ $(OUT_DIR)/php/CtypeNatives.hx: bin/ctype.json
 $(OUT_DIR)/php/JsonNatives.hx: bin/json.json
 	$(CONVERTOR) $< php.JsonNatives $(OUT_DIR)
 
-	
+$(OUT_DIR)/php/FileinfoNatives.hx: bin/fileinfo.json
+	$(CONVERTOR) $< php.FileinfoNatives $(OUT_DIR)
+	$(DEF_PARAMS_FIXER) $@
+
+
 bin/array.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.array.php" \
@@ -158,4 +164,9 @@ bin/ctype.json:
 bin/json.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.json.php" \
+		--output-json-file $@
+
+bin/fileinfo.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/book.fileinfo.php" \
 		--output-json-file $@
