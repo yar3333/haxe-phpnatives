@@ -88,74 +88,74 @@ bin/array.json:
 bin/var.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.var.php" \
-		--output-json-file bin/var.json
+		--output-json-file $@
 
 bin/imap.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.imap.php" \
-		--output-json-file bin/imap.json
+		--output-json-file $@
 
 bin/datetime.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.datetime.php" \
-		--output-json-file bin/datetime.json
+		--output-json-file $@
 
 bin/info.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.info.php" \
-		--output-json-file bin/info.json
+		--output-json-file $@
 
 bin/strings.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.strings.php" \
-		--output-json-file bin/strings.json
+		--output-json-file $@
 
 bin/mbstring.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.mbstring.php" \
-		--output-json-file bin/mbstring.json
+		--output-json-file $@
 
 bin/pcre.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.pcre.php" \
-		--output-json-file bin/pcre.json
+		--output-json-file $@
 
 bin/iconv.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/book.iconv.php" \
-		--output-json-file bin/iconv.json
+		--output-json-file $@
 
 bin/math.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.math.php" \
-		--output-json-file bin/math.json
+		--output-json-file $@
 
 bin/url.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.url.php" \
-		--output-json-file bin/url.json
+		--output-json-file $@
 
 bin/filesystem.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.filesystem.php" \
-		--output-json-file bin/filesystem.json
+		--output-json-file $@
 
 bin/outcontrol.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.outcontrol.php" \
-		--output-json-file bin/outcontrol.json
+		--output-json-file $@
 
 bin/misc.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/book.misc.php" \
-		--output-json-file bin/misc.json
+		--output-json-file $@
 
 bin/ctype.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.ctype.php" \
-		--output-json-file bin/ctype.json
+		--output-json-file $@
 
 bin/json.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.json.php" \
-		--output-json-file bin/json.json
+		--output-json-file $@
