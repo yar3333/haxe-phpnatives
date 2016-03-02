@@ -1,6 +1,6 @@
 import hant.Log;
+import haxe.io.Path;
 import htmlparser.HtmlDocument;
-import htmlparser.HtmlParser;
 import stdlib.Regex;
 import sys.FileSystem;
 import sys.io.File;
