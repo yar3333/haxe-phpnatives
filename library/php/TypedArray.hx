@@ -89,4 +89,14 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 	{
 		untyped __call__("asort", this);
 	}
+	
+	public inline function hasKey(k:K) : Bool
+	{
+		return untyped __call__("array_key_exists", k, this);
+	}
+	
+	public inline function hasValue(v:V, strict=false) : Bool
+	{
+		return untyped __call__("in_array", v, this, strict);
+	}
 }

@@ -2,6 +2,56 @@ package php;
 
 class StringsNatives
 {
+	/**
+	 * Will convert double-quotes and leave single-quotes alone.
+	 */
+	public static var ENT_COMPAT(get, never) : Int; private static inline function get_ENT_COMPAT() : Int return untyped __php__("ENT_COMPAT");
+
+	/**
+	 * Will convert both double and single quotes.
+	 */
+	public static var ENT_QUOTES(get, never) : Int; private static inline function get_ENT_QUOTES() : Int return untyped __php__("ENT_QUOTES");
+
+	/**
+	 * Will leave both double and single quotes unconverted.
+	 */
+	public static var ENT_NOQUOTES(get, never) : Int; private static inline function get_ENT_NOQUOTES() : Int return untyped __php__("ENT_NOQUOTES");
+
+	/**
+	 * Silently discard invalid code unit sequences instead of returning an empty string. Using this flag is discouraged as it » may have security implications.
+	 */
+	public static var ENT_IGNORE(get, never) : Int; private static inline function get_ENT_IGNORE() : Int return untyped __php__("ENT_IGNORE");
+
+	/**
+	 * Replace invalid code unit sequences with a Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
+	 */
+	public static var ENT_SUBSTITUTE(get, never) : Int; private static inline function get_ENT_SUBSTITUTE() : Int return untyped __php__("ENT_SUBSTITUTE");
+
+	/**
+	 * Replace invalid code points for the given document type with a Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of leaving them as is. This may be useful, for instance, to ensure the well-formedness of XML documents with embedded external content.
+	 */
+	public static var ENT_DISALLOWED(get, never) : Int; private static inline function get_ENT_DISALLOWED() : Int return untyped __php__("ENT_DISALLOWED");
+
+	/**
+	 * Handle code as HTML 4.01.
+	 */
+	public static var ENT_HTML401(get, never) : Int; private static inline function get_ENT_HTML401() : Int return untyped __php__("ENT_HTML401");
+
+	/**
+	 * Handle code as XML 1.
+	 */
+	public static var ENT_XML1(get, never) : Int; private static inline function get_ENT_XML1() : Int return untyped __php__("ENT_XML1");
+
+	/**
+	 * Handle code as XHTML.
+	 */
+	public static var ENT_XHTML(get, never) : Int; private static inline function get_ENT_XHTML() : Int return untyped __php__("ENT_XHTML");
+
+	/**
+	 * Handle code as HTML 5. 
+	 */
+	public static var ENT_HTML5(get, never) : Int; private static inline function get_ENT_HTML5() : Int return untyped __php__("ENT_HTML5");
+	
 	public static inline function addcslashes(str:String, charlist:String) : String return untyped __call__('addcslashes', str, charlist);
 	
 	public static inline function addslashes(str:String) : String return untyped __call__('addslashes', str);
