@@ -4,7 +4,7 @@ package php.xml;
 extern class DOMDocument extends DOMNode
 {
 	var actualEncoding(default, null) : String;
-	var config(default, null) : DOMConfiguration;
+	//var config(default, null) : DOMConfiguration;
 	var doctype(default, null) : DOMDocumentType;
 	var documentElement(default, null) : DOMElement;
 	var documentURI : String;
@@ -26,7 +26,7 @@ extern class DOMDocument extends DOMNode
 	function new(?version:String, ?encoding:String) : Void;
 	function createAttribute(name:String) : DOMAttr;
 	function createAttributeNS(namespaceURI:String, qualifiedName:String) : DOMAttr;
-	function createCDATASection(data:String) : DOMCDATASection;
+	function createCDATASection(data:String) : DOMCdataSection;
 	function createComment(data:String) : DOMComment;
 	function createDocumentFragment() : DOMDocumentFragment;
 	function createElement(name:String, ?value:String) : DOMElement;

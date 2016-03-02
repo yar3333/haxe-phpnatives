@@ -4,6 +4,10 @@ import haxe.macro.Expr;
 
 class PcreNatives
 {
+	public static var PREG_PATTERN_ORDER(get, never) : Int; private static inline function get_PREG_PATTERN_ORDER() : Int return untyped __php__("PREG_PATTERN_ORDER");
+	public static var PREG_SET_ORDER(get, never) : Int; private static inline function get_PREG_SET_ORDER() : Int return untyped __php__("PREG_SET_ORDER");
+	public static var PREG_OFFSET_CAPTURE(get, never) : Int; private static inline function get_PREG_OFFSET_CAPTURE() : Int return untyped __php__("PREG_OFFSET_CAPTURE");
+	
 	public static function preg_filter(pattern:Dynamic, replacement:Dynamic, subject:Dynamic, limit=-1, ?count:Int) : Dynamic
 	{
 		if (untyped __physeq__(count, null))
