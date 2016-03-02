@@ -1,5 +1,7 @@
 package php.xml;
 
+import php.interfaces.Traversable;
+
 @:native("DOMNamedNodeMap")
 extern class DOMNamedNodeMap implements Traversable
 {

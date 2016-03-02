@@ -1,5 +1,7 @@
 package php;
 
+import php.interfaces.Traversable;
+
 class TraversableTools
 {
 	public static function toArray<T>(trav:Traversable) : Array<T>

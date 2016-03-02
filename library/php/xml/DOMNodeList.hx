@@ -1,5 +1,7 @@
 package php.xml;
 
+import php.interfaces.Traversable;
+
 @:native("DOMNodeList")
 extern class DOMNodeList implements Traversable
 {
