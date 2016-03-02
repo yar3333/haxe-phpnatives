@@ -1,9 +1,10 @@
 package php.misc;
 
 import haxe.Constraints.Function;
+import php.interfaces.Serializable;
 
 @:native("ArrayObject")
-extern class ArrayObject implements IteratorAggregate implements ArrayAccess implements Serializable implements Countable
+extern class ArrayObject implements IteratorAggregate<Dynamic> implements ArrayAccess<Dynamic> implements Serializable implements php.interfaces.Countable
 {
 	static var STD_PROP_LIST(default, null) : Int;
 	static var ARRAY_AS_PROPS(default, null) : Int;
