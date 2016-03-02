@@ -4,4 +4,6 @@ package php.xml;
 extern class DOMNodeList implements Traversable
 {
 	var length(default, null) : Int;
+
+	function item(index:Int) : DOMNode;
 }

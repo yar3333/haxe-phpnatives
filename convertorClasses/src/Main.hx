@@ -71,15 +71,8 @@ class Main
 		var reTitle = new Regex("/\\s+/ /g");
 		var title = reTitle.replace(doc.find(">root>.classsynopsisinfo")[0].innerText.trim());
 		
-		var fields = doc.find(">root>.fieldsynopsis").map.fn(_.innerText.replace("\n", " "));
-		File.saveContent("temp.php", fields.join("\n").trim());
-		Sys.command("haxelib", [ "run", "refactor", "convertFile", "temp.php", "temp.hx", "c-like_php_fields_to_haxe.rules" ]);
-		fields = File.getContent("temp.hx").split("\n");
-		
-		var methods = doc.find(">root>.constructorsynopsis, >root>.methodsynopsis").map.fn(_.innerText.replace("\n", " "));
-		File.saveContent("temp.php", methods.join("\n").trim());
-		Sys.command("haxelib", [ "run", "refactor", "convertFile", "temp.php", "temp.hx", "c-like_php_methods_to_haxe.rules" ]);
-		methods = File.getContent("temp.hx").split("\n");
+		var fields = processFields(doc, klass);
+		var methods = processMethods(doc, klass);
 		
 		var dir = outDir + "/" + pack.replace(".", "/");
 		FileSystem.createDirectory(dir);
@@ -105,6 +98,32 @@ class Main
 		Log.finishSuccess();
 		
 		Sys.command("haxelib", [ "run", "refactor", "override", dir ]);
+	}
+	
+	static function processFields(doc:HtmlDocument, klass:String) : Array<String>
+	{
+		var fields = doc.find(">root>.fieldsynopsis").map.fn(_.innerText.replace("\n", " "));
+		
+		fields = fields.map.fn(new Regex("/\\b" + klass + "[:][:]//gi").replace(_));
+		
+		File.saveContent("temp.php", fields.join("\n").trim());
+		Sys.command("haxelib", [ "run", "refactor", "convertFile", "temp.php", "temp.hx", "c-like_php_fields_to_haxe.rules" ]);
+		fields = File.getContent("temp.hx").split("\n");
+		
+		return fields;
+	}
+	
+	static function processMethods(doc:HtmlDocument, klass:String) : Array<String>
+	{
+		var methods = doc.find(">root>.constructorsynopsis, >root>.methodsynopsis").map.fn(_.innerText.replace("\n", " "));
+		
+		methods = methods.map.fn(new Regex("/\\b" + klass + "[:][:]//gi").replace(_));
+		
+		File.saveContent("temp.php", methods.join("\n").trim());
+		Sys.command("haxelib", [ "run", "refactor", "convertFile", "temp.php", "temp.hx", "c-like_php_methods_to_haxe.rules" ]);
+		methods = File.getContent("temp.hx").split("\n");
+		
+		return methods;
 	}
 	
 	static function processLine(line:String) : String
