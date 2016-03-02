@@ -11,6 +11,7 @@ OUT_DIR = ../library
 
 TARGET_FILES  = $(OUT_DIR)/php/calendar
 TARGET_FILES += $(OUT_DIR)/php/xml
+TARGET_FILES += $(OUT_DIR)/php/interfaces
 
 #remake_xml: remove_xml $(OUT_DIR)/php/xml
 	
@@ -25,6 +26,9 @@ $(OUT_DIR)/php/calendar: bin/calendar.json
 $(OUT_DIR)/php/xml: bin/xml.json
 	$(CONVERTOR) $< php.xml $(OUT_DIR)
 
+$(OUT_DIR)/php/interfaces: bin/interfaces.json
+	$(CONVERTOR) $< php.interfaces $(OUT_DIR)
+
 bin/calendar.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/refs.calendar.php" \
@@ -33,4 +37,9 @@ bin/calendar.json:
 bin/xml.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/refs.xml.php" \
+		--output-json-file $@
+		
+bin/interfaces.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/reserved.interfaces.php" \
 		--output-json-file $@
