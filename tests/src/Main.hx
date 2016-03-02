@@ -14,6 +14,7 @@ import php.UrlNatives;
 import php.FilesystemNatives;
 import php.OutcontrolNatives;
 import php.MiscNatives;
+import php.FileinfoNatives;
 
 import php.calendar.DateInterval;
 import php.calendar.DatePeriod;
