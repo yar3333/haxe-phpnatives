@@ -4,5 +4,5 @@ package php.interfaces;
 extern interface Serializable
 {
 	function serialize() : String;
-    function unserialize(serialized:String) : Void;
+	function unserialize(serialized:String) : Void;
 }

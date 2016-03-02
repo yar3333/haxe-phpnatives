@@ -1,7 +1,6 @@
 DOWNLOADER_OPTIONS  = --output-directory bin/output
 DOWNLOADER_OPTIONS += --cache-directory bin/cache
 DOWNLOADER_OPTIONS += --product-regex "class[.][a-zA-Z0-9_]+[.]php"
-DOWNLOADER_OPTIONS += --product-url "http://php.net/manual/en/class.datetime.php"
 DOWNLOADER_OPTIONS += --product-text-property "name:h1"
 DOWNLOADER_OPTIONS += --product-html-property "body:.classsynopsis"
 

@@ -4,7 +4,7 @@ NUMBER = [-]?[0-9]+(?:[.][0-9]+)?
 STRING = "(?:\\.|[^"])*?"|'(?:\\.|[^'])*?'
 SPACES = [ \t\r\n]
 
-/\b(?:public|final)\s*//
+/\b(?:public|final|abstract)\s*//
 /\b(?:protected)\s*/private/
     
 /[=]\s*LONGID(?:\s*[|]\s*LONGID)+\s*//
