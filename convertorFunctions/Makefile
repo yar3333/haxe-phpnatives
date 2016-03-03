@@ -29,9 +29,10 @@ TARGET_FILES += $(OUT_DIR)/php/CtypeNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/JsonNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/FileinfoNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/FilterNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/HashNatives.hx
 
 build: $(TARGET_FILES)
-	
+
 $(OUT_DIR)/php/VarNatives.hx: bin/var.json
 	$(CONVERTOR) $< php.VarNatives $(OUT_DIR)
 	
@@ -90,6 +91,9 @@ $(OUT_DIR)/php/FilterNatives.hx: bin/filter.json
 	$(CONVERTOR) $< php.FilterNatives $(OUT_DIR)
 	$(DEF_PARAMS_FIXER) $@
 
+$(OUT_DIR)/php/HashNatives.hx: bin/hash.json
+	$(CONVERTOR) $< php.HashNatives $(OUT_DIR)
+	$(DEF_PARAMS_FIXER) $@
 
 bin/array.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
@@ -179,4 +183,9 @@ bin/fileinfo.json:
 bin/filter.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.filter.php" \
+		--output-json-file $@
+
+bin/hash.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/ref.hash.php" \
 		--output-json-file $@
