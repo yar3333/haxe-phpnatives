@@ -1,5 +1,7 @@
 package php.calendar;
 
+import php.interfaces.Traversable;
+
 @:native("DatePeriod")
 extern class DatePeriod implements Traversable
 {
