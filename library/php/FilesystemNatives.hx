@@ -2,6 +2,97 @@ package php;
 
 class FilesystemNatives
 {
+	public static var SEEK_SET(get, never) : Int; private static inline function get_SEEK_SET() : Int return untyped __php__("SEEK_SET");
+	public static var SEEK_CUR(get, never) : Int; private static inline function get_SEEK_CUR() : Int return untyped __php__("SEEK_CUR");
+	public static var SEEK_END(get, never) : Int; private static inline function get_SEEK_END() : Int return untyped __php__("SEEK_END");
+	public static var LOCK_SH(get, never) : Int; private static inline function get_LOCK_SH() : Int return untyped __php__("LOCK_SH");
+	public static var LOCK_EX(get, never) : Int; private static inline function get_LOCK_EX() : Int return untyped __php__("LOCK_EX");
+	public static var LOCK_UN(get, never) : Int; private static inline function get_LOCK_UN() : Int return untyped __php__("LOCK_UN");
+	public static var LOCK_NB(get, never) : Int; private static inline function get_LOCK_NB() : Int return untyped __php__("LOCK_NB");
+	public static var GLOB_BRACE(get, never) : Int; private static inline function get_GLOB_BRACE() : Int return untyped __php__("GLOB_BRACE");
+	public static var GLOB_ONLYDIR(get, never) : Int; private static inline function get_GLOB_ONLYDIR() : Int return untyped __php__("GLOB_ONLYDIR");
+	public static var GLOB_MARK(get, never) : Int; private static inline function get_GLOB_MARK() : Int return untyped __php__("GLOB_MARK");
+	public static var GLOB_NOSORT(get, never) : Int; private static inline function get_GLOB_NOSORT() : Int return untyped __php__("GLOB_NOSORT");
+	public static var GLOB_NOCHECK(get, never) : Int; private static inline function get_GLOB_NOCHECK() : Int return untyped __php__("GLOB_NOCHECK");
+	public static var GLOB_NOESCAPE(get, never) : Int; private static inline function get_GLOB_NOESCAPE() : Int return untyped __php__("GLOB_NOESCAPE");
+	public static var GLOB_AVAILABLE_FLAGS(get, never) : Int; private static inline function get_GLOB_AVAILABLE_FLAGS() : Int return untyped __php__("GLOB_AVAILABLE_FLAGS");
+	public static var PATHINFO_DIRNAME(get, never) : Int; private static inline function get_PATHINFO_DIRNAME() : Int return untyped __php__("PATHINFO_DIRNAME");
+	public static var PATHINFO_BASENAME(get, never) : Int; private static inline function get_PATHINFO_BASENAME() : Int return untyped __php__("PATHINFO_BASENAME");
+	public static var PATHINFO_EXTENSION(get, never) : Int; private static inline function get_PATHINFO_EXTENSION() : Int return untyped __php__("PATHINFO_EXTENSION");
+
+	/**
+	 * Since PHP 5.2.0. 
+	 */
+	public static var PATHINFO_FILENAME(get, never) : Int; private static inline function get_PATHINFO_FILENAME() : Int return untyped __php__("PATHINFO_FILENAME");
+
+	/**
+	 * Search for filename in include_path (since PHP 5). 
+	 */
+	public static var FILE_USE_INCLUDE_PATH(get, never) : Int; private static inline function get_FILE_USE_INCLUDE_PATH() : Int return untyped __php__("FILE_USE_INCLUDE_PATH");
+	
+	public static var FILE_NO_DEFAULT_CONTEXT(get, never) : Int; private static inline function get_FILE_NO_DEFAULT_CONTEXT() : Int return untyped __php__("FILE_NO_DEFAULT_CONTEXT");
+
+	/**
+	 * Append content to existing file. 
+	 */
+	public static var FILE_APPEND(get, never) : Int; private static inline function get_FILE_APPEND() : Int return untyped __php__("FILE_APPEND");
+
+	/**
+	 * Strip EOL characters (since PHP 5). 
+	 */
+	public static var FILE_IGNORE_NEW_LINES(get, never) : Int; private static inline function get_FILE_IGNORE_NEW_LINES() : Int return untyped __php__("FILE_IGNORE_NEW_LINES");
+
+	/**
+	 * Skip empty lines (since PHP 5). 
+	 */
+	public static var FILE_SKIP_EMPTY_LINES(get, never) : Int; private static inline function get_FILE_SKIP_EMPTY_LINES() : Int return untyped __php__("FILE_SKIP_EMPTY_LINES");
+
+	/**
+	 * Binary mode (since PHP 5.2.7).
+	 */
+	public static var FILE_BINARY(get, never) : Int; private static inline function get_FILE_BINARY() : Int return untyped __php__("FILE_BINARY");
+
+	/**
+	 * Text mode (since PHP 5.2.7).
+	 */
+	public static var FILE_TEXT(get, never) : Int; private static inline function get_FILE_TEXT() : Int return untyped __php__("FILE_TEXT");
+
+	/**
+	 * Normal INI scanner mode (since PHP 5.3). 
+	 */
+	public static var INI_SCANNER_NORMAL(get, never) : Int; private static inline function get_INI_SCANNER_NORMAL() : Int return untyped __php__("INI_SCANNER_NORMAL");
+
+	/**
+	 * Raw INI scanner mode (since PHP 5.3). 
+	 */
+	public static var INI_SCANNER_RAW(get, never) : Int; private static inline function get_INI_SCANNER_RAW() : Int return untyped __php__("INI_SCANNER_RAW");
+
+	/**
+	 * Typed INI scanner mode (since PHP 5.6.1). 
+	 */
+	public static var INI_SCANNER_TYPED(get, never) : Int; private static inline function get_INI_SCANNER_TYPED() : Int return untyped __php__("INI_SCANNER_TYPED");
+
+	/**
+	 * Disable backslash escaping. 
+	 */
+	public static var FNM_NOESCAPE(get, never) : Int; private static inline function get_FNM_NOESCAPE() : Int return untyped __php__("FNM_NOESCAPE");
+
+	/**
+	 * Slash in string only matches slash in the given pattern. 
+	 */
+	public static var FNM_PATHNAME(get, never) : Int; private static inline function get_FNM_PATHNAME() : Int return untyped __php__("FNM_PATHNAME");
+
+	/**
+	 * Leading period in string must be exactly matched by period in the given pattern. 
+	 */
+	public static var FNM_PERIOD(get, never) : Int; private static inline function get_FNM_PERIOD() : Int return untyped __php__("FNM_PERIOD");
+
+	/**
+	 * Caseless match. Part of the GNU extension. 
+	 */
+	public static var FNM_CASEFOLD(get, never) : Int; private static inline function get_FNM_CASEFOLD() : Int return untyped __php__("FNM_CASEFOLD");
+	
+	
 	public static function basename(path:String, ?suffix:String) : String
 	{
 		if (untyped __physeq__(suffix, null))

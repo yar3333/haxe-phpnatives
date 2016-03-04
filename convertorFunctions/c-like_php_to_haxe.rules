@@ -36,6 +36,7 @@ STRING = "(?:\\.|[^"])*?"|'(?:\\.|[^'])*?'
 /([(,]\s*)(?:[?]?[.][.][.])/$1?restArgs
 /([(,]\s*)(?:[?]?string)\b/$1str
 /([(,]\s*)(?:[?]?array)\b/$1arr
+/([(,]\s*)(?:[?]?function)\b/$1func
 
 /\s*[=]\s*/=/
 
@@ -53,6 +54,7 @@ STRING = "(?:\\.|[^"])*?"|'(?:\\.|[^'])*?'
 /([:]\s*)object\b/$1Dynamic
 /([:]\s*)void\b/$1Void
 /([:]\s*)resource\b/$1Resource
+/([:]\s*)callable\b/$1Function
 
 /(__call__[(].*?)[?]?(ID)\s*[:]\s*ID\s*/$1$2/r
 /(__call__[(].*?)[=](?:ID|NUMBER|STRING)/$1/r

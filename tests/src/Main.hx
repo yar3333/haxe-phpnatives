@@ -16,6 +16,7 @@ import php.OutcontrolNatives;
 import php.MiscNatives;
 import php.FileinfoNatives;
 import php.HashNatives;
+import php.ImageNatives;
 
 import php.calendar.DateInterval;
 import php.calendar.DatePeriod;

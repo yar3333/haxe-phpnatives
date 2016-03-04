@@ -30,6 +30,8 @@ TARGET_FILES += $(OUT_DIR)/php/JsonNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/FileinfoNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/FilterNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/HashNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/FunchandNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/ImageNatives.hx
 
 build: $(TARGET_FILES)
 
@@ -94,6 +96,15 @@ $(OUT_DIR)/php/FilterNatives.hx: bin/filter.json
 $(OUT_DIR)/php/HashNatives.hx: bin/hash.json
 	$(CONVERTOR) $< php.HashNatives $(OUT_DIR)
 	$(DEF_PARAMS_FIXER) $@
+
+$(OUT_DIR)/php/FunchandNatives.hx: bin/funchand.json
+	$(CONVERTOR) $< php.FunchandNatives $(OUT_DIR)
+	$(DEF_PARAMS_FIXER) $@
+
+$(OUT_DIR)/php/ImageNatives.hx: bin/image.json
+	$(CONVERTOR) $< php.ImageNatives $(OUT_DIR)
+	$(DEF_PARAMS_FIXER) $@
+
 
 bin/array.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
@@ -188,4 +199,14 @@ bin/filter.json:
 bin/hash.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.hash.php" \
+		--output-json-file $@
+
+bin/funchand.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/book.funchand.php" \
+		--output-json-file $@
+
+bin/image.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/ref.image.php" \
 		--output-json-file $@
