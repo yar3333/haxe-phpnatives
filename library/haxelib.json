@@ -4,8 +4,8 @@
   "tags": ["php","native","natives","extern","externs"],
   "description": "Files to help writing applications to PHP target.",
   "contributors": ["yar3333"],
-  "releasenote": "Add misc function. Add optional arguments fixer tool. Fix optional arguments.",
-  "version": "2.0.0",
+  "releasenote": "Improve TypedArray (native php array with types checking).<br>\nAdd several datetime classes.<br>\nAdd json-related natives.<br>\nAdd xml-related natives.<br>\nAdd fileinfo natives.<br>\nAdd php interfaces.<br>\nAdd SPL misc.<br>\nAdd SPL interfaces.<br>\nAdd filters and iterators.<br>\nAdd hash-related natives.<br>\nAdd funchand natives.<br>\nAdd image processing natives.",
+  "version": "3.0.0",
   "url": "https://bitbucket.org/yar3333/haxe-phpnatives",
   "dependencies": {}
 }
