@@ -79,7 +79,7 @@ class Main
 		var n = indexes.pop();
 		var p = params[n];
 		
-		var r = spaces + "if (untyped __physeq__(" + p.name + ", null))\n";
+		var r = spaces + "if (" + p.name + " == null)\n";
 		r    += spaces + "{\n";
 		r    += generateCall(params.slice(0, n), indexes, retType, rawName, spaces + "\t");
 		r    += spaces + "}\n";
