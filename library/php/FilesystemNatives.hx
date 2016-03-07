@@ -95,7 +95,7 @@ class FilesystemNatives
 	
 	public static function basename(path:String, ?suffix:String) : String
 	{
-		if (untyped __physeq__(suffix, null))
+		if (suffix == null)
 		{
 			return untyped __call__('basename', path);
 		}
@@ -113,7 +113,7 @@ class FilesystemNatives
 	
 	public static function clearstatcache(clear_realpath_cache=false, ?filename:String) : Void
 	{
-		if (untyped __physeq__(filename, null))
+		if (filename == null)
 		{
 			untyped __call__('clearstatcache', clear_realpath_cache);
 		}
@@ -125,7 +125,7 @@ class FilesystemNatives
 	
 	public static function copy(source:String, dest:String, ?context:Resource) : Bool
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('copy', source, dest);
 		}
@@ -153,7 +153,7 @@ class FilesystemNatives
 	
 	public static function fgets(handle:Resource, ?length:Int) : String
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
 			return untyped __call__('fgets', handle);
 		}
@@ -165,9 +165,9 @@ class FilesystemNatives
 	
 	public static function fgetss(handle:Resource, ?length:Int, ?allowable_tags:String) : String
 	{
-		if (untyped __physeq__(allowable_tags, null))
+		if (allowable_tags == null)
 		{
-			if (untyped __physeq__(length, null))
+			if (length == null)
 			{
 				return untyped __call__('fgetss', handle);
 			}
@@ -186,9 +186,9 @@ class FilesystemNatives
 	
 	public static function file_get_contents(filename:String, use_include_path=false, ?context:Resource, offset=0, ?maxlen:Int) : String
 	{
-		if (untyped __physeq__(maxlen, null))
+		if (maxlen == null)
 		{
-			if (untyped __physeq__(context, null))
+			if (context == null)
 			{
 				return untyped __call__('file_get_contents', filename, use_include_path);
 			}
@@ -205,7 +205,7 @@ class FilesystemNatives
 	
 	public static function file_put_contents(filename:String, data:Dynamic, flags=0, ?context:Resource) : Int
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('file_put_contents', filename, data, flags);
 		}
@@ -217,7 +217,7 @@ class FilesystemNatives
 	
 	public static function file(filename:String, flags=0, ?context:Resource) : NativeArray
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('file', filename, flags);
 		}
@@ -247,7 +247,7 @@ class FilesystemNatives
 	
 	public static function flock(handle:Resource, operation:Int, ?wouldblock:Int) : Bool
 	{
-		if (untyped __physeq__(wouldblock, null))
+		if (wouldblock == null)
 		{
 			return untyped __call__('flock', handle, operation);
 		}
@@ -261,7 +261,7 @@ class FilesystemNatives
 	
 	public static function fopen(filename:String, mode:String, use_include_path=false, ?context:Resource) : Resource
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('fopen', filename, mode, use_include_path);
 		}
@@ -279,7 +279,7 @@ class FilesystemNatives
 	
 	public static function fscanf(handle:Resource, format:String, ?restArgs:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
 			return untyped __call__('fscanf', handle, format);
 		}
@@ -291,7 +291,7 @@ class FilesystemNatives
 	
 	public static function fseek(handle:Resource, offset:Int, ?whence:Int) : Int
 	{
-		if (untyped __physeq__(whence, null))
+		if (whence == null)
 		{
 			return untyped __call__('fseek', handle, offset);
 		}
@@ -309,7 +309,7 @@ class FilesystemNatives
 	
 	public static function fwrite(handle:Resource, str:String, ?length:Int) : Int
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
 			return untyped __call__('fwrite', handle, str);
 		}
@@ -347,7 +347,7 @@ class FilesystemNatives
 	
 	public static function mkdir(pathname:String, mode=0x1FF, recursive=false, ?context:Resource) : Bool
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('mkdir', pathname, mode, recursive);
 		}
@@ -361,7 +361,7 @@ class FilesystemNatives
 	
 	public static function parse_ini_file(filename:String, process_sections=false, ?scanner_mode:Int) : NativeArray
 	{
-		if (untyped __physeq__(scanner_mode, null))
+		if (scanner_mode == null)
 		{
 			return untyped __call__('parse_ini_file', filename, process_sections);
 		}
@@ -373,7 +373,7 @@ class FilesystemNatives
 	
 	public static function parse_ini_string(ini:String, process_sections=false, ?scanner_mode:Int) : NativeArray
 	{
-		if (untyped __physeq__(scanner_mode, null))
+		if (scanner_mode == null)
 		{
 			return untyped __call__('parse_ini_string', ini, process_sections);
 		}
@@ -385,7 +385,7 @@ class FilesystemNatives
 	
 	public static function pathinfo(path:String, ?options:Int) : Dynamic
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
 			return untyped __call__('pathinfo', path);
 		}
@@ -401,7 +401,7 @@ class FilesystemNatives
 	
 	public static function readfile(filename:String, use_include_path=false, ?context:Resource) : Int
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('readfile', filename, use_include_path);
 		}
@@ -421,7 +421,7 @@ class FilesystemNatives
 	
 	public static function rename(oldname:String, newname:String, ?context:Resource) : Bool
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('rename', oldname, newname);
 		}
@@ -435,7 +435,7 @@ class FilesystemNatives
 	
 	public static function rmdir(dirname:String, ?context:Resource) : Bool
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('rmdir', dirname);
 		}
@@ -455,9 +455,9 @@ class FilesystemNatives
 	
 	public static function touch(filename:String, ?time:Int, ?atime:Int) : Bool
 	{
-		if (untyped __physeq__(atime, null))
+		if (atime == null)
 		{
-			if (untyped __physeq__(time, null))
+			if (time == null)
 			{
 				return untyped __call__('touch', filename);
 			}
@@ -474,7 +474,7 @@ class FilesystemNatives
 	
 	public static function umask(?mask:Int) : Int
 	{
-		if (untyped __physeq__(mask, null))
+		if (mask == null)
 		{
 			return untyped __call__('umask');
 		}
@@ -486,7 +486,7 @@ class FilesystemNatives
 	
 	public static function unlink(filename:String, ?context:Resource) : Bool
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
 			return untyped __call__('unlink', filename);
 		}

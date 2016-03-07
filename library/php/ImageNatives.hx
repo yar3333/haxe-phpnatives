@@ -447,7 +447,7 @@ class ImageNatives
 	
 	public static function getimagesize(filename:String, ?imageinfo:NativeArray) : NativeArray
 	{
-		if (untyped __physeq__(imageinfo, null))
+		if (imageinfo == null)
 		{
 			return untyped __call__('getimagesize', filename);
 		}
@@ -459,7 +459,7 @@ class ImageNatives
 	
 	public static function getimagesizefromstring(imagedata:String, ?imageinfo:NativeArray) : NativeArray
 	{
-		if (untyped __physeq__(imageinfo, null))
+		if (imageinfo == null)
 		{
 			return untyped __call__('getimagesizefromstring', imagedata);
 		}
@@ -475,9 +475,9 @@ class ImageNatives
 	
 	public static function image2wbmp(image:Resource, ?filename:String, ?threshold:Int) : Bool
 	{
-		if (untyped __physeq__(threshold, null))
+		if (threshold == null)
 		{
-			if (untyped __physeq__(filename, null))
+			if (filename == null)
 			{
 				return untyped __call__('image2wbmp', image);
 			}
@@ -494,7 +494,7 @@ class ImageNatives
 	
 	public static function imageaffine(image:Resource, affine:NativeArray, ?clip:NativeArray) : Resource
 	{
-		if (untyped __physeq__(clip, null))
+		if (clip == null)
 		{
 			return untyped __call__('imageaffine', image, affine);
 		}
@@ -508,7 +508,7 @@ class ImageNatives
 	
 	public static function imageaffinematrixget(type:Int, ?options:Dynamic) : NativeArray
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
 			return untyped __call__('imageaffinematrixget', type);
 		}
@@ -561,7 +561,7 @@ class ImageNatives
 	
 	public static function imagecolortransparent(image:Resource, ?color:Int) : Int
 	{
-		if (untyped __physeq__(color, null))
+		if (color == null)
 		{
 			return untyped __call__('imagecolortransparent', image);
 		}
@@ -613,7 +613,7 @@ class ImageNatives
 	
 	public static function imagecropauto(image:Resource, ?mode:Int=-1, ?threshold:Float=.5, ?color:Int=-1) : Resource
 	{
-		if (untyped __physeq__(threshold, null))
+		if (threshold == null)
 		{
 			return untyped __call__('imagecropauto', image, mode);
 		}
@@ -643,13 +643,13 @@ class ImageNatives
 	
 	public static function imagefilter(image:Resource, filtertype:Int, ?arg1:Int, ?arg2:Int, ?arg3:Int, ?arg4:Int) : Bool
 	{
-		if (untyped __physeq__(arg4, null))
+		if (arg4 == null)
 		{
-			if (untyped __physeq__(arg3, null))
+			if (arg3 == null)
 			{
-				if (untyped __physeq__(arg2, null))
+				if (arg2 == null)
 				{
-					if (untyped __physeq__(arg1, null))
+					if (arg1 == null)
 					{
 						return untyped __call__('imagefilter', image, filtertype);
 					}
@@ -682,7 +682,7 @@ class ImageNatives
 	
 	public static function imageftbbox(size:Float, angle:Float, fontfile:String, text:String, ?extrainfo:NativeArray) : NativeArray
 	{
-		if (untyped __physeq__(extrainfo, null))
+		if (extrainfo == null)
 		{
 			return untyped __call__('imageftbbox', size, angle, fontfile, text);
 		}
@@ -694,7 +694,7 @@ class ImageNatives
 	
 	public static function imagefttext(image:Resource, size:Float, angle:Float, x:Int, y:Int, color:Int, fontfile:String, text:String, ?extrainfo:NativeArray) : NativeArray
 	{
-		if (untyped __physeq__(extrainfo, null))
+		if (extrainfo == null)
 		{
 			return untyped __call__('imagefttext', image, size, angle, x, y, color, fontfile, text);
 		}
@@ -708,11 +708,11 @@ class ImageNatives
 	
 	public static function imagegd2(image:Resource, ?filename:String, ?chunk_size:Int, ?type:Int) : Bool
 	{
-		if (untyped __physeq__(type, null))
+		if (type == null)
 		{
-			if (untyped __physeq__(chunk_size, null))
+			if (chunk_size == null)
 			{
-				if (untyped __physeq__(filename, null))
+				if (filename == null)
 				{
 					return untyped __call__('imagegd2', image);
 				}
@@ -734,7 +734,7 @@ class ImageNatives
 	
 	public static function imagegd(image:Resource, ?filename:String) : Bool
 	{
-		if (untyped __physeq__(filename, null))
+		if (filename == null)
 		{
 			return untyped __call__('imagegd', image);
 		}
@@ -746,7 +746,7 @@ class ImageNatives
 	
 	public static function imagegif(image:Resource, ?filename:String) : Bool
 	{
-		if (untyped __physeq__(filename, null))
+		if (filename == null)
 		{
 			return untyped __call__('imagegif', image);
 		}
@@ -766,9 +766,9 @@ class ImageNatives
 	
 	public static function imagejpeg(image:Resource, ?filename:String, ?quality:Int) : Bool
 	{
-		if (untyped __physeq__(quality, null))
+		if (quality == null)
 		{
-			if (untyped __physeq__(filename, null))
+			if (filename == null)
 			{
 				return untyped __call__('imagejpeg', image);
 			}
@@ -795,11 +795,11 @@ class ImageNatives
 	
 	public static function imagepng(image:Resource, ?filename:String, ?quality:Int, ?filters:Int) : Bool
 	{
-		if (untyped __physeq__(filters, null))
+		if (filters == null)
 		{
-			if (untyped __physeq__(quality, null))
+			if (quality == null)
 			{
-				if (untyped __physeq__(filename, null))
+				if (filename == null)
 				{
 					return untyped __call__('imagepng', image);
 				}
@@ -843,7 +843,7 @@ class ImageNatives
 	
 	public static function imagescale(image:Resource, new_width:Int, ?new_height:Int=-1, ?mode:Int) : Resource
 	{
-		if (untyped __physeq__(mode, null))
+		if (mode == null)
 		{
 			return untyped __call__('imagescale', image, new_width, new_height);
 		}
@@ -857,7 +857,7 @@ class ImageNatives
 	
 	public static function imagesetinterpolation(image:Resource, ?method:Int) : Bool
 	{
-		if (untyped __physeq__(method, null))
+		if (method == null)
 		{
 			return untyped __call__('imagesetinterpolation', image);
 		}
@@ -893,9 +893,9 @@ class ImageNatives
 	
 	public static function imagewbmp(image:Resource, ?filename:String, ?foreground:Int) : Bool
 	{
-		if (untyped __physeq__(foreground, null))
+		if (foreground == null)
 		{
-			if (untyped __physeq__(filename, null))
+			if (filename == null)
 			{
 				return untyped __call__('imagewbmp', image);
 			}
@@ -914,7 +914,7 @@ class ImageNatives
 	
 	public static function imagexbm(image:Resource, filename:String, ?foreground:Int) : Bool
 	{
-		if (untyped __physeq__(foreground, null))
+		if (foreground == null)
 		{
 			return untyped __call__('imagexbm', image, filename);
 		}

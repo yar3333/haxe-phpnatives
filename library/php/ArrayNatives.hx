@@ -4,7 +4,7 @@ class ArrayNatives
 {
 	public static function array_change_key_case(arr:NativeArray, ?case_:Int) : NativeArray
 	{
-		if (untyped __physeq__(case_, null))
+		if (case_ == null)
 		{
 			return untyped __call__('array_change_key_case', arr);
 		}
@@ -18,7 +18,7 @@ class ArrayNatives
 	
 	public static function explode(delimiter:String, str:String, ?limit:Int) : NativeArray
 	{
-		if (untyped __physeq__(limit, null))
+		if (limit == null)
 		{
 			return untyped __call__('explode', delimiter, str);
 		}
@@ -60,7 +60,7 @@ class ArrayNatives
 	
 	public static function array_filter(arr:NativeArray, ?callback:Dynamic->Void, flag=0) : NativeArray
 	{
-		if (untyped __physeq__(callback, null))
+		if (callback == null)
 		{
 			return untyped __call__('array_filter', arr);
 		}
@@ -94,9 +94,9 @@ class ArrayNatives
 	
 	public static function array_multisort(array1:NativeArray, ?array1_sort_order:Dynamic, ?array1_sort_flags:Dynamic) : Bool
 	{
-		if (untyped __physeq__(array1_sort_flags, null))
+		if (array1_sort_flags == null)
 		{
-			if (untyped __physeq__(array1_sort_order, null))
+			if (array1_sort_order == null)
 			{
 				return untyped __call__('array_multisort', array1);
 			}
@@ -124,7 +124,7 @@ class ArrayNatives
 	
 	public static function array_reduce(arr:NativeArray, callback:Dynamic->Dynamic->Dynamic, ?initial:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(initial, null))
+		if (initial == null)
 		{
 			return untyped __call__('array_reduce', arr, callback);
 		}
@@ -147,7 +147,7 @@ class ArrayNatives
 	
 	public static function array_slice(arr:NativeArray, offset:Int, ?length:Int, ?preserve_keys:Bool=false) : NativeArray
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
 			return untyped __call__('array_slice', arr, offset);
 		}
@@ -160,7 +160,7 @@ class ArrayNatives
 	
 	public static function array_splice(input:NativeArray, offset:Int, length=0, ?replacement:Dynamic) : NativeArray
 	{
-		if (untyped __physeq__(replacement, null))
+		if (replacement == null)
 		{
 			return untyped __call__('array_splice', input, offset, length);
 		}
@@ -186,7 +186,7 @@ class ArrayNatives
 	
 	public static function array_unique(arr:NativeArray, ?sort_flags:Int) : NativeArray
 	{
-		if (untyped __physeq__(sort_flags, null))
+		if (sort_flags == null)
 		{
 			return untyped __call__('array_unique', arr);
 		}
@@ -202,7 +202,7 @@ class ArrayNatives
 	
 	public static function array_walk_recursive(arr:NativeArray, callback:Dynamic->Void, ?userdata:Dynamic) : Bool
 	{
-		if (untyped __physeq__(userdata, null))
+		if (userdata == null)
 		{
 			return untyped __call__('array_walk_recursive', arr, callback);
 		}
@@ -215,7 +215,7 @@ class ArrayNatives
 	
 	public static function array_walk(arr:NativeArray, callback:Dynamic->Void, ?userdata:Dynamic) : Bool
 	{
-		if (untyped __physeq__(userdata, null))
+		if (userdata == null)
 		{
 			return untyped __call__('array_walk', arr, callback);
 		}
@@ -228,7 +228,7 @@ class ArrayNatives
 	
 	public static function arsort(arr:NativeArray, ?sort_flags:Int) : Bool
 	{
-		if (untyped __physeq__(sort_flags, null))
+		if (sort_flags == null)
 		{
 			return untyped __call__('arsort', arr);
 		}
@@ -240,7 +240,7 @@ class ArrayNatives
 	
 	public static function asort(arr:NativeArray, ?sort_flags:Int) : Bool
 	{
-		if (untyped __physeq__(sort_flags, null))
+		if (sort_flags == null)
 		{
 			return untyped __call__('asort', arr);
 		}
@@ -252,7 +252,7 @@ class ArrayNatives
 	
 	public static function compact(varname1:Dynamic, ?restArgs:Dynamic) : NativeArray
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
 			return untyped __call__('compact', varname1);
 		}
@@ -265,7 +265,7 @@ class ArrayNatives
 	
 	public static function count(array_or_countable:Dynamic, ?mode:Int) : Int
 	{
-		if (untyped __physeq__(mode, null))
+		if (mode == null)
 		{
 			return untyped __call__('count', array_or_countable);
 		}
@@ -283,9 +283,9 @@ class ArrayNatives
 	
 	public static function extract(arr:NativeArray, ?flags:Int, ?prefix:String) : Int
 	{
-		if (untyped __physeq__(prefix, null))
+		if (prefix == null)
 		{
-			if (untyped __physeq__(flags, null))
+			if (flags == null)
 			{
 				return untyped __call__('extract', arr);
 			}
@@ -306,7 +306,7 @@ class ArrayNatives
 	
 	public static function krsort(arr:NativeArray, ?sort_flags:Int) : Bool
 	{
-		if (untyped __physeq__(sort_flags, null))
+		if (sort_flags == null)
 		{
 			return untyped __call__('krsort', arr);
 		}
@@ -318,7 +318,7 @@ class ArrayNatives
 	
 	public static function ksort(arr:NativeArray, ?sort_flags:Int) : Bool
 	{
-		if (untyped __physeq__(sort_flags, null))
+		if (sort_flags == null)
 		{
 			return untyped __call__('ksort', arr);
 		}
@@ -342,7 +342,7 @@ class ArrayNatives
 	
 	public static function rsort(arr:NativeArray, ?sort_flags:Int) : Bool
 	{
-		if (untyped __physeq__(sort_flags, null))
+		if (sort_flags == null)
 		{
 			return untyped __call__('rsort', arr);
 		}
@@ -356,7 +356,7 @@ class ArrayNatives
 	
 	public static function sort(arr:NativeArray, ?sort_flags:Int) : Bool
 	{
-		if (untyped __physeq__(sort_flags, null))
+		if (sort_flags == null)
 		{
 			return untyped __call__('sort', arr);
 		}

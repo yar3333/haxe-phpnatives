@@ -74,7 +74,7 @@ class StringsNatives
 	
 	public static function crypt(str:String, ?salt:String) : String
 	{
-		if (untyped __physeq__(salt, null))
+		if (salt == null)
 		{
 			return untyped __call__('crypt', str);
 		}
@@ -88,7 +88,7 @@ class StringsNatives
 	
 	public static function explode(delimiter:String, str:String, ?limit:Int) : NativeArray
 	{
-		if (untyped __physeq__(limit, null))
+		if (limit == null)
 		{
 			return untyped __call__('explode', delimiter, str);
 		}
@@ -100,9 +100,9 @@ class StringsNatives
 	
 	public static function fprintf(handle:Resource, format:String, ?args:Dynamic, ?restArgs:Dynamic) : Int
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
-			if (untyped __physeq__(args, null))
+			if (args == null)
 			{
 				return untyped __call__('fprintf', handle, format);
 			}
@@ -119,9 +119,9 @@ class StringsNatives
 	
 	public static function get_html_translation_table(?table:Int, ?flags:Int, encoding="UTF-8") : NativeArray
 	{
-		if (untyped __physeq__(flags, null))
+		if (flags == null)
 		{
-			if (untyped __physeq__(table, null))
+			if (table == null)
 			{
 				return untyped __call__('get_html_translation_table');
 			}
@@ -144,9 +144,9 @@ class StringsNatives
 	
 	public static function html_entity_decode(str:String, ?flags:Int, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
-			if (untyped __physeq__(flags, null))
+			if (flags == null)
 			{
 				return untyped __call__('html_entity_decode', str);
 			}
@@ -163,11 +163,11 @@ class StringsNatives
 	
 	public static function htmlentities(str:String, ?flags:Int, ?encoding:String, ?double_encode:Bool) : String
 	{
-		if (untyped __physeq__(double_encode, null))
+		if (double_encode == null)
 		{
-			if (untyped __physeq__(encoding, null))
+			if (encoding == null)
 			{
-				if (untyped __physeq__(flags, null))
+				if (flags == null)
 				{
 					return untyped __call__('htmlentities', str);
 				}
@@ -189,7 +189,7 @@ class StringsNatives
 	
 	public static function htmlspecialchars_decode(str:String, ?flags:Int) : String
 	{
-		if (untyped __physeq__(flags, null))
+		if (flags == null)
 		{
 			return untyped __call__('htmlspecialchars_decode', str);
 		}
@@ -201,11 +201,11 @@ class StringsNatives
 	
 	public static function htmlspecialchars(str:String, ?flags:Int, ?encoding:String, ?double_encode:Bool) : String return untyped
 	{
-		if (untyped __physeq__(double_encode, null))
+		if (double_encode == null)
 		{
-			if (untyped __physeq__(encoding, null))
+			if (encoding == null)
 			{
-				if (untyped __physeq__(flags, null))
+				if (flags == null)
 				{
 					return untyped __call__('htmlspecialchars', str);
 				}
@@ -235,7 +235,7 @@ class StringsNatives
 	
 	public static function ltrim(str:String, ?character_mask:String) : String
 	{
-		if (untyped __physeq__(character_mask, null))
+		if (character_mask == null)
 		{
 			return untyped __call__('ltrim', str);
 		}
@@ -263,7 +263,7 @@ class StringsNatives
 	
 	public static function parse_str(str:String, ?arr:NativeArray) : Void
 	{
-		if (untyped __physeq__(arr, null))
+		if (arr == null)
 		{
 			untyped __call__('parse_str', str);
 		}
@@ -277,9 +277,9 @@ class StringsNatives
 	
 	public static function printf(format:String, ?args:Dynamic, ?restArgs:Dynamic) : Int
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
-			if (untyped __physeq__(args, null))
+			if (args == null)
 			{
 				return untyped __call__('printf', format);
 			}
@@ -302,7 +302,7 @@ class StringsNatives
 	
 	public static function rtrim(str:String, ?character_mask:String) : String
 	{
-		if (untyped __physeq__(character_mask, null))
+		if (character_mask == null)
 		{
 			return untyped __call__('rtrim', str);
 		}
@@ -314,7 +314,7 @@ class StringsNatives
 	
 	public static function setlocale(category:Int, locale:String, ?restArgs:String) : String
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
 			return untyped __call__('setlocale', category, locale);
 		}
@@ -330,7 +330,7 @@ class StringsNatives
 	
 	public static function similar_text(first:String, second:String, ?percent:Float) : Int
 	{
-		if (untyped __physeq__(percent, null))
+		if (percent == null)
 		{
 			return untyped __call__('similar_text', first, second);
 		}
@@ -344,9 +344,9 @@ class StringsNatives
 	
 	public static function sprintf(format:String, ?args:Dynamic, ?restArgs:Dynamic) : String
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
-			if (untyped __physeq__(args, null))
+			if (args == null)
 			{
 				return untyped __call__('sprintf', format);
 			}
@@ -363,7 +363,7 @@ class StringsNatives
 	
 	public static function sscanf(str:String, format:String, ?restArgs:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
 			return untyped __call__('sscanf', str, format);
 		}
@@ -377,7 +377,7 @@ class StringsNatives
 	
 	public static function str_ireplace(search:Dynamic, replace:Dynamic, subject:Dynamic, ?count:Int) : Dynamic
 	{
-		if (untyped __physeq__(count, null))
+		if (count == null)
 		{
 			return untyped __call__('str_ireplace', search, replace, subject);
 		}
@@ -389,7 +389,7 @@ class StringsNatives
 	
 	public static function str_pad(input:String, pad_length:Int, pad_string=" ", ?pad_type:Int) : String
 	{
-		if (untyped __physeq__(pad_type, null))
+		if (pad_type == null)
 		{
 			return untyped __call__('str_pad', input, pad_length, pad_string);
 		}
@@ -403,7 +403,7 @@ class StringsNatives
 	
 	public static function str_replace(search:Dynamic, replace:Dynamic, subject:Dynamic, ?count:Int) : Dynamic
 	{
-		if (untyped __physeq__(count, null))
+		if (count == null)
 		{
 			return untyped __call__('str_replace', search, replace, subject);
 		}
@@ -421,7 +421,7 @@ class StringsNatives
 	
 	public static function str_word_count(str:String, format=0, ?charlist:String) : Dynamic
 	{
-		if (untyped __physeq__(charlist, null))
+		if (charlist == null)
 		{
 			return untyped __call__('str_word_count', str, format);
 		}
@@ -439,9 +439,9 @@ class StringsNatives
 	
 	public static function strcspn(subject:String, mask:String, ?start:Int, ?length:Int) : Int
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
-			if (untyped __physeq__(start, null))
+			if (start == null)
 			{
 				return untyped __call__('strcspn', subject, mask);
 			}
@@ -458,7 +458,7 @@ class StringsNatives
 	
 	public static function strip_tags(str:String, ?allowable_tags:String) : String
 	{
-		if (untyped __physeq__(allowable_tags, null))
+		if (allowable_tags == null)
 		{
 			return untyped __call__('strip_tags', str);
 		}
@@ -500,9 +500,9 @@ class StringsNatives
 	
 	public static function strspn(subject:String, mask:String, ?start:Int, ?length:Int) : Int
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
-			if (untyped __physeq__(start, null))
+			if (start == null)
 			{
 				return untyped __call__('strspn', subject, mask);
 			}
@@ -530,7 +530,7 @@ class StringsNatives
 	
 	public static function substr_compare(main_str:String, str:String, offset:Int, ?length:Int, case_insensitivity=false) : Int
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
 			return untyped __call__('substr_compare', main_str, str, offset);
 		}
@@ -542,7 +542,7 @@ class StringsNatives
 	
 	public static function substr_count(haystack:String, needle:String, offset=0, ?length:Int) : Int
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
 			return untyped __call__('substr_count', haystack, needle, offset);
 		}
@@ -554,7 +554,7 @@ class StringsNatives
 	
 	public static function substr_replace(str:Dynamic, replacement:Dynamic, start:Dynamic, ?length:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
 			return untyped __call__('substr_replace', str, replacement, start);
 		}
@@ -566,7 +566,7 @@ class StringsNatives
 	
 	public static function substr(str:String, start:Int, ?length:Int) : String
 	{
-		if (untyped __physeq__(length, null))
+		if (length == null)
 		{
 			return untyped __call__('substr', str, start);
 		}
@@ -582,7 +582,7 @@ class StringsNatives
 	
 	public static function ucwords(str:String, ?delimiters:String) : String
 	{
-		if (untyped __physeq__(delimiters, null))
+		if (delimiters == null)
 		{
 			return untyped __call__('ucwords', str);
 		}
@@ -600,7 +600,7 @@ class StringsNatives
 	
 	public static function wordwrap(str:String, width=75, break_="\n", ?cut:Bool) : String
 	{
-		if (untyped __physeq__(cut, null))
+		if (cut == null)
 		{
 			return untyped __call__('wordwrap', str, width, break_);
 		}

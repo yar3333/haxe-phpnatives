@@ -4,9 +4,9 @@ class MbstringNatives
 {
 	public static function mb_check_encoding(?var_:String, ?encoding:String) : Bool
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
-			if (untyped __physeq__(var_, null))
+			if (var_ == null)
 			{
 				return untyped __call__('mb_check_encoding');
 			}
@@ -23,7 +23,7 @@ class MbstringNatives
 	
 	public static function mb_convert_case(str:String, mode:Int, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_convert_case', str, mode);
 		}
@@ -35,7 +35,7 @@ class MbstringNatives
 	
 	public static function mb_convert_encoding(str:String, to_encoding:String, ?from_encoding:Dynamic) : String
 	{
-		if (untyped __physeq__(from_encoding, null))
+		if (from_encoding == null)
 		{
 			return untyped __call__('mb_convert_encoding', str, to_encoding);
 		}
@@ -47,7 +47,7 @@ class MbstringNatives
 	
 	public static function mb_convert_kana(str:String, option="KV", ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_convert_kana', str, option);
 		}
@@ -59,7 +59,7 @@ class MbstringNatives
 	
 	public static function mb_convert_variables(to_encoding:String, from_encoding:Dynamic, vars:Dynamic, ?restArgs:Dynamic) : String
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
 			return untyped __call__('mb_convert_variables', to_encoding, from_encoding, vars);
 		}
@@ -73,7 +73,7 @@ class MbstringNatives
 	
 	public static function mb_decode_numericentity(str:String, convmap:NativeArray, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_decode_numericentity', str, convmap);
 		}
@@ -85,7 +85,7 @@ class MbstringNatives
 	
 	public static function mb_detect_encoding(str:String, ?encoding_list:Dynamic, strict=false) : String
 	{
-		if (untyped __physeq__(encoding_list, null))
+		if (encoding_list == null)
 		{
 			return untyped __call__('mb_detect_encoding', str);
 		}
@@ -97,7 +97,7 @@ class MbstringNatives
 	
 	public static function mb_detect_order(?encoding_list:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(encoding_list, null))
+		if (encoding_list == null)
 		{
 			return untyped __call__('mb_detect_order');
 		}
@@ -109,7 +109,7 @@ class MbstringNatives
 	
 	public static function mb_encode_mimeheader(str:String, ?charset:String, transfer_encoding="B", linefeed="\r\n", indent=0) : String
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
 			return untyped __call__('mb_encode_mimeheader', str);
 		}
@@ -121,7 +121,7 @@ class MbstringNatives
 	
 	public static function mb_encode_numericentity(str:String, convmap:NativeArray, ?encoding:String, is_hex=false) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_encode_numericentity', str, convmap);
 		}
@@ -145,7 +145,7 @@ class MbstringNatives
 	
 	public static function mb_ereg_search_init(str:String, ?pattern:String, option="msr") : Bool
 	{
-		if (untyped __physeq__(pattern, null))
+		if (pattern == null)
 		{
 			return untyped __call__('mb_ereg_search_init', str);
 		}
@@ -157,7 +157,7 @@ class MbstringNatives
 	
 	public static function mb_ereg_search_pos(?pattern:String, option="ms") : NativeArray
 	{
-		if (untyped __physeq__(pattern, null))
+		if (pattern == null)
 		{
 			return untyped __call__('mb_ereg_search_pos');
 		}
@@ -169,7 +169,7 @@ class MbstringNatives
 	
 	public static function mb_ereg_search_regs(?pattern:String, option="ms") : NativeArray
 	{
-		if (untyped __physeq__(pattern, null))
+		if (pattern == null)
 		{
 			return untyped __call__('mb_ereg_search_regs');
 		}
@@ -183,7 +183,7 @@ class MbstringNatives
 	
 	public static function mb_ereg_search(?pattern:String, option="ms") : Bool
 	{
-		if (untyped __physeq__(pattern, null))
+		if (pattern == null)
 		{
 			return untyped __call__('mb_ereg_search');
 		}
@@ -195,7 +195,7 @@ class MbstringNatives
 	
 	public static function mb_ereg(pattern:String, str:String, ?regs:NativeArray) : Int
 	{
-		if (untyped __physeq__(regs, null))
+		if (regs == null)
 		{
 			return untyped __call__('mb_ereg', pattern, str);
 		}
@@ -209,7 +209,7 @@ class MbstringNatives
 	
 	public static function mb_eregi(pattern:String, str:String, ?regs:NativeArray) : Int
 	{
-		if (untyped __physeq__(regs, null))
+		if (regs == null)
 		{
 			return untyped __call__('mb_eregi', pattern, str);
 		}
@@ -225,7 +225,7 @@ class MbstringNatives
 	
 	public static function mb_http_output(?encoding:String) : Dynamic
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_http_output');
 		}
@@ -237,7 +237,7 @@ class MbstringNatives
 	
 	public static function mb_internal_encoding(?encoding:String) : Dynamic
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_internal_encoding');
 		}
@@ -249,7 +249,7 @@ class MbstringNatives
 	
 	public static function mb_language(?language:String) : Dynamic
 	{
-		if (untyped __physeq__(language, null))
+		if (language == null)
 		{
 			return untyped __call__('mb_language');
 		}
@@ -265,7 +265,7 @@ class MbstringNatives
 	
 	public static function mb_parse_str(encoded_string:String, ?result:NativeArray) : Bool
 	{
-		if (untyped __physeq__(result, null))
+		if (result == null)
 		{
 			return untyped __call__('mb_parse_str', encoded_string);
 		}
@@ -279,7 +279,7 @@ class MbstringNatives
 	
 	public static function mb_regex_encoding(?encoding:String) : Dynamic
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_regex_encoding');
 		}
@@ -291,7 +291,7 @@ class MbstringNatives
 	
 	public static function mb_regex_set_options(?options:String) : String
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
 			return untyped __call__('mb_regex_set_options');
 		}
@@ -303,9 +303,9 @@ class MbstringNatives
 	
 	public static function mb_send_mail(to:String, subject:String, message:String, ?additional_headers:String, ?additional_parameter:String) : Bool
 	{
-		if (untyped __physeq__(additional_parameter, null))
+		if (additional_parameter == null)
 		{
-			if (untyped __physeq__(additional_headers, null))
+			if (additional_headers == null)
 			{
 				return untyped __call__('mb_send_mail', to, subject, message);
 			}
@@ -324,9 +324,9 @@ class MbstringNatives
 	
 	public static function mb_strcut(str:String, start:Int, ?length:Int, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
-			if (untyped __physeq__(length, null))
+			if (length == null)
 			{
 				return untyped __call__('mb_strcut', str, start);
 			}
@@ -343,7 +343,7 @@ class MbstringNatives
 	
 	public static function mb_strimwidth(str:String, start:Int, width:Int, trimmarker="", ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strimwidth', str, start, width, trimmarker);
 		}
@@ -355,7 +355,7 @@ class MbstringNatives
 	
 	public static function mb_stripos(haystack:String, needle:String, offset=0, ?encoding:String) : Int
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_stripos', haystack, needle, offset);
 		}
@@ -367,7 +367,7 @@ class MbstringNatives
 	
 	public static function mb_stristr(haystack:String, needle:String, before_needle=false, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_stristr', haystack, needle, before_needle);
 		}
@@ -379,7 +379,7 @@ class MbstringNatives
 	
 	public static function mb_strlen(str:String, ?encoding:String) : Dynamic
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strlen', str);
 		}
@@ -391,7 +391,7 @@ class MbstringNatives
 	
 	public static function mb_strpos(haystack:String, needle:String, offset=0, ?encoding:String) : Int
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strpos', haystack, needle, offset);
 		}
@@ -403,7 +403,7 @@ class MbstringNatives
 	
 	public static function mb_strrchr(haystack:String, needle:String, part=false, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strrchr', haystack, needle, part);
 		}
@@ -415,7 +415,7 @@ class MbstringNatives
 	
 	public static function mb_strrichr(haystack:String, needle:String, part=false, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strrichr', haystack, needle, part);
 		}
@@ -427,7 +427,7 @@ class MbstringNatives
 	
 	public static function mb_strripos(haystack:String, needle:String, offset=0, ?encoding:String) : Int
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strripos', haystack, needle, offset);
 		}
@@ -443,7 +443,7 @@ class MbstringNatives
 	
 	public static function mb_strstr(haystack:String, needle:String, before_needle=false, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strstr', haystack, needle, before_needle);
 		}
@@ -455,7 +455,7 @@ class MbstringNatives
 	
 	public static function mb_strtolower(str:String, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strtolower', str);
 		}
@@ -467,7 +467,7 @@ class MbstringNatives
 	
 	public static function mb_strtoupper(str:String, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strtoupper', str);
 		}
@@ -479,7 +479,7 @@ class MbstringNatives
 	
 	public static function mb_strwidth(str:String, ?encoding:String) : Int
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_strwidth', str);
 		}
@@ -491,7 +491,7 @@ class MbstringNatives
 	
 	public static function mb_substitute_character(?substrchar:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(substrchar, null))
+		if (substrchar == null)
 		{
 			return untyped __call__('mb_substitute_character');
 		}
@@ -503,7 +503,7 @@ class MbstringNatives
 	
 	public static function mb_substr_count(haystack:String, needle:String, ?encoding:String) : Int
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
 			return untyped __call__('mb_substr_count', haystack, needle);
 		}
@@ -515,9 +515,9 @@ class MbstringNatives
 	
 	public static function mb_substr(str:String, start:Int, ?length:Int, ?encoding:String) : String
 	{
-		if (untyped __physeq__(encoding, null))
+		if (encoding == null)
 		{
-			if (untyped __physeq__(length, null))
+			if (length == null)
 			{
 				return untyped __call__('mb_substr', str, start);
 			}

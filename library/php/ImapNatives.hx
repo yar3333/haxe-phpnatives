@@ -10,9 +10,9 @@ class ImapNatives
 	
 	public static function imap_append(imap_stream:ImapStream, mailbox:String, message:String, ?options:String, ?internal_date:String) : Bool
 	{
-		if (untyped __physeq__(internal_date, null))
+		if (internal_date == null)
 		{
-			if (untyped __physeq__(options, null))
+			if (options == null)
 			{
 				return untyped __call__('imap_append', imap_stream, mailbox, message);
 			}
@@ -76,7 +76,7 @@ class ImapNatives
 	
 	public static function imap_headerinfo(imap_stream:ImapStream, msg_number:Int, fromlength=0, subjectlength=0, ?defaulthost:String) : Dynamic
 	{
-		if (untyped __physeq__(defaulthost, null))
+		if (defaulthost == null)
 		{
 			return untyped __call__('imap_headerinfo', imap_stream, msg_number, fromlength, subjectlength);
 		}
@@ -105,13 +105,13 @@ class ImapNatives
 	
 	public static function imap_mail(to:String, subject:String, message:String, ?additional_headers:String, ?cc:String, ?bcc:String, ?rpath:String) : Bool
 	{
-		if (untyped __physeq__(rpath, null))
+		if (rpath == null)
 		{
-			if (untyped __physeq__(bcc, null))
+			if (bcc == null)
 			{
-				if (untyped __physeq__(cc, null))
+				if (cc == null)
 				{
-					if (untyped __physeq__(additional_headers, null))
+					if (additional_headers == null)
 					{
 						return untyped __call__('imap_mail', to, subject, message);
 					}
@@ -167,9 +167,9 @@ class ImapNatives
 	
 	public static function imap_search(imap_stream:ImapStream, criteria:String, ?options:Int, ?charset:String) : NativeArray
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
-			if (untyped __physeq__(options, null))
+			if (options == null)
 			{
 				return untyped __call__('imap_search', imap_stream, criteria);
 			}
@@ -190,7 +190,7 @@ class ImapNatives
 	
 	public static function imap_setflag_full(imap_stream:ImapStream, sequence:String, flag:String, ?options:Int) : Bool
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
 			return untyped __call__('imap_setflag_full', imap_stream, sequence, flag);
 		}
@@ -202,9 +202,9 @@ class ImapNatives
 	
 	public static function imap_sort(imap_stream:ImapStream, criteria:Int, reverse:Int, options=0, ?search_criteria:String, ?charset:String) : NativeArray
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
-			if (untyped __physeq__(search_criteria, null))
+			if (search_criteria == null)
 			{
 				return untyped __call__('imap_sort', imap_stream, criteria, reverse, options);
 			}
@@ -226,7 +226,7 @@ class ImapNatives
 	
 	public static function imap_thread(imap_stream:ImapStream, ?options:Int) : NativeArray
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
 			return untyped __call__('imap_thread', imap_stream);
 		}

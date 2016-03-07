@@ -17,7 +17,7 @@ class FilterNatives
 	
 	public static function filter_input_array(type:Int, ?definition:Dynamic, add_empty=true) : Dynamic
 	{
-		if (untyped __physeq__(definition, null))
+		if (definition == null)
 		{
 			return untyped __call__('filter_input_array', type);
 		}
@@ -29,9 +29,9 @@ class FilterNatives
 	
 	public static function filter_input(type:Int, variable_name:String, ?filter:Int, ?options:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
-			if (untyped __physeq__(filter, null))
+			if (filter == null)
 			{
 				return untyped __call__('filter_input', type, variable_name);
 			}
@@ -50,7 +50,7 @@ class FilterNatives
 	
 	public static function filter_var_array(data:NativeArray, ?definition:Dynamic, add_empty=true) : Dynamic
 	{
-		if (untyped __physeq__(definition, null))
+		if (definition == null)
 		{
 			return untyped __call__('filter_var_array', data);
 		}
@@ -62,9 +62,9 @@ class FilterNatives
 	
 	public static function filter_var(variable:Dynamic, ?filter:Int, ?options:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
-			if (untyped __physeq__(filter, null))
+			if (filter == null)
 			{
 				return untyped __call__('filter_var', variable);
 			}

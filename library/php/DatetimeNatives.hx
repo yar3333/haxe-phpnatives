@@ -16,13 +16,13 @@ class DatetimeNatives
 	
 	public static function date_sunrise(timestamp:Int, ?format:Int, ?latitude:Float, ?longitude:Float, ?zenith:Float, gmt_offset=0.0) : Dynamic
 	{
-		if (untyped __physeq__(zenith, null))
+		if (zenith == null)
 		{
-			if (untyped __physeq__(longitude, null))
+			if (longitude == null)
 			{
-				if (untyped __physeq__(latitude, null))
+				if (latitude == null)
 				{
-					if (untyped __physeq__(format, null))
+					if (format == null)
 					{
 						return untyped __call__('date_sunrise', timestamp);
 					}
@@ -49,13 +49,13 @@ class DatetimeNatives
 	
 	public static function date_sunset(timestamp:Int, ?format:Int, ?latitude:Float, ?longitude:Float, ?zenith:Float, gmt_offset=0.0) : Dynamic
 	{
-		if (untyped __physeq__(zenith, null))
+		if (zenith == null)
 		{
-			if (untyped __physeq__(longitude, null))
+			if (longitude == null)
 			{
-				if (untyped __physeq__(latitude, null))
+				if (latitude == null)
 				{
-					if (untyped __physeq__(format, null))
+					if (format == null)
 					{
 						return untyped __call__('date_sunset', timestamp);
 					}
@@ -82,7 +82,7 @@ class DatetimeNatives
 	
 	public static function date(format:String, ?timestamp:Int) : String
 	{
-		if (untyped __physeq__(timestamp, null))
+		if (timestamp == null)
 		{
 			return untyped __call__('date', format);
 		}
@@ -94,7 +94,7 @@ class DatetimeNatives
 	
 	public static function getdate(?timestamp:Int) : NativeArray
 	{
-		if (untyped __physeq__(timestamp, null))
+		if (timestamp == null)
 		{
 			return untyped __call__('getdate');
 		}
@@ -108,7 +108,7 @@ class DatetimeNatives
 	
 	public static function gmdate(format:String, ?timestamp:Int) : String
 	{
-		if (untyped __physeq__(timestamp, null))
+		if (timestamp == null)
 		{
 			return untyped __call__('gmdate', format);
 		}
@@ -120,17 +120,17 @@ class DatetimeNatives
 	
 	public static function gmmktime(?hour:Int, ?minute:Int, ?second:Int, ?month:Int, ?day:Int, ?year:Int, is_dst=-1) : Int
 	{
-		if (untyped __physeq__(year, null))
+		if (year == null)
 		{
-			if (untyped __physeq__(day, null))
+			if (day == null)
 			{
-				if (untyped __physeq__(month, null))
+				if (month == null)
 				{
-					if (untyped __physeq__(second, null))
+					if (second == null)
 					{
-						if (untyped __physeq__(minute, null))
+						if (minute == null)
 						{
-							if (untyped __physeq__(hour, null))
+							if (hour == null)
 							{
 								return untyped __call__('gmmktime');
 							}
@@ -167,7 +167,7 @@ class DatetimeNatives
 	
 	public static function gmstrftime(format:String, ?timestamp:Int) : String
 	{
-		if (untyped __physeq__(timestamp, null))
+		if (timestamp == null)
 		{
 			return untyped __call__('gmstrftime', format);
 		}
@@ -179,7 +179,7 @@ class DatetimeNatives
 	
 	public static function idate(format:String, ?timestamp:Int) : Int
 	{
-		if (untyped __physeq__(timestamp, null))
+		if (timestamp == null)
 		{
 			return untyped __call__('idate', format);
 		}
@@ -191,7 +191,7 @@ class DatetimeNatives
 	
 	public static function localtime(?timestamp:Int, is_associative=false) : NativeArray
 	{
-		if (untyped __physeq__(timestamp, null))
+		if (timestamp == null)
 		{
 			return untyped __call__('localtime');
 		}
@@ -205,17 +205,17 @@ class DatetimeNatives
 	
 	public static function mktime(?hour:Int, ?minute:Int, ?second:Int, ?month:Int, ?day:Int, ?year:Int, is_dst=-1) : Int
 	{
-		if (untyped __physeq__(year, null))
+		if (year == null)
 		{
-			if (untyped __physeq__(day, null))
+			if (day == null)
 			{
-				if (untyped __physeq__(month, null))
+				if (month == null)
 				{
-					if (untyped __physeq__(second, null))
+					if (second == null)
 					{
-						if (untyped __physeq__(minute, null))
+						if (minute == null)
 						{
-							if (untyped __physeq__(hour, null))
+							if (hour == null)
 							{
 								return untyped __call__('mktime');
 							}
@@ -252,7 +252,7 @@ class DatetimeNatives
 	
 	public static function strftime(format:String, ?timestamp:Int) : String
 	{
-		if (untyped __physeq__(timestamp, null))
+		if (timestamp == null)
 		{
 			return untyped __call__('strftime', format);
 		}
@@ -266,7 +266,7 @@ class DatetimeNatives
 	
 	public static function strtotime(time:String, ?now:Int) : Int
 	{
-		if (untyped __physeq__(now, null))
+		if (now == null)
 		{
 			return untyped __call__('strtotime', time);
 		}

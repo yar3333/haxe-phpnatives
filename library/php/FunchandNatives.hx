@@ -6,9 +6,9 @@ class FunchandNatives
 {
 	public static function filter_var(variable:Dynamic, ?filter:Int, ?options:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
-			if (untyped __physeq__(filter, null))
+			if (filter == null)
 			{
 				return untyped __call__('filter_var', variable);
 			}
@@ -27,9 +27,9 @@ class FunchandNatives
 	
 	public static function call_user_func(callback:Function, ?parameter:Dynamic, ?restArgs:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
-			if (untyped __physeq__(parameter, null))
+			if (parameter == null)
 			{
 				return untyped __call__('call_user_func', callback);
 			}
@@ -50,9 +50,9 @@ class FunchandNatives
 	
 	public static function forward_static_call(func:Function, ?parameter:Dynamic, ?restArgs:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
-			if (untyped __physeq__(parameter, null))
+			if (parameter == null)
 			{
 				return untyped __call__('forward_static_call', func);
 			}
@@ -79,9 +79,9 @@ class FunchandNatives
 	
 	public static function register_shutdown_function(callback:Function, ?parameter:Dynamic, ?restArgs:Dynamic) : Void
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
-			if (untyped __physeq__(parameter, null))
+			if (parameter == null)
 			{
 				untyped __call__('register_shutdown_function', callback);
 			}
@@ -98,9 +98,9 @@ class FunchandNatives
 	
 	public static function register_tick_function(func:Function, ?arg:Dynamic, ?restArgs:Dynamic) : Bool
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
-			if (untyped __physeq__(arg, null))
+			if (arg == null)
 			{
 				return untyped __call__('register_tick_function', func);
 			}

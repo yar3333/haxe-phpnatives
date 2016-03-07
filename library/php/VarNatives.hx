@@ -6,7 +6,7 @@ class VarNatives
 	
 	public static function debug_zval_dump(variable:Dynamic, ?restArgs:Dynamic) : Void
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
 			untyped __call__('debug_zval_dump', variable);
 		}
@@ -28,7 +28,7 @@ class VarNatives
 	
 	public static function import_request_variables(types:String, ?prefix:String) : Bool
 	{
-		if (untyped __physeq__(prefix, null))
+		if (prefix == null)
 		{
 			return untyped __call__('import_request_variables', types);
 		}
@@ -46,7 +46,7 @@ class VarNatives
 	
 	public static function is_callable(var_:Dynamic, syntax_only=false, ?callable_name:String) : Bool
 	{
-		if (untyped __physeq__(callable_name, null))
+		if (callable_name == null)
 		{
 			return untyped __call__('is_callable', var_, syntax_only);
 		}
@@ -84,7 +84,7 @@ class VarNatives
 	
 	public static function unserialize(str:String, ?options:NativeArray) : Dynamic
 	{
-		if (untyped __physeq__(options, null))
+		if (options == null)
 		{
 			return untyped __call__('unserialize', str);
 		}
@@ -98,7 +98,7 @@ class VarNatives
 	
 	public static function var_dump(expression:Dynamic, ?restArgs:Dynamic) : Void
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
 			untyped __call__('var_dump', expression);
 		}

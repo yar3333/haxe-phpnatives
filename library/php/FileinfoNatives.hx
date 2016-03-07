@@ -54,9 +54,9 @@ class FileinfoNatives
 	
 	public static function scandir(directory:String, ?sorting_order:Int, ?context:Resource) : NativeArray
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
-			if (untyped __physeq__(sorting_order, null))
+			if (sorting_order == null)
 			{
 				return untyped __call__('scandir', directory);
 			}
@@ -73,9 +73,9 @@ class FileinfoNatives
 	
 	public static function finfo_buffer(finfo:Resource, ?str:String, ?options:Int, ?context:Resource) : String
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
-			if (untyped __physeq__(options, null))
+			if (options == null)
 			{
 				return untyped __call__('finfo_buffer', finfo, str);
 			}
@@ -94,9 +94,9 @@ class FileinfoNatives
 	
 	public static function finfo_file(finfo:Resource, ?file_name:String, ?options:Int, ?context:Resource) : String
 	{
-		if (untyped __physeq__(context, null))
+		if (context == null)
 		{
-			if (untyped __physeq__(options, null))
+			if (options == null)
 			{
 				return untyped __call__('finfo_file', finfo, file_name);
 			}
@@ -113,9 +113,9 @@ class FileinfoNatives
 	
 	public static function finfo_open(?options:Int, ?magic_file:String) : Resource
 	{
-		if (untyped __physeq__(magic_file, null))
+		if (magic_file == null)
 		{
-			if (untyped __physeq__(options, null))
+			if (options == null)
 			{
 				return untyped __call__('finfo_open');
 			}

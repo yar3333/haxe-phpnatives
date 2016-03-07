@@ -16,7 +16,7 @@ class MiscNatives
 	
 	public static function exit(?status:String) : Void
 	{
-		if (untyped __physeq__(status, null))
+		if (status == null)
 		{
 			untyped __call__('exit');
 		}
@@ -28,7 +28,7 @@ class MiscNatives
 	
 	public static function get_browser(?user_agent:String, return_array=false) : Dynamic
 	{
-		if (untyped __physeq__(user_agent, null))
+		if (user_agent == null)
 		{
 			return untyped __call__('get_browser');
 		}
@@ -46,7 +46,7 @@ class MiscNatives
 	
 	public static function ignore_user_abort(?value:Bool) : Int
 	{
-		if (untyped __physeq__(value, null))
+		if (value == null)
 		{
 			return untyped __call__('ignore_user_abort');
 		}
@@ -58,9 +58,9 @@ class MiscNatives
 	
 	public static function pack(format:String, ?args:Dynamic, ?restArgs:Dynamic) : String
 	{
-		if (untyped __physeq__(restArgs, null))
+		if (restArgs == null)
 		{
-			if (untyped __physeq__(args, null))
+			if (args == null)
 			{
 				return untyped __call__('pack', format);
 			}
@@ -77,7 +77,7 @@ class MiscNatives
 	
 	public static function php_check_syntax(filename:String, ?error_message:String) : Bool
 	{
-		if (untyped __physeq__(error_message, null))
+		if (error_message == null)
 		{
 			return untyped __call__('php_check_syntax', filename);
 		}

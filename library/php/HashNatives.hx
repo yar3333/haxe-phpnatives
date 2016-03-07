@@ -18,7 +18,7 @@ class HashNatives
 	
 	public static function hash_init(algo:String, options=0, ?key:String) : Resource
 	{
-		if (untyped __physeq__(key, null))
+		if (key == null)
 		{
 			return untyped __call__('hash_init', algo, options);
 		}
@@ -32,7 +32,7 @@ class HashNatives
 	
 	public static function hash_update_file(hcontext:Resource, filename:String, ?scontext:Resource) : Bool
 	{
-		if (untyped __physeq__(scontext, null))
+		if (scontext == null)
 		{
 			return untyped __call__('hash_update_file', hcontext, filename);
 		}

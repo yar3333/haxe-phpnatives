@@ -4,7 +4,7 @@ class InfoNatives
 {
 	public static function assert_options(what:Int, ?value:Dynamic) : Dynamic
 	{
-		if (untyped __physeq__(value, null))
+		if (value == null)
 		{
 			return untyped __call__('assert_options', what);
 		}
@@ -16,7 +16,7 @@ class InfoNatives
 	
 	public static function assert(assertion:Dynamic, ?description:String) : Bool
 	{
-		if (untyped __physeq__(description, null))
+		if (description == null)
 		{
 			return untyped __call__('assert', assertion);
 		}
@@ -64,7 +64,7 @@ class InfoNatives
 	
 	public static function get_resources(?type:String) : NativeArray
 	{
-		if (untyped __physeq__(type, null))
+		if (type == null)
 		{
 			return untyped __call__('get_resources');
 		}
@@ -88,7 +88,7 @@ class InfoNatives
 	
 	public static function getopt(options:String, ?longopts:NativeArray) : NativeArray
 	{
-		if (untyped __physeq__(longopts, null))
+		if (longopts == null)
 		{
 			return untyped __call__('getopt', options);
 		}
@@ -102,7 +102,7 @@ class InfoNatives
 	
 	public static function ini_get_all(?extension:String, details=true) : NativeArray
 	{
-		if (untyped __physeq__(extension, null))
+		if (extension == null)
 		{
 			return untyped __call__('ini_get_all');
 		}
@@ -134,7 +134,7 @@ class InfoNatives
 	
 	public static function phpcredits(?flag:Int) : Bool
 	{
-		if (untyped __physeq__(flag, null))
+		if (flag == null)
 		{
 			return untyped __call__('phpcredits');
 		}
@@ -146,7 +146,7 @@ class InfoNatives
 	
 	public static function phpinfo(?what:Int) : Bool
 	{
-		if (untyped __physeq__(what, null))
+		if (what == null)
 		{
 			return untyped __call__('phpinfo');
 		}
@@ -158,7 +158,7 @@ class InfoNatives
 	
 	public static function phpversion(?extension:String) : String
 	{
-		if (untyped __physeq__(extension, null))
+		if (extension == null)
 		{
 			return untyped __call__('phpversion');
 		}
@@ -182,7 +182,7 @@ class InfoNatives
 	
 	public static function version_compare(version1:String, version2:String, ?operator:String) : Dynamic
 	{
-		if (untyped __physeq__(operator, null))
+		if (operator == null)
 		{
 			return untyped __call__('version_compare', version1, version2);
 		}

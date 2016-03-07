@@ -8,7 +8,7 @@ class IconvNatives
 	
 	public static function iconv_mime_decode_headers(encoded_headers:String, mode=0, ?charset:String) : NativeArray
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
 			return untyped __call__('iconv_mime_decode_headers', encoded_headers, mode);
 		}
@@ -20,7 +20,7 @@ class IconvNatives
 	
 	public static function iconv_mime_decode(encoded_header:String, mode=0, ?charset:String) : String
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
 			return untyped __call__('iconv_mime_decode', encoded_header, mode);
 		}
@@ -32,7 +32,7 @@ class IconvNatives
 	
 	public static function iconv_mime_encode(field_name:String, field_value:String, ?preferences:NativeArray) : String
 	{
-		if (untyped __physeq__(preferences, null))
+		if (preferences == null)
 		{
 			return untyped __call__('iconv_mime_encode', field_name, field_value);
 		}
@@ -46,7 +46,7 @@ class IconvNatives
 	
 	public static function iconv_strlen(str:String, ?charset:String) : Int
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
 			return untyped __call__('iconv_strlen', str);
 		}
@@ -58,7 +58,7 @@ class IconvNatives
 	
 	public static function iconv_strpos(haystack:String, needle:String, offset=0, ?charset:String) : Int
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
 			return untyped __call__('iconv_strpos', haystack, needle, offset);
 		}
@@ -70,7 +70,7 @@ class IconvNatives
 	
 	public static function iconv_strrpos(haystack:String, needle:String, ?charset:String) : Int
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
 			return untyped __call__('iconv_strrpos', haystack, needle);
 		}
@@ -82,9 +82,9 @@ class IconvNatives
 	
 	public static function iconv_substr(str:String, offset:Int, ?length:Int, ?charset:String) : String
 	{
-		if (untyped __physeq__(charset, null))
+		if (charset == null)
 		{
-			if (untyped __physeq__(length, null))
+			if (length == null)
 			{
 				return untyped __call__('iconv_substr', str, offset);
 			}

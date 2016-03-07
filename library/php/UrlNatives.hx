@@ -12,11 +12,11 @@ class UrlNatives
 	
 	public static function http_build_query(query_data:Dynamic, ?numeric_prefix:String, ?arg_separator:String, ?enc_type:Int) : String
 	{
-		if (untyped __physeq__(enc_type, null))
+		if (enc_type == null)
 		{
-			if (untyped __physeq__(arg_separator, null))
+			if (arg_separator == null)
 			{
-				if (untyped __physeq__(numeric_prefix, null))
+				if (numeric_prefix == null)
 				{
 					return untyped __call__('http_build_query', query_data);
 				}

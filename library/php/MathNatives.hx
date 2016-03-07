@@ -66,7 +66,7 @@ class MathNatives
 	
 	public static function log(arg:Float, ?base:Float) : Float
 	{
-		if (untyped __physeq__(base, null))
+		if (base == null)
 		{
 			return untyped __call__('log', arg);
 		}
@@ -96,7 +96,7 @@ class MathNatives
 	
 	public static function mt_srand(?seed:Int) : Void
 	{
-		if (untyped __physeq__(seed, null))
+		if (seed == null)
 		{
 			untyped __call__('mt_srand');
 		}
@@ -118,7 +118,7 @@ class MathNatives
 	
 	public static function round(val:Float, precision=0, ?mode:Int) : Float
 	{
-		if (untyped __physeq__(mode, null))
+		if (mode == null)
 		{
 			return untyped __call__('round', val, precision);
 		}
@@ -136,7 +136,7 @@ class MathNatives
 	
 	public static function srand(?seed:Int) : Void
 	{
-		if (untyped __physeq__(seed, null))
+		if (seed == null)
 		{
 			untyped __call__('srand');
 		}

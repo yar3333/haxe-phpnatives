@@ -6,7 +6,7 @@ class OutcontrolNatives
 	
 	public static function header(str:String, replace=true, ?http_response_code:Int) : Void
 	{
-		if (untyped __physeq__(http_response_code, null))
+		if (http_response_code == null)
 		{
 			untyped __call__('header', str, replace);
 		}
@@ -46,9 +46,9 @@ class OutcontrolNatives
 	
 	public static function ob_start(?output_callback:String->Int->String, chunk_size=0, ?flags:Int) : Bool
 	{
-		if (untyped __physeq__(flags, null))
+		if (flags == null)
 		{
-			if (untyped __physeq__(output_callback, null))
+			if (output_callback == null)
 			{
 				return untyped __call__('ob_start');
 			}

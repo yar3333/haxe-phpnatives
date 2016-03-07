@@ -10,7 +10,7 @@ class PcreNatives
 	
 	public static function preg_filter(pattern:Dynamic, replacement:Dynamic, subject:Dynamic, limit=-1, ?count:Int) : Dynamic
 	{
-		if (untyped __physeq__(count, null))
+		if (count == null)
 		{
 			return untyped __call__('preg_filter', pattern, replacement, subject, limit);
 		}
@@ -32,7 +32,7 @@ class PcreNatives
 	
 	public static function preg_quote(str:String, ?delimiter:String) : String
 	{
-		if (untyped __physeq__(delimiter, null))
+		if (delimiter == null)
 		{
 			return untyped __call__('preg_quote', str);
 		}
@@ -44,7 +44,7 @@ class PcreNatives
 	
 	public static function preg_replace_callback_array(patterns_and_callbacks:NativeArray, subject:Dynamic, limit=-1, ?count:Int) : Dynamic
 	{
-		if (untyped __physeq__(count, null))
+		if (count == null)
 		{
 			return untyped __call__('preg_replace_callback_array', patterns_and_callbacks, subject, limit);
 		}
@@ -56,7 +56,7 @@ class PcreNatives
 	
 	public static function preg_replace_callback(pattern:Dynamic, callback:NativeArray->String, subject:Dynamic, limit=-1, ?count:Int) : Dynamic
 	{
-		if (untyped __physeq__(count, null))
+		if (count == null)
 		{
 			return untyped __call__('preg_replace_callback', pattern, callback, String, subject, limit);
 		}
@@ -68,7 +68,7 @@ class PcreNatives
 	
 	public static function preg_replace<T>(pattern:Dynamic, replacement:Dynamic, subject:T, limit=-1, ?count:Int) : T
 	{
-		if (untyped __physeq__(count, null))
+		if (count == null)
 		{
 			return untyped __call__('preg_replace', pattern, replacement, subject, limit);
 		}
