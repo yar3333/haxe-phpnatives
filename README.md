@@ -2,6 +2,9 @@
 
 **phpnatives** is a Haxe wrapper for standard PHP functions/classes/interfaces.
 
+The source repo also contain several tools to automatic downloading
+and convertion from http://php.net/ docs into Haxe classes.
+
 ## Installation ##
 
 ```bash
@@ -28,7 +31,7 @@ var arr = TypedArray.fromMap([ 5=>"abc", 10=>"def", 15=>"xyz" ]);
 var strArr = new TypedArray<String, String>(); // keys of String
 strArr["key"] = "value";
 
-// PHP's foreach analoge
+// PHP's foreach analog
 arr.foreachKeyValue(function(key, value)
 {
 	trace(key + " = " + value);
@@ -43,7 +46,7 @@ for (key in arr.keys()) trace(key);
 ```
 
 
-## Using PHP function ##
+## Using PHP functions ##
 
 Just use `php.***Natives` classes:
 
@@ -57,7 +60,7 @@ import php.VarNatives.empty;
 var arr = new TypedArray<String, Int>();
 ksort(arr);
 
-if (!empty(arr)) trace("Array is not empty.");
+if (empty(arr)) trace("Array is empty.");
 ```
 
 
