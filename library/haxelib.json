@@ -4,8 +4,8 @@
   "tags": ["php","native","natives","extern","externs"],
   "description": "Files to help writing applications to PHP target.",
   "contributors": ["yar3333"],
-  "releasenote": "Change `__physeq__` to `==`.",
-  "version": "3.0.1",
+  "releasenote": "Add TypedArray.mapKeyValue(). Add readme.",
+  "version": "3.0.2",
   "url": "https://bitbucket.org/yar3333/haxe-phpnatives",
   "dependencies": {}
 }
