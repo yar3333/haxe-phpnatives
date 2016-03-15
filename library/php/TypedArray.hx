@@ -21,6 +21,16 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 		}
 	}
 	
+	public function mapKeyValue<T>(callb:K->V->T) : Array<T>
+	{
+		var r = new Array<T>();
+		for (k in Lib.toHaxeArray(untyped __call__("array_keys", this)))
+		{
+			r.push(callb(k, this[cast k]));
+		}
+		return r;
+	}
+	
 	public var length(get, never) : Int;
 	inline function get_length() return untyped __call__("count", this);
 	
@@ -98,5 +108,10 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 	public inline function hasValue(v:V, strict=false) : Bool
 	{
 		return untyped __call__("in_array", v, this, strict);
+	}
+	
+	public inline function keys<K>() : Array<K>
+	{
+		return Lib.toHaxeArray(untyped __call__("array_keys", this));
 	}
 }
