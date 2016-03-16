@@ -118,4 +118,11 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 	public inline function values() : Array<V>
 	{
 		return cast Lib.toHaxeArray(untyped __call__("array_values", this));
+	}
+	
+	@:op(A + B)
+	inline function plus(arr:TypedArray<K, V>) : TypedArray<K, V>
+	{
+		return cast((cast this) + (cast arr));
+	}
 }
