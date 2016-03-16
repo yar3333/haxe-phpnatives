@@ -110,8 +110,12 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 		return untyped __call__("in_array", v, this, strict);
 	}
 	
-	public inline function keys<K>() : Array<K>
+	public inline function keys() : Array<K>
 	{
-		return Lib.toHaxeArray(untyped __call__("array_keys", this));
+		return cast Lib.toHaxeArray(untyped __call__("array_keys", this));
 	}
+	
+	public inline function values() : Array<V>
+	{
+		return cast Lib.toHaxeArray(untyped __call__("array_values", this));
 }
