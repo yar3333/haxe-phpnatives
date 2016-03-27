@@ -110,6 +110,11 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 		return untyped __call__("in_array", v, this, strict);
 	}
 	
+	public inline function removeKey(k:K) : Void
+	{
+		untyped __call__("unset", this[cast k]);
+	}
+	
 	public inline function keys() : Array<K>
 	{
 		return cast Lib.toHaxeArray(untyped __call__("array_keys", this));
