@@ -68,11 +68,20 @@ if (empty(arr)) trace("Array is empty.");
 
 Look into `php.***` packages:
 
-```
+```haxe
 import php.calendar.DateTime;
 
 // ...
 
 var date = new DateTime();
 trace(date.format('d.m.Y H:i:s'));
+```
+
+
+## Using Global Variables ##
+
+Use `php.GlobalVars` class:
+
+```haxe
+trace(GlobalVars._FILES);
 ```
