@@ -4,8 +4,8 @@
   "tags": ["php","native","natives","extern","externs"],
   "description": "Files to help writing applications to PHP target.",
   "contributors": ["yar3333"],
-  "releasenote": "Add TypedArray.removeKey().",
-  "version": "3.0.5",
+  "releasenote": "Add GlobalVars.",
+  "version": "3.0.6",
   "url": "https://bitbucket.org/yar3333/haxe-phpnatives",
   "dependencies": {}
 }
