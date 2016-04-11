@@ -1,5 +1,7 @@
 package php.iterators;
 
+import php.interfaces.Iterator;
+
 @:native("MultipleIterator")
 extern class MultipleIterator implements Iterator
 {

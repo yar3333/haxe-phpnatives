@@ -25,7 +25,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="Main" />
     <option enabledebug="False" />
-    <option additional="--macro include('php', true)" />
+    <option additional="--macro include('php', false)&#xA;--macro include('php.calendar', true)&#xA;--macro include('php.exceptions', true)&#xA;--macro include('php.files', true)&#xA;--macro include('php.imap', true)&#xA;--macro include('php.interfaces', true)&#xA;--macro include('php.iterators', true)&#xA;--macro include('php.misc', true)&#xA;--macro include('php.xml', true)" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>

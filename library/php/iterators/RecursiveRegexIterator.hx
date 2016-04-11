@@ -1,5 +1,7 @@
 package php.iterators;
 
+import php.interfaces.RecursiveIterator;
+
 @:native("RecursiveRegexIterator")
 extern class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
 {

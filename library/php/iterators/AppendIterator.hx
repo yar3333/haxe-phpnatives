@@ -1,16 +1,14 @@
 package php.iterators;
 
+import php.interfaces.Iterator;
+import php.interfaces.OuterIterator;
+import php.interfaces.Traversable;
+
 @:native("AppendIterator")
-extern class AppendIterator extends IteratorIterator implements php.interfaces.OuterIterator
+extern class AppendIterator extends IteratorIterator implements OuterIterator
 {
-	function new(?iterator:php.interfaces.Traversable) : Void;
-	function append(iterator:php.interfaces.Iterator) : Void;
-	function current() : Dynamic;
+	function new(?iterator:Traversable) : Void;
+	function append(iterator:Iterator) : Void;
 	function getArrayIterator() : Void;
-	function getInnerIterator() : php.interfaces.Iterator;
 	function getIteratorIndex() : Int;
-	function key() : Dynamic;
-	function next() : Void;
-	function rewind() : Void;
-	function valid() : Bool;
 }

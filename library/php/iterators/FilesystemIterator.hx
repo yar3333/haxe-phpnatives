@@ -1,5 +1,7 @@
 package php.iterators;
 
+import php.interfaces.SeekableIterator;
+
 @:native("FilesystemIterator")
 extern class FilesystemIterator extends DirectoryIterator implements SeekableIterator
 {
@@ -16,10 +18,6 @@ extern class FilesystemIterator extends DirectoryIterator implements SeekableIte
 	static var UNIX_PATHS(default, null) : Int;
 
 	function new(path:String, ?flags:Int) : Void;
-	function current() : Dynamic;
 	function getFlags() : Int;
-	function key() : String;
-	function next() : Void;
-	function rewind() : Void;
 	function setFlags(?flags:Int) : Void;
 }

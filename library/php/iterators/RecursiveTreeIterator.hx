@@ -1,5 +1,9 @@
 package php.iterators;
 
+import php.interfaces.OuterIterator;
+import php.interfaces.RecursiveIterator;
+import php.interfaces.Traversable;
+
 @:native("RecursiveTreeIterator")
 extern class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIterator
 {
@@ -12,22 +16,9 @@ extern class RecursiveTreeIterator extends RecursiveIteratorIterator implements 
 	static var PREFIX_END_LAST(default, null) : Int;
 	static var PREFIX_RIGHT(default, null) : Int;
 
-	function beginChildren() : Void;
-	function beginIteration() : RecursiveIterator;
-	function callGetChildren() : RecursiveIterator;
-	function callHasChildren() : Bool;
-	function new(RecursiveIterator|it:IteratorAggregate, ?flags:Int, ?cit_flags:Int, ?mode:Int) : Void;
-	function current() : String;
-	function endChildren() : Void;
-	function endIteration() : Void;
+	function new(it:Traversable, ?flags:Int, ?cit_flags:Int, ?mode:Int) : Void;
 	function getEntry() : String;
 	function getPostfix() : Void;
 	function getPrefix() : String;
-	function key() : String;
-	function next() : Void;
-	function nextElement() : Void;
-	function rewind() : Void;
 	function setPrefixPart(part:Int, value:String) : Void;
-	function valid() : Bool;
-    RecursiveIteratorIterator::new(iterator:Traversable, ?mode:Int, ?flags:Int)
 }

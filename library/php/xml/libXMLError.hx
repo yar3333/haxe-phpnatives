@@ -1,7 +1,7 @@
 package php.xml;
 
 @:native("libXMLError")
-extern class libXMLError
+extern class LibXMLError
 {
 	var level : Int;
 	var code : Int;

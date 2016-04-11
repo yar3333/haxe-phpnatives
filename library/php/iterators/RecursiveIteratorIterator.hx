@@ -1,5 +1,10 @@
 package php.iterators;
 
+import php.interfaces.Iterator;
+import php.interfaces.OuterIterator;
+import php.interfaces.RecursiveIterator;
+import php.interfaces.Traversable;
+
 @:native("RecursiveIteratorIterator")
 extern class RecursiveIteratorIterator implements OuterIterator
 {
@@ -17,7 +22,7 @@ extern class RecursiveIteratorIterator implements OuterIterator
 	function endChildren() : Void;
 	function endIteration() : Void;
 	function getDepth() : Int;
-	function getInnerIterator() : iterator;
+	function getInnerIterator() : Iterator;
 	function getMaxDepth() : Dynamic;
 	function getSubIterator(?level:Int) : RecursiveIterator;
 	function key() : Dynamic;

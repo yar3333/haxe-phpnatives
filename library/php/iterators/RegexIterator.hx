@@ -1,5 +1,7 @@
 package php.iterators;
 
+import php.interfaces.Iterator;
+
 @:native("RegexIterator")
 extern class RegexIterator extends FilterIterator
 {
@@ -11,7 +13,6 @@ extern class RegexIterator extends FilterIterator
 	static var USE_KEY(default, null) : Int;
 
 	function new(iterator:Iterator, regex:String, ?mode:Int, ?flags:Int, ?preg_flags:Int) : Void;
-	function accept() : Bool;
 	function getFlags() : Int;
 	function getMode() : Int;
 	function getPregFlags() : Int;
@@ -19,5 +20,4 @@ extern class RegexIterator extends FilterIterator
 	function setFlags(flags:Int) : Void;
 	function setMode(mode:Int) : Void;
 	function setPregFlags(preg_flags:Int) : Void;
-    FilterIterator::new(iterator:Iterator)
 }

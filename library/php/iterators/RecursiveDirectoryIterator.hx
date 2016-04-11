@@ -1,15 +1,13 @@
 package php.iterators;
+import php.interfaces.RecursiveIterator;
+import php.interfaces.SeekableIterator;
 
 @:native("RecursiveDirectoryIterator")
-extern class RecursiveDirectoryIterator extends FilesystemIterator implements SeekableIterator , RecursiveIterator
+extern class RecursiveDirectoryIterator extends FilesystemIterator implements SeekableIterator implements RecursiveIterator
 {
 	function new(path:String, ?flags:Int) : Void;
 	function getChildren() : Dynamic;
 	function getSubPath() : String;
 	function getSubPathname() : String;
-	function hasChildren(?allow_links:Bool) : Bool;
-	function key() : String;
-	function next() : Void;
-	function rewind() : Void;
-    FilesystemIterator::new(path:String, ?flags:Int)
+	function hasChildren(/*?allow_links:Bool*/) : Bool;
 }

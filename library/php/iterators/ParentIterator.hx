@@ -1,12 +1,10 @@
 package php.iterators;
 
+import php.interfaces.OuterIterator;
+import php.interfaces.RecursiveIterator;
+
 @:native("ParentIterator")
-extern class ParentIterator extends RecursiveFilterIterator implements RecursiveIterator , OuterIterator
+extern class ParentIterator extends RecursiveFilterIterator implements RecursiveIterator implements OuterIterator
 {
-	function accept() : Bool;
 	function new(iterator:RecursiveIterator) : Void;
-	function getChildren() : ParentIterator;
-	function hasChildren() : Bool;
-	function next() : Void;
-	function rewind() : Void;
 }

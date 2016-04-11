@@ -1,4 +1,4 @@
-package php.iterators;
+package php.files;
 
 @:native("SplFileInfo")
 extern class SplFileInfo
@@ -28,7 +28,7 @@ extern class SplFileInfo
 	function isLink() : Bool;
 	function isReadable() : Bool;
 	function isWritable() : Bool;
-	function openFile(?open_mode:String, ?use_include_path:Bool, ?context:Resource) : php.files.SplFileObject;
+	function openFile(?open_mode:String, ?use_include_path:Bool, ?context:Resource) : SplFileObject;
 	function setFileClass(?class_name:String) : Void;
 	function setInfoClass(?class_name:String) : Void;
 	function __toString() : Void;

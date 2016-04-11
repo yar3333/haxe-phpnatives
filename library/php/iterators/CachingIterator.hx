@@ -12,19 +12,13 @@ extern class CachingIterator extends IteratorIterator implements php.interfaces.
 
 	function new(iterator:php.interfaces.Iterator, ?flags:Int) : Void;
 	function count() : Int;
-	function current() : Void;
 	function getCache() : NativeArray;
 	function getFlags() : Int;
-	function getInnerIterator() : php.interfaces.Iterator;
 	function hasNext() : Void;
-	function key() : Dynamic;
-	function next() : Void;
-	function offsetExists(index:String) : Void;
-	function offsetGet(index:String) : Void;
+	function offsetExists(index:String) : Bool;
+	function offsetGet(index:String) : Int;
 	function offsetSet(index:String, newval:String) : Void;
 	function offsetUnset(index:String) : Void;
-	function rewind() : Void;
 	function setFlags(flags:Int) : Void;
 	function __toString() : Void;
-	function valid() : Void;
 }

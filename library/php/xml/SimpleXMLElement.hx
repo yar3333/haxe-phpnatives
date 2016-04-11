@@ -1,5 +1,7 @@
 package php.xml;
 
+import php.interfaces.Traversable;
+
 @:native("SimpleXMLElement")
 extern class SimpleXMLElement implements Traversable
 {

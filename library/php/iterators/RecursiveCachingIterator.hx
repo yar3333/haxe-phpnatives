@@ -1,10 +1,12 @@
 package php.iterators;
 
+import php.interfaces.Countable;
+import php.interfaces.OuterIterator;
+import php.interfaces.RecursiveIterator;
+
 @:native("RecursiveCachingIterator")
-extern class RecursiveCachingIterator extends CachingIterator implements Countable , ArrayAccess , OuterIterator , RecursiveIterator
+extern class RecursiveCachingIterator extends CachingIterator implements Countable implements php.interfaces.ArrayAccess implements OuterIterator implements RecursiveIterator
 {
-	function new(iterator:Iterator, ?flags:String) : Void;
 	function getChildren() : RecursiveCachingIterator;
 	function hasChildren() : Bool;
-    CachingIterator::new(iterator:Iterator, ?flags:Int)
 }
