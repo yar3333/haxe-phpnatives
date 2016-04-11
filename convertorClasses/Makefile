@@ -39,8 +39,9 @@ $(OUT_DIR)/php/misc: bin/spl.misc.json
 $(OUT_DIR)/php/iterators: bin/spl.iterators.json
 	$(CONVERTOR) $< php.iterators $(OUT_DIR)
 
-$(OUT_DIR)/php/exceptions: bin/reserved.exceptions.json
-	$(CONVERTOR) $< php.exceptions $(OUT_DIR)
+$(OUT_DIR)/php/exceptions: bin/reserved.exceptions.json bin/spl.exceptions.json
+	$(CONVERTOR) bin/reserved.exceptions.json php.exceptions $(OUT_DIR)
+	$(CONVERTOR) bin/spl.exceptions.json php.exceptions $(OUT_DIR)
 
 bin/calendar.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
@@ -78,6 +79,11 @@ bin/spl.iterators.json:
 bin/reserved.exceptions.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/reserved.exceptions.php" \
+		--output-json-file $@
+
+bin/spl.exceptions.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/spl.exceptions.php" \
 		--output-json-file $@
 
 bin/spl.files.json:
