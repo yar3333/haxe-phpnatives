@@ -13,6 +13,8 @@ TARGET_FILES += $(OUT_DIR)/php/xml
 TARGET_FILES += $(OUT_DIR)/php/interfaces
 TARGET_FILES += $(OUT_DIR)/php/misc
 TARGET_FILES += $(OUT_DIR)/php/iterators
+TARGET_FILES += $(OUT_DIR)/php/exceptions
+TARGET_FILES += $(OUT_DIR)/php/files
 
 #remake_xml: remove_xml $(OUT_DIR)/php/xml
 	
@@ -37,10 +39,16 @@ $(OUT_DIR)/php/misc: bin/spl.misc.json
 $(OUT_DIR)/php/iterators: bin/spl.iterators.json
 	$(CONVERTOR) $< php.iterators $(OUT_DIR)
 
+$(OUT_DIR)/php/exceptions: bin/reserved.exceptions.json
+	$(CONVERTOR) $< php.exceptions $(OUT_DIR)
+
 bin/calendar.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/refs.calendar.php" \
 		--output-json-file $@
+
+$(OUT_DIR)/php/files: bin/spl.files.json
+	$(CONVERTOR) $< php.files $(OUT_DIR)
 
 bin/xml.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
@@ -65,4 +73,14 @@ bin/spl.interfaces.json:
 bin/spl.iterators.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/spl.iterators.php" \
+		--output-json-file $@
+
+bin/reserved.exceptions.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/reserved.exceptions.php" \
+		--output-json-file $@
+
+bin/spl.files.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/spl.files.php" \
 		--output-json-file $@

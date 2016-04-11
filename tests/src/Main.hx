@@ -1,29 +1,7 @@
 import haxe.unit.TestCase;
-import php.NativeArray;
-import php.VarNatives;
-import php.ArrayNatives;
-import php.ImapNatives;
-import php.DatetimeNatives;
-import php.InfoNatives;
-import php.StringsNatives;
-import php.MbstringNatives;
-import php.PcreNatives;
-import php.IconvNatives;
-import php.MathNatives;
-import php.UrlNatives;
-import php.FilesystemNatives;
-import php.OutcontrolNatives;
-import php.MiscNatives;
-import php.FileinfoNatives;
-import php.HashNatives;
-import php.ImageNatives;
-
-import php.calendar.DateInterval;
-import php.calendar.DatePeriod;
-import php.calendar.DateTime;
-import php.calendar.DateTimeImmutable;
-import php.calendar.DateTimeInterface;
-import php.calendar.DateTimeZone;
+import php.*;
+import php.calendar.*;
+import php.exceptions.*;
 
 class Main extends TestCase
 {

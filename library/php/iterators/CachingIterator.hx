@@ -1,7 +1,7 @@
 package php.iterators;
 
 @:native("CachingIterator")
-extern class CachingIterator extends IteratorIterator implements OuterIterator , ArrayAccess , Countable
+extern class CachingIterator extends IteratorIterator implements php.interfaces.OuterIterator implements php.interfaces.ArrayAccess implements php.interfaces.Countable
 {
 	static var CALL_TOSTRING(default, null) : Int;
 	static var CATCH_GET_CHILD(default, null) : Int;
@@ -10,14 +10,14 @@ extern class CachingIterator extends IteratorIterator implements OuterIterator ,
 	static var TOSTRING_USE_INNER(default, null) : Int;
 	static var FULL_CACHE(default, null) : Int;
 
-	function new(iterator:Iterator, ?flags:Int) : Void;
+	function new(iterator:php.interfaces.Iterator, ?flags:Int) : Void;
 	function count() : Int;
 	function current() : Void;
 	function getCache() : NativeArray;
 	function getFlags() : Int;
-	function getInnerIterator() : Iterator;
+	function getInnerIterator() : php.interfaces.Iterator;
 	function hasNext() : Void;
-	function key() : scalar;
+	function key() : Dynamic;
 	function next() : Void;
 	function offsetExists(index:String) : Void;
 	function offsetGet(index:String) : Void;

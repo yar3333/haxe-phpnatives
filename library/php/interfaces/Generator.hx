@@ -1,7 +1,7 @@
 package php.interfaces;
 
 @:native("Generator")
-extern class Generator implements Iterator
+extern class Generator implements php.interfaces.Iterator
 {
 	function current() : Dynamic;
 	function getReturn() : Dynamic;
@@ -9,7 +9,7 @@ extern class Generator implements Iterator
 	function next() : Void;
 	function rewind() : Void;
 	function send(value:Dynamic) : Dynamic;
-	function throw(exception:Exception) : Dynamic;
+	//function throw(exception:Exception) : Dynamic;
 	function valid() : Bool;
 	function __wakeup() : Void;
 }

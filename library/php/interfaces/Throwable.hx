@@ -1,7 +1,7 @@
 package php.interfaces;
 
 @:native("Throwable")
-extern class Throwable
+extern interface Throwable
 {
 	function getMessage() : String;
 	function getCode() : Int;

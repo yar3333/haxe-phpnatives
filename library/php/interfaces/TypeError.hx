@@ -1,6 +1,6 @@
 package php.interfaces;
 
 @:native("TypeError")
-extern class TypeError extends Error
+extern class TypeError extends php.exceptions.Error
 {
 }

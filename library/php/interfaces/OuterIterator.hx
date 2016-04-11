@@ -1,7 +1,7 @@
 package php.interfaces;
 
 @:native("OuterIterator")
-extern interface OuterIterator extends Iterator
+extern interface OuterIterator extends php.interfaces.Iterator
 {
-	function getInnerIterator() : Iterator;
+	function getInnerIterator() : php.interfaces.Iterator;
 }

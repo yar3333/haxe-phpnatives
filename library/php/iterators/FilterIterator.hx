@@ -1,12 +1,12 @@
 package php.iterators;
 
 @:native("FilterIterator")
-extern class abstract FilterIterator extends IteratorIterator implements OuterIterator
+extern class FilterIterator extends IteratorIterator implements php.interfaces.OuterIterator
 {
 	function accept() : Bool;
-	function new(iterator:Iterator) : Void;
+	function new(iterator:php.interfaces.Iterator) : Void;
 	function current() : Dynamic;
-	function getInnerIterator() : Iterator;
+	function getInnerIterator() : php.interfaces.Iterator;
 	function key() : Dynamic;
 	function next() : Void;
 	function rewind() : Void;
