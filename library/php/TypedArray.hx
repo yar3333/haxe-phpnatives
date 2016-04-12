@@ -32,7 +32,7 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 	}
 	
 	public var length(get, never) : Int;
-	inline function get_length() return untyped __call__("count", this);
+	inline function get_length() : Int return untyped __call__("count", this);
 	
 	@:from
 	public static function fromMap<K, V>(m:Map<K, V>) : TypedArray<K, V>
@@ -93,6 +93,13 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 	public inline function join(glue="") : String
 	{
 		return untyped __call__("implode", glue, this);
+	}
+	
+	public function splice(offset:Int, ?length:Int, ?replacement:TypedArray<K, V>) : TypedArray<K, V>
+	{
+		if (length == null) length = untyped __call__("count", this) - offset;
+		if (replacement == null) replacement = untyped __php__("array()");
+		return untyped __call__("array_splice", this, offset, length, replacement);
 	}
 	
 	public inline function asort() : Void
