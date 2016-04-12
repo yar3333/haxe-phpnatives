@@ -4,8 +4,8 @@
   "tags": ["php","native","natives","extern","externs"],
   "description": "Files to help writing applications to PHP target.",
   "contributors": ["yar3333"],
-  "releasenote": "Add GlobalVars.",
-  "version": "3.0.6",
+  "releasenote": "Add exceptions classes. Add files classes. Add CoreNatives.throw_() function. Add tokenizer functions. Add TypedArray.splice().",
+  "version": "3.1.0",
   "url": "https://bitbucket.org/yar3333/haxe-phpnatives",
   "dependencies": {}
 }
