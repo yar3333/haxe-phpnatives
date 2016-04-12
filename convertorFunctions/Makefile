@@ -32,6 +32,7 @@ TARGET_FILES += $(OUT_DIR)/php/FilterNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/HashNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/FunchandNatives.hx
 TARGET_FILES += $(OUT_DIR)/php/ImageNatives.hx
+TARGET_FILES += $(OUT_DIR)/php/TokenizerNatives.hx
 
 build: $(TARGET_FILES)
 
@@ -105,6 +106,9 @@ $(OUT_DIR)/php/ImageNatives.hx: bin/image.json
 	$(CONVERTOR) $< php.ImageNatives $(OUT_DIR)
 	$(DEF_PARAMS_FIXER) $@
 
+$(OUT_DIR)/php/TokenizerNatives.hx: bin/tokenizer.json
+	$(CONVERTOR) $< php.TokenizerNatives $(OUT_DIR)
+	$(DEF_PARAMS_FIXER) $@
 
 bin/array.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
@@ -209,4 +213,9 @@ bin/funchand.json:
 bin/image.json:
 	haxelib run downloader $(DOWNLOADER_OPTIONS) \
 		--list-url "http://php.net/manual/en/ref.image.php" \
+		--output-json-file $@
+
+bin/tokenizer.json:
+	haxelib run downloader $(DOWNLOADER_OPTIONS) \
+		--list-url "http://php.net/manual/en/ref.tokenizer.php" \
 		--output-json-file $@
