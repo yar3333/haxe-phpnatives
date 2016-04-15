@@ -7,6 +7,11 @@ class CoreNatives
 		untyped __call__("throw", v);
 	}
 	
+	public static function instanceof(v:Dynamic, c:Dynamic) : Bool
+	{
+		return untyped __php__("$v instanceof $c");
+	}
+	
 	public static function cast_to_int(v:Dynamic) : Int
 	{
 		return untyped __php__("(int)$v");
