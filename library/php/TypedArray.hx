@@ -72,22 +72,22 @@ abstract TypedArray<K, V>(NativeArray) from NativeArray to NativeArray
 	
 	public inline function push(v:V) : Int
 	{
-		return untyped __call__("array_push", v);
+		return untyped __call__("array_push", this, v);
 	}
 	
 	public inline function pop() : V
 	{
-		return untyped __call__("array_pop");
+		return untyped __call__("array_pop", this);
 	}
 	
 	public inline function unshift(v:V) : Int
 	{
-		return untyped __call__("array_unshift", v);
+		return untyped __call__("array_unshift", this, v);
 	}
 	
 	public inline function shift() : V
 	{
-		return untyped __call__("array_shift");
+		return untyped __call__("array_shift", this);
 	}
 	
 	public inline function join(glue="") : String
