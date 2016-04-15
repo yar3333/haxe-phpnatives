@@ -91,6 +91,7 @@ class ArrayNatives
 	public static inline function array_merge_recursive(array1:NativeArray, array2:NativeArray) : NativeArray return untyped __call__('array_merge_recursive', array1, array2);
 	
 	public static inline function array_merge(array1:NativeArray, array2:NativeArray) : NativeArray return untyped __call__('array_merge', array1, array2);
+	public static inline function array_merge_ex(array1:NativeArray, array2:NativeArray, array3:NativeArray) : NativeArray return untyped __call__('array_merge', array1, array2, array3);
 	
 	public static function array_multisort(array1:NativeArray, ?array1_sort_order:Dynamic, ?array1_sort_flags:Dynamic) : Bool
 	{
