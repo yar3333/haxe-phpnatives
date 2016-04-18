@@ -12,6 +12,18 @@ class MiscNatives
 	
 	public static inline function defined(name:String) : Bool return untyped __call__('defined', name);
 	
+	public static function die(?status:String) : Void
+	{
+		if (status == null)
+		{
+			untyped __call__('die');
+		}
+		else
+		{
+			untyped __call__('die', status);
+		}
+	}
+	
 	public static inline function eval(code:String) : Dynamic return untyped __call__('eval', code);
 	
 	public static function exit(?status:String) : Void
