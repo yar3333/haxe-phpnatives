@@ -86,7 +86,7 @@ class ArrayNatives
 	
 	public static inline function array_keys(arr:NativeArray, ?search_value:Dynamic=null, ?strict:Bool=false) : NativeArray return untyped __call__('array_keys', arr, search_value, strict);
 	
-	public static inline function array_map(callback:Dynamic->Dynamic, array1:NativeArray) : NativeArray return untyped __call__('array_map', callback, array1);
+	public static inline function array_map(callback:Dynamic, array1:NativeArray) : NativeArray return untyped __call__('array_map', callback, array1);
 	
 	public static inline function array_merge_recursive(array1:NativeArray, array2:NativeArray) : NativeArray return untyped __call__('array_merge_recursive', array1, array2);
 	
